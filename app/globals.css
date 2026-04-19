@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   Theme tokens
+   ========================================================================== */
+
+:root {
+  /* Light theme — warm, editorial, premium */
+  --color-bg: #faf9f6;
+  --color-surface: #ffffff;
+  --color-surface-2: #f4f2ec;
+  --color-border: #e7e3d9;
+  --color-border-strong: #d5d0c3;
+  --color-text: #14171c;
+  --color-muted: #6b6f77;
+  --color-accent: #0a8f5a;
+  --color-accent-soft: rgba(10, 143, 90, 0.12);
+  --color-grid: rgba(20, 23, 28, 0.06);
+}
+
+.dark {
+  /* Dark theme — warm charcoal, never pure black */
+  --color-bg: #0b0d10;
+  --color-surface: #13161b;
+  --color-surface-2: #1a1e24;
+  --color-border: #23272f;
+  --color-border-strong: #2d323b;
+  --color-text: #f4f4f1;
+  --color-muted: #8a8f99;
+  --color-accent: #34d399;
+  --color-accent-soft: rgba(52, 211, 153, 0.14);
+  --color-grid: rgba(244, 244, 241, 0.04);
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-feature-settings: 'ss01', 'cv11';
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* ==========================================================================
+   Components
+   ========================================================================== */
+
+@layer components {
+  .container-tight {
+    @apply mx-auto w-full max-w-container px-6 md:px-10;
+  }
+
+  .eyebrow {
+    @apply font-mono text-2xs uppercase tracking-[0.18em] text-muted;
+  }
+
+  .display-xl {
+    font-family: var(--font-display), Georgia, serif;
+    @apply text-[clamp(2.5rem,7vw,5.25rem)] leading-[0.96] tracking-tightest;
+    font-weight: 400;
+  }
+
+  .display-lg {
+    font-family: var(--font-display), Georgia, serif;
+    @apply text-[clamp(2rem,5vw,3.75rem)] leading-[1.02] tracking-tighter;
+    font-weight: 400;
+  }
+
+  .display-md {
+    font-family: var(--font-display), Georgia, serif;
+    @apply text-[clamp(1.625rem,3.5vw,2.5rem)] leading-[1.08] tracking-tight;
+    font-weight: 400;
+  }
+
+  .italic-accent {
+    font-style: italic;
+    font-family: var(--font-display), Georgia, serif;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-medium transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply btn bg-text text-bg hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-12px_var(--color-accent-soft)];
+  }
+
+  .btn-secondary {
+    @apply btn border border-border-strong bg-transparent text-text hover:border-accent hover:text-accent;
+  }
+
+  .card {
+    @apply relative rounded-2xl border border-border bg-surface p-6 transition-colors duration-300 hover:border-border-strong md:p-8;
+  }
+
+  .card-bordered {
+    @apply relative rounded-2xl p-[1px];
+    background: linear-gradient(
+      135deg,
+      var(--color-border-strong) 0%,
+      var(--color-border) 40%,
+      var(--color-accent-soft) 100%
+    );
+  }
+
+  .card-bordered > .card-inner {
+    @apply h-full rounded-[calc(1rem-1px)] bg-surface p-6 md:p-8;
+  }
+
+  .divider-gradient {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--color-border-strong),
+      transparent
+    );
+  }
+
+  .legal-prose {
+    @apply text-[0.95rem] leading-[1.7] text-muted;
+  }
+  .legal-prose h2 {
+    font-family: var(--font-display), Georgia, serif;
+    @apply mb-4 mt-10 text-2xl font-normal tracking-tight text-text md:text-3xl;
+  }
+  .legal-prose h3 {
+    @apply mb-3 mt-8 text-base font-semibold uppercase tracking-[0.08em] text-text;
+  }
+  .legal-prose p {
+    @apply mb-4;
+  }
+  .legal-prose ul {
+    @apply mb-5 list-disc space-y-2 pl-5;
+  }
+  .legal-prose a {
+    @apply text-accent underline-offset-4 hover:underline;
+  }
+  .legal-prose strong {
+    @apply text-text;
+  }
+}
+
+/* ==========================================================================
+   Utilities
+   ========================================================================== */
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .bg-grid {
+    background-image: var(--tw-bg-grid, none);
+    background-image: linear-gradient(to right, var(--color-grid) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--color-grid) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .mask-radial {
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+  }
+
+  .mask-fade-b {
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  }
+}
+
+/* ==========================================================================
+   Reduced motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

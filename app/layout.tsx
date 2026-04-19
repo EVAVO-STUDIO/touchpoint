@@ -1,0 +1,171 @@
+import type { Metadata, Viewport } from 'next';
+import { Manrope, Instrument_Serif, JetBrains_Mono } from 'next/font/google';
+import Script from 'next/script';
+import { ThemeProvider } from '@/components/theme-provider';
+import { Navbar } from '@/components/navbar';
+import { Footer } from '@/components/footer';
+import { siteConfig } from '@/lib/site';
+import './globals.css';
+
+const sans = Manrope({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  display: 'swap',
+});
+
+const display = Instrument_Serif({
+  subsets: ['latin'],
+  weight: '400',
+  style: ['normal', 'italic'],
+  variable: '--font-display',
+  display: 'swap',
+});
+
+const mono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+  display: 'swap',
+});
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#faf9f6' },
+    { media: '(prefers-color-scheme: dark)', color: '#0b0d10' },
+  ],
+  width: 'device-width',
+  initialScale: 1,
+};
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: `${siteConfig.name} by ${siteConfig.company} — ${siteConfig.tagline}`,
+    template: `%s — ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: [{ name: siteConfig.company, url: siteConfig.parent.url }],
+  creator: siteConfig.company,
+  publisher: siteConfig.company,
+  applicationName: siteConfig.name,
+  category: 'technology',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: siteConfig.locale,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    description: siteConfig.description,
+    images: [
+      {
+        url: '/images/og-touchpoint.png',
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} by ${siteConfig.company}`,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    description: siteConfig.description,
+    images: ['/images/og-touchpoint.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: '/manifest.webmanifest',
+};
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${siteConfig.url}/#organization`,
+      name: siteConfig.company,
+      url: siteConfig.parent.url,
+      sameAs: [siteConfig.parent.url, siteConfig.social.linkedin].filter(Boolean),
+      contactPoint: {
+        '@type': 'ContactPoint',
+        email: siteConfig.contact.email,
+        telephone: siteConfig.contact.phone,
+        contactType: 'Sales',
+        areaServed: 'AU',
+        availableLanguage: 'English',
+      },
+    },
+    {
+      '@type': 'SoftwareApplication',
+      name: siteConfig.name,
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web, iOS, Android',
+      description: siteConfig.description,
+      url: siteConfig.url,
+      publisher: { '@id': `${siteConfig.url}/#organization` },
+      offers: {
+        '@type': 'Offer',
+        availability: 'https://schema.org/PreOrder',
+        category: 'Pilot / Subscription',
+      },
+    },
+    {
+      '@type': 'WebSite',
+      url: siteConfig.url,
+      name: siteConfig.name,
+      inLanguage: 'en-AU',
+      publisher: { '@id': `${siteConfig.url}/#organization` },
+    },
+  ],
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html
+      lang="en-AU"
+      suppressHydrationWarning
+      className={`${sans.variable} ${display.variable} ${mono.variable}`}
+    >
+      <body className="min-h-screen bg-bg text-text antialiased">
+        <ThemeProvider>
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-text focus:px-4 focus:py-2 focus:text-bg"
+          >
+            Skip to content
+          </a>
+          <Navbar />
+          <main id="main">{children}</main>
+          <Footer />
+        </ThemeProvider>
+        <Script
+          id="structured-data"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      </body>
+    </html>
+  );
+}
