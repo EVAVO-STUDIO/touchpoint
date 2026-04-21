@@ -1,23 +1,22 @@
-import { Nfc, QrCode, Smartphone, FileText, type LucideIcon } from 'lucide-react';
+import { Nfc, QrCode, Fingerprint, ShieldCheck } from 'lucide-react';
 import { SectionEyebrow } from '@/components/section-eyebrow';
 import { Reveal } from '@/components/reveal';
 
-const capabilities = [
+const pillars = [
   {
-    icon: FileText,
-    label: 'O&M manuals',
+    icon: Fingerprint,
+    title: 'Persistent identity',
+    body: 'Every space, system, asset, and component has one record that lives through the full lifecycle — from delivery to operations, owner to operator.',
   },
   {
-    icon: FileText,
-    label: 'FF&E specifications',
+    icon: Nfc,
+    title: 'Dual access',
+    body: 'Hybrid NFC + QR tags on every object. Tap on newer phones, scan on anything else. The tag holds nothing but a token — the record lives in the cloud.',
   },
   {
-    icon: FileText,
-    label: 'Warranty & lifecycle',
-  },
-  {
-    icon: FileText,
-    label: 'Maintenance schedules',
+    icon: ShieldCheck,
+    title: 'Full audit',
+    body: 'Every scan, note, defect, inspection, and approval is timestamped and attributed. Touchpoint turns convenience software into an accountability layer.',
   },
 ];
 
@@ -26,7 +25,7 @@ export function Solution() {
     <section
       id="solution"
       className="relative border-t border-border py-24 md:py-32"
-      aria-label="The solution"
+      aria-label="Solution"
     >
       <div className="container-tight">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
@@ -42,107 +41,76 @@ export function Solution() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-6 max-w-[52ch] text-pretty text-lg leading-[1.6] text-muted">
-                Touchpoint is a digital asset intelligence layer embedded into
-                the built environment. It connects physical assets to
-                structured data — manuals, warranties, specifications, and
-                maintenance information — all accessible instantly via NFC and
-                QR technology.
+                Touchpoint is an asset identity layer. Every physical thing gets
+                a persistent digital record. Every interaction updates it.
+                Every action is logged, attributed, and timestamped — turning
+                field activity into structured history.
               </p>
             </Reveal>
             <Reveal delay={0.15}>
-              <div className="mt-10 flex items-start gap-4 rounded-2xl border border-border bg-surface p-6">
-                <div className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent-soft">
-                  <Smartphone className="h-4 w-4 text-accent" strokeWidth={1.75} />
-                </div>
-                <div>
-                  <p className="text-base font-medium text-text">
-                    Tap or scan to access asset intelligence at the point of
-                    use.
-                  </p>
-                  <p className="mt-1.5 font-mono text-2xs uppercase tracking-[0.14em] text-muted">
-                    No app · No login · Works on any modern phone
-                  </p>
-                </div>
-              </div>
+              <blockquote className="mt-10 rounded-2xl border border-border bg-surface p-6">
+                <p className="display-md italic-accent leading-[1.2] text-text">
+                  &ldquo;The tag is just access.
+                  <br />
+                  The system is the product.&rdquo;
+                </p>
+                <footer className="mt-4 font-mono text-2xs uppercase tracking-[0.14em] text-muted">
+                  Touchpoint, in one line
+                </footer>
+              </blockquote>
             </Reveal>
           </div>
 
           <div className="lg:col-span-7">
-            <Reveal delay={0.15}>
-              <SolutionVisual capabilities={capabilities} />
+            <div className="grid grid-cols-1 gap-4 md:gap-5">
+              {pillars.map((p, i) => (
+                <Reveal key={p.title} delay={0.1 + i * 0.08}>
+                  <div className="card group">
+                    <div className="flex items-start gap-5">
+                      <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border bg-surface-2 text-accent">
+                        <p.icon className="h-5 w-5" strokeWidth={1.5} />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-medium tracking-tight text-text">
+                          {p.title}
+                        </h3>
+                        <p className="mt-2 text-[0.95rem] leading-relaxed text-muted">
+                          {p.body}
+                        </p>
+                      </div>
+                      <span className="hidden font-mono text-2xs uppercase tracking-[0.14em] text-muted md:inline">
+                        0{i + 1}
+                      </span>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal delay={0.35}>
+              <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3 rounded-2xl border border-border bg-surface-2/40 px-6 py-4">
+                <div className="flex items-center gap-2.5">
+                  <Nfc className="h-4 w-4 text-accent" strokeWidth={1.75} />
+                  <span className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
+                    NFC tap
+                  </span>
+                </div>
+                <span className="h-3 w-px bg-border-strong" />
+                <div className="flex items-center gap-2.5">
+                  <QrCode className="h-4 w-4 text-accent" strokeWidth={1.75} />
+                  <span className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
+                    QR scan
+                  </span>
+                </div>
+                <span className="h-3 w-px bg-border-strong" />
+                <span className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
+                  No app · No login for public info · Works with existing tools
+                </span>
+              </div>
             </Reveal>
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-interface Capability {
-  icon: LucideIcon;
-  label: string;
-}
-
-function SolutionVisual({ capabilities }: { capabilities: Capability[] }) {
-  return (
-    <div className="relative">
-      <div className="grid grid-cols-2 gap-4 md:gap-5">
-        {/* NFC mode card */}
-        <div className="card-bordered">
-          <div className="card-inner relative overflow-hidden">
-            <div className="absolute inset-0 bg-grid opacity-40 mask-radial" aria-hidden />
-            <div className="relative z-10">
-              <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-surface-2">
-                <Nfc className="h-5 w-5 text-accent" strokeWidth={1.5} />
-              </div>
-              <h3 className="mt-6 text-lg font-medium tracking-tight">NFC tag</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                Tap-to-access. Embedded behind finishes or mounted to plant.
-              </p>
-              <p className="mt-6 font-mono text-2xs uppercase tracking-[0.14em] text-muted">
-                &lt; 0.5s response
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* QR mode card */}
-        <div className="card-bordered">
-          <div className="card-inner relative overflow-hidden">
-            <div className="absolute inset-0 bg-grid opacity-40 mask-radial" aria-hidden />
-            <div className="relative z-10">
-              <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-surface-2">
-                <QrCode className="h-5 w-5 text-accent" strokeWidth={1.5} />
-              </div>
-              <h3 className="mt-6 text-lg font-medium tracking-tight">QR code</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                Scan-to-access. Printed or etched onto asset plates.
-              </p>
-              <p className="mt-6 font-mono text-2xs uppercase tracking-[0.14em] text-muted">
-                Universal fallback
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Data list */}
-      <div className="mt-4 rounded-2xl border border-border bg-surface p-6 md:mt-5 md:p-7">
-        <p className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
-          Structured asset profile
-        </p>
-        <ul className="mt-5 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2">
-          {capabilities.map((c) => (
-            <li
-              key={c.label}
-              className="flex items-center gap-3 bg-surface px-4 py-3.5"
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              <span className="text-sm text-text">{c.label}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
   );
 }

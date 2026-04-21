@@ -8,9 +8,10 @@ const footerNav = {
     { label: 'Problem', href: '/#problem' },
     { label: 'Solution', href: '/#solution' },
     { label: 'How it works', href: '/#how' },
-    { label: 'Pilot pathway', href: '/#pilot' },
+    { label: 'System', href: '/#system' },
+    { label: 'Workflows', href: '/#workflows' },
+    { label: 'Pilot', href: '/#pilot' },
     { label: 'Impact', href: '/#impact' },
-    { label: 'Use cases', href: '/#use-cases' },
   ],
   company: [
     { label: 'About', href: '/#about' },

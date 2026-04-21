@@ -1,39 +1,48 @@
 # Image assets
 
-This directory holds production images referenced by the site. Replace each
-placeholder below with a real image at the **exact filename** listed — the
-code references these paths directly, so swapping the file is enough.
+All images in this directory are production-ready client assets. Replace them
+at the same filename if the client provides updated versions — no code
+changes needed.
 
-## Required images
+## Current assets
 
-### `og-touchpoint.png`
-- **Used for:** Open Graph + Twitter card (preview when the site is shared)
-- **Dimensions:** 1200 × 630 px
-- **Format:** PNG or JPG
-- **Guidance:** Dark background, large "Touchpoint by New Wave Synergy"
-  wordmark, tagline "Digital Asset Intelligence for the Built Environment".
-  Keep safe-area 80px from all edges.
+### `touchpoint-logo.png` — 1333×233
+Full Touchpoint wordmark with transparent background, sourced from the client
+and cleaned for web use. Used in the navbar and footer via the `Logo`
+component.
 
-### `about-naomi-mabvurira.png`
-- **Used for:** About section portrait card (section 8)
-- **Dimensions:** 1000 × 1250 px (4:5 portrait)
-- **Format:** PNG or JPG
-- **Guidance:** Professional portrait, slightly desaturated / editorial
-  lighting works well against the dark theme. The card already applies a
-  bottom gradient fade so the caption stays readable.
+### `touchpoint-mark.png` — 512×512
+The O-with-fingerprint extracted from the wordmark. Transparent background.
+Used for the small-logo variant and as the source for favicons.
 
-### `apple-touch-icon.png` *(optional)*
-- **Used for:** iOS home screen icon
-- **Dimensions:** 180 × 180 px
-- **Format:** PNG
-- **Guidance:** Solid dark background (#0b0d10), centered Touchpoint mark
-  (white ring + green S swirl), ~20px padding.
+### `hero-tag-hvac.jpg` — 740×542
+Client-supplied product mock-up: a Touchpoint NFC/QR tag mounted on a
+stainless HVAC unit, alongside a phone showing the asset record. Used as the
+hero image. Unmodified original.
 
-## How to replace
+### `naomi-mabvurira.jpg` — 772×994 (max 1000 wide after optimisation)
+Black-and-white on-site photograph of Naomi Mabvurira (Managing Director,
+New Wave Synergy) in NWS-branded PPE. Used in the About section.
 
-1. Generate/export each image at the dimensions above.
-2. Save to `public/images/` using the exact filename.
-3. Remove the placeholder `.svg` if present.
-4. Rebuild: `npm run dev` (or `npm run build` for production).
+### `og-touchpoint.png` — 1200×630
+Custom-designed Open Graph / Twitter card image. Dark background with a
+subtle green accent glow and grid pattern, featuring the Touchpoint wordmark
+and the italic tagline "Digital asset intelligence for the built environment."
+Regenerated from scratch in a design tool if needed — the existing file is
+final.
 
-No code changes required.
+## Favicon / icon set (at project root `public/`)
+- `favicon.ico` — multi-size ICO (16/32/48/64)
+- `icon-192.png` — PNG favicon for Android
+- `icon-512.png` — PNG favicon for PWA
+- `apple-touch-icon.png` — 180×180, dark rounded-square background with the
+  mark centered, for iOS home-screen icons
+
+All of these are derived from `touchpoint-mark.png`. If the mark changes,
+regenerate via the image processing script or drop in new files at the same
+paths.
+
+## Replacing
+
+Just overwrite any file at the listed filename. Next.js's image pipeline
+will automatically serve AVIF/WebP variants at build time.

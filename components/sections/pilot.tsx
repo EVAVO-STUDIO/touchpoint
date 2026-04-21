@@ -4,9 +4,10 @@ import { Reveal } from '@/components/reveal';
 
 const pilot = {
   scope: [
-    'Tag key plant, equipment, and common assets',
-    'Create structured digital asset profiles',
-    'Upload manuals, warranty, and maintenance data',
+    'Tag key plant, equipment, and common spaces',
+    'Build structured digital records for each object',
+    'Upload manuals, warranties, and commissioning data',
+    'Configure user roles and permissions',
   ],
   stakeholders: [
     'Developer or asset owner',
@@ -14,9 +15,10 @@ const pilot = {
     'Facility manager or operator',
   ],
   outcomes: [
-    'Reduced time locating asset information',
-    'Improved maintenance response',
-    'Fewer post-completion queries',
+    'Time-to-information measured in seconds, not hours',
+    'First-visit fix rate on maintenance improved',
+    'Post-completion queries and defect disputes reduced',
+    'Operational readiness evidence captured at handover',
   ],
 };
 
@@ -37,19 +39,20 @@ export function Pilot() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <Reveal>
-              <SectionEyebrow number="04">Pilot pathway</SectionEyebrow>
+              <SectionEyebrow number="06">Pilot pathway</SectionEyebrow>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
-                A clear path to{' '}
-                <span className="italic-accent text-accent">deployment.</span>
+                A low-risk entry to{' '}
+                <span className="italic-accent text-accent">real deployment.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-6 max-w-[48ch] text-pretty text-lg leading-[1.6] text-muted">
-                Touchpoint is designed to be deployed quickly within a live
-                project or asset environment — providing a low-risk entry
-                point for adoption and measurable outcomes within weeks.
+                Touchpoint deploys inside a live project or asset environment
+                with minimal disruption. Phase 1 is QR-first on the web. NFC
+                and deeper workflows follow once the record model is trusted
+                on the ground.
               </p>
             </Reveal>
             <Reveal delay={0.15}>
@@ -57,8 +60,7 @@ export function Pilot() {
                 href="#contact"
                 className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline"
               >
-                Discuss a pilot
-                <span aria-hidden>→</span>
+                Discuss a pilot <span aria-hidden>→</span>
               </a>
             </Reveal>
           </div>

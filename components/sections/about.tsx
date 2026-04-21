@@ -30,11 +30,11 @@ export function About() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-8 max-w-[60ch] text-pretty text-lg leading-[1.6] text-muted">
-                Touchpoint is developed by {siteConfig.company}, a construction
+                Touchpoint is developed by {siteConfig.company} — a construction
                 and digital delivery consultancy specialising in project
                 closeout, defects management, and operational readiness. The
-                solution is grounded in direct experience across building and
-                infrastructure projects.
+                product is grounded in direct site experience across building
+                and infrastructure projects, not theoretical use cases.
               </p>
             </Reveal>
 
@@ -42,7 +42,10 @@ export function About() {
               <div className="mt-12 grid grid-cols-3 gap-4 border-t border-border pt-8">
                 {credentials.map((c) => (
                   <div key={c.label}>
-                    <p className="font-display text-3xl tracking-tight text-text md:text-4xl">
+                    <p
+                      className="font-display text-3xl tracking-tight text-text md:text-4xl"
+                      style={{ fontVariationSettings: "'opsz' 72, 'SOFT' 40" }}
+                    >
                       {c.value}
                     </p>
                     <p className="mt-2 font-mono text-2xs uppercase tracking-[0.14em] text-muted">
@@ -60,8 +63,7 @@ export function About() {
                 rel="noopener noreferrer"
                 className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline"
               >
-                Visit {siteConfig.parent.name}
-                <span aria-hidden>↗</span>
+                Visit {siteConfig.parent.name} <span aria-hidden>↗</span>
               </a>
             </Reveal>
           </div>
@@ -71,22 +73,20 @@ export function About() {
               <figure className="card-bordered">
                 <div className="card-inner relative overflow-hidden p-0">
                   <div className="relative aspect-[4/5] w-full">
-                    {/*
-                      Placeholder for founder portrait.
-                      Replace /public/images/about-naomi-mabvurira.png with a
-                      real headshot (4:5 portrait, 1000x1250px recommended).
-                    */}
                     <Image
-                      src="/images/about-naomi-mabvurira.png"
-                      alt="Naomi Mabvurira, Managing Director of New Wave Synergy"
+                      src="/images/naomi-mabvurira.jpg"
+                      alt="Naomi Mabvurira, Managing Director of New Wave Synergy, on-site in New Wave Synergy branded PPE"
                       fill
                       className="object-cover"
                       sizes="(min-width: 1024px) 40vw, 100vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-bg/95 via-bg/0 to-bg/0" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-bg/95 via-bg/10 to-bg/0" />
                   </div>
                   <figcaption className="p-6 md:p-7">
-                    <p className="font-display text-2xl tracking-tight text-text">
+                    <p
+                      className="font-display text-2xl tracking-tight text-text"
+                      style={{ fontVariationSettings: "'opsz' 72, 'SOFT' 40" }}
+                    >
                       {siteConfig.contact.person}
                     </p>
                     <p className="mt-1 text-sm text-muted">

@@ -1,51 +1,51 @@
 import {
-  ShieldCheck,
   Zap,
-  Wrench,
-  Timer,
-  Recycle,
-  FileCheck2,
+  History,
+  GitBranchPlus,
+  ShieldCheck,
+  Link2,
+  ScrollText,
 } from 'lucide-react';
 import { SectionEyebrow } from '@/components/section-eyebrow';
 import { Reveal } from '@/components/reveal';
 
 const impacts = [
   {
-    icon: ShieldCheck,
-    title: 'Reduced defects and rework',
+    icon: Zap,
+    title: 'Eliminates information friction',
     description:
-      'Clearer asset data at handover closes the loop between delivery teams and operators.',
+      'Frontline teams move from hours of searching to seconds at the asset. No more asking where the manual is.',
     featured: true,
   },
   {
-    icon: Zap,
-    title: 'Faster access to operational information',
+    icon: History,
+    title: 'Creates real history',
     description:
-      'Frontline teams move from hours of searching to seconds at the asset.',
+      'Every interaction is captured at source — timestamped, attributed, and tied to the object. Not lost. Not disputed.',
   },
   {
-    icon: Wrench,
-    title: 'Improved maintenance efficiency',
+    icon: GitBranchPlus,
+    title: 'Bridges delivery to operations',
     description:
-      'Right asset, right procedure, right warranty — on the first visit.',
+      'One continuous record survives practical completion. The FM team inherits a working system, not a zip file.',
   },
   {
-    icon: Timer,
-    title: 'Extended asset lifespan',
+    icon: ShieldCheck,
+    title: 'Accountability by default',
     description:
-      'Condition-based servicing and timely interventions protect capital.',
+      '&ldquo;Who logged this?&rdquo; stops being a question. Every write is auditable, with before-and-after state on key updates.',
   },
   {
-    icon: Recycle,
-    title: 'Reduced documentation waste',
+    icon: Link2,
+    title: 'Connects, doesn\u2019t replace',
     description:
-      'Paper manuals, duplicate binders, and printed guides become unnecessary.',
+      'Touchpoint works alongside Procore, Aconex, and existing CMMS tools. It&rsquo;s the physical-to-digital bridge they don&rsquo;t have.',
   },
   {
-    icon: FileCheck2,
-    title: 'Stronger ESG and compliance readiness',
+    icon: ScrollText,
+    title: 'Reporting-ready from day one',
     description:
-      'Traceable, auditable asset records aligned to reporting frameworks.',
+      'Structured records mean ESG, compliance, and asset-performance reporting is a query — not a forensic rebuild.',
   },
 ];
 
@@ -60,21 +60,18 @@ export function Impact() {
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
           <div>
             <Reveal>
-              <SectionEyebrow number="05">Impact</SectionEyebrow>
+              <SectionEyebrow number="07">Impact</SectionEyebrow>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 max-w-[18ch] text-balance">
-                Designed to improve{' '}
-                <span className="italic-accent text-accent">
-                  asset performance.
-                </span>
+                More than convenience —{' '}
+                <span className="italic-accent text-accent">accountability.</span>
               </h2>
             </Reveal>
           </div>
           <Reveal delay={0.1}>
             <p className="max-w-sm text-pretty text-base leading-relaxed text-muted md:text-right">
-              Outcomes across the asset lifecycle — from handover through
-              long-term operations.
+              The outcomes that make Touchpoint a system, not a scanner.
             </p>
           </Reveal>
         </div>
@@ -83,16 +80,10 @@ export function Impact() {
           {impacts.map((item, i) => (
             <Reveal
               key={item.title}
-              delay={0.1 + i * 0.06}
+              delay={0.08 + i * 0.06}
               className={item.featured ? 'lg:col-span-2' : ''}
             >
-              <div
-                className={`card h-full ${
-                  item.featured
-                    ? 'bg-surface-2/60'
-                    : ''
-                }`}
-              >
+              <div className={`card h-full ${item.featured ? 'bg-surface-2/60' : ''}`}>
                 <div className="flex items-center gap-4">
                   <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-surface text-accent">
                     <item.icon className="h-4 w-4" strokeWidth={1.75} />
@@ -104,9 +95,10 @@ export function Impact() {
                 <h3 className="mt-6 text-xl font-medium tracking-tight text-text md:text-2xl">
                   {item.title}
                 </h3>
-                <p className="mt-3 max-w-[42ch] text-[0.95rem] leading-relaxed text-muted">
-                  {item.description}
-                </p>
+                <p
+                  className="mt-3 max-w-[42ch] text-[0.95rem] leading-relaxed text-muted"
+                  dangerouslySetInnerHTML={{ __html: item.description }}
+                />
               </div>
             </Reveal>
           ))}

@@ -1,25 +1,25 @@
-import { FileWarning, Network, Unplug } from 'lucide-react';
+import { FileWarning, MapPinOff, Unplug } from 'lucide-react';
 import { SectionEyebrow } from '@/components/section-eyebrow';
 import { Reveal } from '@/components/reveal';
 
 const points = [
   {
     icon: FileWarning,
-    title: 'Asset information is difficult to locate',
+    title: 'Information exists but it\u2019s unusable',
     description:
-      'O&M documentation is fragmented across PDFs, hard drives, and handover binders — rarely accessible where the asset actually lives.',
+      'Manuals buried in PDFs. Drawings scattered across platforms. Warranties in email chains. Decisions locked in people\u2019s heads. The data is there — it just can\u2019t be reached.',
   },
   {
-    icon: Network,
-    title: 'Teams rely on manual workflows',
+    icon: MapPinOff,
+    title: 'No link to physical reality',
     description:
-      'Disconnected systems, spreadsheets, and site visits dominate the first years of operation, long after handover is signed off.',
+      'The asset register doesn\u2019t match what\u2019s on site. Defects aren\u2019t tied to location. Maintenance history lives somewhere else. Nothing connects the digital record to the thing you\u2019re standing in front of.',
   },
   {
     icon: Unplug,
-    title: 'Poor data continuity drives defects',
+    title: 'Handover is a document dump',
     description:
-      'The gap between delivery and operations creates rework, missed warranties, and compounding inefficiencies across the portfolio.',
+      'Practical completion arrives as a zip file with no structure, no usability, and no continuity. Operations teams inherit paper instead of a working system — and maintenance starts blind.',
   },
 ];
 
@@ -47,11 +47,10 @@ export function Problem() {
           <div className="lg:col-span-6">
             <Reveal delay={0.1}>
               <p className="text-pretty text-lg leading-[1.6] text-muted">
-                Across real estate and infrastructure, asset data is not
-                effectively transferred from delivery into operations. O&amp;M
-                documentation is often fragmented, inaccessible, and
-                disconnected from the asset itself — creating inefficiencies
-                across handover, maintenance, and lifecycle performance.
+                Across real estate and infrastructure, asset data doesn&rsquo;t
+                transfer from delivery into operations. The result is wasted
+                time, poor decisions, defect disputes, and assets that quietly
+                underperform for years after practical completion.
               </p>
             </Reveal>
           </div>

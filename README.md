@@ -36,9 +36,9 @@ geometric sans body; the green accent stays surgical.
 
 | Role       | Font              |
 |------------|-------------------|
-| Display    | Instrument Serif  |
+| Display    | Fraunces (variable, opsz + SOFT axes) |
 | UI / body  | Manrope           |
-| Mono / labels | JetBrains Mono |
+| Mono / labels | IBM Plex Mono  |
 
 All theming is driven by CSS variables in `app/globals.css` with a
 `.dark` class toggle via `next-themes`. Full dark + light parity.
@@ -77,16 +77,16 @@ touchpoint-website/
 │   ├── section-eyebrow.tsx
 │   ├── legal-page.tsx
 │   └── sections/
-│       ├── hero.tsx            # 01 — hero + animated NFC card
-│       ├── problem.tsx         # 02 — problem
-│       ├── solution.tsx        # 03 — introducing Touchpoint
-│       ├── how-it-works.tsx    # 04 — 4-step flow
-│       ├── pilot.tsx           # 05 — pilot pathway
-│       ├── impact.tsx          # 06 — impact bento
-│       ├── data-layer.tsx      # 07 — future-state vision
-│       ├── use-cases.tsx       # 08 — where it starts
+│       ├── hero.tsx            # 01 — hero with real product photo
+│       ├── problem.tsx         # 02 — sharpened pain points
+│       ├── solution.tsx        # 03 — "the tag is just access"
+│       ├── how-it-works.tsx    # 04 — Tag → Connect → Access → Log
+│       ├── system.tsx          # 05 — 3-layer architecture
+│       ├── workflows.tsx       # 06 — real field workflows
+│       ├── pilot.tsx           # 07 — low-risk deployment pathway
+│       ├── impact.tsx          # 08 — accountability + ecosystem fit
 │       ├── about.tsx           # 09 — Naomi / NWS
-│       └── contact.tsx         # 10 — form (mailto) + direct links
+│       └── contact.tsx         # 10 — form + direct links
 ├── lib/
 │   ├── site.ts                 # single source of truth: nav, contact
 │   └── utils.ts                # cn() helper

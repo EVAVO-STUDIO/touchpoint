@@ -1,8 +1,8 @@
 'use client';
 
+import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight, ArrowDown, Nfc } from 'lucide-react';
-import { LogoMark } from '@/components/logo';
+import { ArrowRight, ArrowDown } from 'lucide-react';
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -19,11 +19,17 @@ export function Hero() {
       className="relative overflow-hidden pt-28 md:pt-36 lg:pt-40"
       aria-label="Hero"
     >
-      {/* Atmospheric background: grid + radial glow + noise */}
+      {/* Atmospheric background */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-grid opacity-60 mask-fade-b" aria-hidden />
-        <div className="absolute inset-x-0 top-0 h-[90%] bg-radial-glow" aria-hidden />
-        <div className="absolute inset-0 bg-noise opacity-[0.025] mix-blend-overlay" aria-hidden />
+        <div
+          className="absolute inset-x-0 top-0 h-[90%]"
+          style={{
+            backgroundImage:
+              'radial-gradient(ellipse at top, var(--color-accent-soft), transparent 60%)',
+          }}
+          aria-hidden
+        />
       </div>
 
       <div className="container-tight">
@@ -41,10 +47,7 @@ export function Hero() {
               New Wave Synergy presents
             </motion.div>
 
-            <motion.h1
-              {...fadeUp(0.1)}
-              className="display-xl mt-6 text-balance"
-            >
+            <motion.h1 {...fadeUp(0.1)} className="display-xl mt-6 text-balance">
               Asset intelligence,{' '}
               <span className="italic-accent text-accent">embedded</span>
               <br className="hidden md:block" />
@@ -53,11 +56,12 @@ export function Hero() {
 
             <motion.p
               {...fadeUp(0.2)}
-              className="mt-8 max-w-[56ch] text-lg leading-[1.55] text-muted md:text-xl"
+              className="mt-8 max-w-[58ch] text-pretty text-lg leading-[1.55] text-muted md:text-xl"
             >
-              Touchpoint connects physical assets to structured digital
-              information — delivering instant access to manuals, warranties,
-              and lifecycle data at the point of use.
+              Touchpoint gives every physical thing — space, system, asset,
+              component — a persistent digital identity. Every interaction
+              updates the record. Every action is logged. Accessed in seconds
+              via QR or NFC, from any smartphone.
             </motion.p>
 
             <motion.div
@@ -88,14 +92,50 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Visual column: tagged asset concept */}
+          {/* Product photo column */}
           <motion.div
             initial={{ opacity: 0, scale: reduce ? 1 : 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
             className="lg:col-span-5"
           >
-            <HeroVisual />
+            <div className="relative">
+              {/* Accent glow behind the image */}
+              <div
+                className="pointer-events-none absolute -inset-6 -z-10 rounded-[3rem] opacity-80 blur-3xl"
+                style={{
+                  background:
+                    'radial-gradient(ellipse at center, var(--color-accent-soft), transparent 70%)',
+                }}
+                aria-hidden
+              />
+              <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-[0_40px_80px_-40px_rgba(0,0,0,0.5)]">
+                <Image
+                  src="/images/hero-tag-hvac.jpg"
+                  alt="A Touchpoint NFC and QR tag mounted on a stainless-steel HVAC unit, alongside a mobile phone showing the asset record screen"
+                  width={740}
+                  height={542}
+                  priority
+                  className="h-auto w-full"
+                />
+              </div>
+
+              {/* Tiny overlaid data caption — anchors the product in 'field' context */}
+              <div className="absolute -bottom-5 left-4 right-4 flex items-center justify-between rounded-xl border border-border bg-bg/90 px-4 py-3 backdrop-blur-md md:left-6 md:right-6">
+                <div className="flex items-center gap-3">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+                  </span>
+                  <span className="font-mono text-2xs uppercase tracking-[0.16em] text-muted">
+                    HV-704 · Optimal
+                  </span>
+                </div>
+                <span className="font-mono text-2xs uppercase tracking-[0.14em] text-accent">
+                  Tap to open
+                </span>
+              </div>
+            </div>
           </motion.div>
         </div>
 
@@ -104,12 +144,12 @@ export function Hero() {
           initial={{ opacity: 0, y: reduce ? 0 : 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.55 }}
-          className="mt-20 grid grid-cols-2 gap-6 border-t border-border pt-10 sm:grid-cols-4 md:mt-28"
+          className="mt-24 grid grid-cols-2 gap-6 border-t border-border pt-10 sm:grid-cols-4 md:mt-32"
         >
-          <Stat value="NFC + QR" label="Dual-mode tagging" />
-          <Stat value="0" label="App required" />
-          <Stat value="Point of use" label="Asset data access" />
-          <Stat value="AU" label="Built for local projects" />
+          <Stat value="QR + NFC" label="Hybrid access" />
+          <Stat value="0" label="App install required" />
+          <Stat value="Every action" label="Timestamped & audited" />
+          <Stat value="AU" label="Built for local delivery" />
         </motion.div>
       </div>
     </section>
@@ -119,100 +159,14 @@ export function Hero() {
 function Stat({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex flex-col gap-1.5">
-      <span className="font-display text-2xl tracking-tight text-text md:text-3xl">
-        {value}
-      </span>
-      <span className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
-        {label}
-      </span>
-    </div>
-  );
-}
-
-/**
- * Abstract hero visual: a stylised tagged asset with connection lines
- * flowing to a structured data card. Entirely SVG/CSS — no image required —
- * so it's crisp on any device and always on-brand.
- */
-function HeroVisual() {
-  return (
-    <div className="relative mx-auto aspect-[5/6] w-full max-w-md">
-      {/* Outer glow ring */}
-      <div className="absolute inset-8 rounded-[2.5rem] bg-accent-soft blur-3xl" aria-hidden />
-
-      {/* Main card frame */}
-      <div className="card-bordered absolute inset-0">
-        <div className="card-inner relative flex h-full flex-col justify-between overflow-hidden">
-          {/* Grid backdrop inside card */}
-          <div className="absolute inset-0 bg-grid opacity-50 mask-radial" aria-hidden />
-
-          {/* Top: tag visualisation */}
-          <div className="relative z-10">
-            <div className="flex items-center justify-between">
-              <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-2 px-3 py-1.5">
-                <Nfc className="h-3.5 w-3.5 text-accent" />
-                <span className="font-mono text-2xs uppercase tracking-[0.16em] text-muted">
-                  Asset · HV-704
-                </span>
-              </div>
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-              </span>
-            </div>
-
-            <div className="mt-6 flex items-center justify-center py-8">
-              <div className="relative">
-                {/* Expanding NFC waves */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="absolute h-24 w-24 animate-pulse-soft rounded-full border border-accent/30" />
-                  <span
-                    className="absolute h-40 w-40 animate-pulse-soft rounded-full border border-accent/20"
-                    style={{ animationDelay: '0.6s' }}
-                  />
-                  <span
-                    className="absolute h-56 w-56 animate-pulse-soft rounded-full border border-accent/10"
-                    style={{ animationDelay: '1.2s' }}
-                  />
-                </div>
-                <div className="relative flex h-16 w-16 items-center justify-center rounded-full border border-accent bg-bg shadow-[0_0_32px_var(--color-accent-soft)]">
-                  <LogoMark className="h-9 w-9 text-text" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom: data payload */}
-          <div className="relative z-10 space-y-2.5">
-            <DataRow label="Status" value="Operational" accent />
-            <DataRow label="O&M Manual" value="v2.4 · current" />
-            <DataRow label="Warranty" value="Active · 8.2y left" />
-            <DataRow label="Next service" value="14 May 2026" />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function DataRow({
-  label,
-  value,
-  accent,
-}: {
-  label: string;
-  value: string;
-  accent?: boolean;
-}) {
-  return (
-    <div className="flex items-center justify-between rounded-lg border border-border bg-bg/60 px-3 py-2.5 backdrop-blur">
-      <span className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
-        {label}
-      </span>
       <span
-        className={`text-sm ${accent ? 'text-accent' : 'text-text'} font-medium`}
+        className="font-display text-2xl tracking-tight text-text md:text-3xl"
+        style={{ fontVariationSettings: "'opsz' 48, 'SOFT' 40" }}
       >
         {value}
+      </span>
+      <span className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
+        {label}
       </span>
     </div>
   );

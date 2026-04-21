@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Manrope, Instrument_Serif, JetBrains_Mono } from 'next/font/google';
+import { Manrope, Fraunces, IBM_Plex_Mono } from 'next/font/google';
 import Script from 'next/script';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Navbar } from '@/components/navbar';
@@ -7,22 +7,30 @@ import { Footer } from '@/components/footer';
 import { siteConfig } from '@/lib/site';
 import './globals.css';
 
+/**
+ * Typography pairing:
+ *  - Fraunces (display) — distinctive variable serif with optical sizes + true italic.
+ *    Gives editorial gravitas without defaulting to Inter/Space-Grotesk-style sans.
+ *  - Manrope (body) — clean geometric sans that reads as premium, not overused.
+ *  - IBM Plex Mono (labels) — technical feel for eyebrows/metadata, not trendy.
+ */
 const sans = Manrope({
   subsets: ['latin'],
   variable: '--font-sans',
   display: 'swap',
 });
 
-const display = Instrument_Serif({
+const display = Fraunces({
   subsets: ['latin'],
-  weight: '400',
-  style: ['normal', 'italic'],
   variable: '--font-display',
   display: 'swap',
+  axes: ['opsz', 'SOFT'],
+  style: ['normal', 'italic'],
 });
 
-const mono = JetBrains_Mono({
+const mono = IBM_Plex_Mono({
   subsets: ['latin'],
+  weight: ['400', '500'],
   variable: '--font-mono',
   display: 'swap',
 });
@@ -39,7 +47,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} by ${siteConfig.company} — ${siteConfig.tagline}`,
+    default: `${siteConfig.name} — ${siteConfig.tagline}`,
     template: `%s — ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -49,9 +57,7 @@ export const metadata: Metadata = {
   publisher: siteConfig.company,
   applicationName: siteConfig.name,
   category: 'technology',
-  alternates: {
-    canonical: '/',
-  },
+  alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
     locale: siteConfig.locale,
@@ -86,8 +92,9 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
       { url: '/favicon.ico' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
     ],
     apple: '/apple-touch-icon.png',
   },

@@ -1,4 +1,4 @@
-import { Tag, Link2, Smartphone, Activity, ArrowRight } from 'lucide-react';
+import { Tag, Link2, Smartphone, ClipboardCheck, ArrowRight } from 'lucide-react';
 import { SectionEyebrow } from '@/components/section-eyebrow';
 import { Reveal } from '@/components/reveal';
 
@@ -8,28 +8,28 @@ const steps = [
     icon: Tag,
     title: 'Tag',
     description:
-      'Apply NFC or QR tags to assets, systems, and spaces during delivery or as a retrofit.',
+      'Apply hybrid NFC + QR tags to assets, systems, and spaces during delivery or as a retrofit. The tag holds a short token — nothing more.',
   },
   {
     id: '02',
     icon: Link2,
     title: 'Connect',
     description:
-      'Link each tag to a structured digital asset profile containing documentation and metadata.',
+      'Each token resolves to a structured digital record: documents, defects, inspections, maintenance, history, and audit.',
   },
   {
     id: '03',
     icon: Smartphone,
     title: 'Access',
     description:
-      'Open information instantly on mobile. No app, no login, no friction at the point of use.',
+      'Tap or scan. Opens the Touchpoint web app in the browser. No app install. No login required for public information.',
   },
   {
     id: '04',
-    icon: Activity,
-    title: 'Operate',
+    icon: ClipboardCheck,
+    title: 'Log',
     description:
-      'Improve handover, maintenance response, and operational continuity across the lifecycle.',
+      'Raise a defect. Upload a photo. Complete an inspection. Log maintenance. Every entry is timestamped, attributed, and written to the audit log.',
   },
 ];
 
@@ -62,7 +62,7 @@ export function HowItWorks() {
               <ArrowRight className="h-3 w-3 text-accent" />
               <span className="text-muted">Phone</span>
               <ArrowRight className="h-3 w-3 text-accent" />
-              <span className="text-text">Data</span>
+              <span className="text-text">Record</span>
             </div>
           </Reveal>
         </div>
@@ -71,7 +71,6 @@ export function HowItWorks() {
           {steps.map((step, i) => (
             <Reveal key={step.id} delay={0.1 + i * 0.08}>
               <div className="relative h-full px-0 py-6 lg:border-l lg:border-border lg:px-8">
-                {/* Number + icon row */}
                 <div className="flex items-start justify-between">
                   <span className="font-mono text-2xs uppercase tracking-[0.18em] text-muted">
                     {step.id}
@@ -83,7 +82,7 @@ export function HowItWorks() {
                 <h3 className="mt-10 text-2xl font-medium tracking-tight md:text-3xl">
                   {step.title}
                 </h3>
-                <p className="mt-4 max-w-[28ch] text-[0.95rem] leading-relaxed text-muted">
+                <p className="mt-4 max-w-[30ch] text-[0.95rem] leading-relaxed text-muted">
                   {step.description}
                 </p>
               </div>

@@ -7,7 +7,7 @@
    ========================================================================== */
 
 :root {
-  /* Light theme — warm, editorial, premium */
+  /* Light — warm, editorial */
   --color-bg: #faf9f6;
   --color-surface: #ffffff;
   --color-surface-2: #f4f2ec;
@@ -21,7 +21,7 @@
 }
 
 .dark {
-  /* Dark theme — warm charcoal, never pure black */
+  /* Dark — warm charcoal, never pure black */
   --color-bg: #0b0d10;
   --color-surface: #13161b;
   --color-surface-2: #1a1e24;
@@ -75,27 +75,33 @@ body {
     @apply font-mono text-2xs uppercase tracking-[0.18em] text-muted;
   }
 
+  /* Fraunces with tuned optical sizing and subtle soft axis.
+     Weight 400 at large opsz reads more editorial than a heavier default. */
   .display-xl {
     font-family: var(--font-display), Georgia, serif;
-    @apply text-[clamp(2.5rem,7vw,5.25rem)] leading-[0.96] tracking-tightest;
+    font-variation-settings: 'opsz' 144, 'SOFT' 30;
+    @apply text-[clamp(2.5rem,7vw,5.5rem)] leading-[0.98] tracking-[-0.03em];
     font-weight: 400;
   }
 
   .display-lg {
     font-family: var(--font-display), Georgia, serif;
-    @apply text-[clamp(2rem,5vw,3.75rem)] leading-[1.02] tracking-tighter;
+    font-variation-settings: 'opsz' 96, 'SOFT' 40;
+    @apply text-[clamp(2rem,5vw,3.75rem)] leading-[1.02] tracking-[-0.025em];
     font-weight: 400;
   }
 
   .display-md {
     font-family: var(--font-display), Georgia, serif;
-    @apply text-[clamp(1.625rem,3.5vw,2.5rem)] leading-[1.08] tracking-tight;
+    font-variation-settings: 'opsz' 48, 'SOFT' 50;
+    @apply text-[clamp(1.625rem,3.5vw,2.5rem)] leading-[1.1] tracking-[-0.02em];
     font-weight: 400;
   }
 
   .italic-accent {
     font-style: italic;
     font-family: var(--font-display), Georgia, serif;
+    font-variation-settings: 'opsz' 144, 'SOFT' 50;
   }
 
   .btn {
@@ -143,6 +149,7 @@ body {
   }
   .legal-prose h2 {
     font-family: var(--font-display), Georgia, serif;
+    font-variation-settings: 'opsz' 72, 'SOFT' 40;
     @apply mb-4 mt-10 text-2xl font-normal tracking-tight text-text md:text-3xl;
   }
   .legal-prose h3 {
@@ -176,7 +183,6 @@ body {
   }
 
   .bg-grid {
-    background-image: var(--tw-bg-grid, none);
     background-image: linear-gradient(to right, var(--color-grid) 1px, transparent 1px),
       linear-gradient(to bottom, var(--color-grid) 1px, transparent 1px);
     background-size: 56px 56px;
@@ -198,9 +204,7 @@ body {
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

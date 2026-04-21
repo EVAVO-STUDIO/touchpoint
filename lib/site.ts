@@ -1,21 +1,23 @@
 export const siteConfig = {
   name: 'Touchpoint',
   company: 'New Wave Synergy',
-  url: 'https://touchpoint.newwavesynergy.com', // Update to final domain when deployed
-  tagline: 'Digital Asset Intelligence for the Built Environment',
+  url: 'https://touchpoint.newwavesynergy.com',
+  tagline: 'Digital asset intelligence for the built environment',
   description:
-    'Touchpoint by New Wave Synergy connects physical assets to structured digital information — delivering instant access to manuals, warranties, and lifecycle data at the point of use via NFC and QR technology.',
+    'Touchpoint is an asset identity layer for the built environment. Every physical thing — space, system, asset, component — gets a persistent digital record. Every interaction updates it. Every action is logged. Built by New Wave Synergy.',
   keywords: [
+    'asset identity platform',
     'digital asset intelligence',
     'built environment',
-    'facility management',
+    'facility management software',
     'NFC asset tagging',
     'QR asset tracking',
-    'O&M documentation',
+    'handover operations',
     'asset lifecycle management',
-    'handover to operations',
-    'construction defects',
-    'ESG compliance',
+    'defect management',
+    'construction closeout',
+    'O&M documentation',
+    'ESG reporting built environment',
     'predictive maintenance',
     'Australia proptech',
   ],
@@ -36,15 +38,14 @@ export const siteConfig = {
   },
   social: {
     linkedin: 'https://www.linkedin.com/company/new-wave-synergy',
-    // Add X / Instagram handles here when client confirms:
-    // x: 'https://x.com/newwavesynergy',
   },
+  // Main nav — About surfaced here, not only in footer
   nav: [
-    { label: 'Problem', href: '#problem' },
     { label: 'Solution', href: '#solution' },
-    { label: 'How it works', href: '#how' },
+    { label: 'System', href: '#system' },
+    { label: 'Workflows', href: '#workflows' },
     { label: 'Pilot', href: '#pilot' },
-    { label: 'Impact', href: '#impact' },
+    { label: 'About', href: '#about' },
     { label: 'Contact', href: '#contact' },
   ],
 };
