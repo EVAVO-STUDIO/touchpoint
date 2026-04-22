@@ -15,8 +15,9 @@
   --color-border-strong: #d5d0c3;
   --color-text: #14171c;
   --color-muted: #6b6f77;
-  --color-accent: #0a8f5a;
-  --color-accent-soft: rgba(10, 143, 90, 0.12);
+  /* NWS brand green — matched from the client logo */
+  --color-accent: #11a05e;
+  --color-accent-soft: rgba(17, 160, 94, 0.12);
   --color-grid: rgba(20, 23, 28, 0.06);
 }
 
@@ -29,8 +30,9 @@
   --color-border-strong: #2d323b;
   --color-text: #f4f4f1;
   --color-muted: #8a8f99;
-  --color-accent: #34d399;
-  --color-accent-soft: rgba(52, 211, 153, 0.14);
+  /* NWS brand green — the #3ce280 from the logo, slightly brightened for dark-mode contrast */
+  --color-accent: #3ce280;
+  --color-accent-soft: rgba(60, 226, 128, 0.14);
   --color-grid: rgba(244, 244, 241, 0.04);
 }
 

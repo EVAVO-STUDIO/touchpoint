@@ -6,17 +6,17 @@ const pillars = [
   {
     icon: Fingerprint,
     title: 'Persistent identity',
-    body: 'Every space, system, asset, and component has one record that lives through the full lifecycle — from delivery to operations, owner to operator.',
+    body: 'Every space, system, asset, and component gets one digital record that lives through the full lifecycle — from delivery into operations, and from owner to operator.',
   },
   {
     icon: Nfc,
     title: 'Dual access',
-    body: 'Hybrid NFC + QR tags on every object. Tap on newer phones, scan on anything else. The tag holds nothing but a token — the record lives in the cloud.',
+    body: 'Hybrid NFC and QR tags on every object. Tap on newer phones, scan on anything else. The tag is a simple pointer — the record lives in the cloud.',
   },
   {
     icon: ShieldCheck,
     title: 'Full audit',
-    body: 'Every scan, note, defect, inspection, and approval is timestamped and attributed. Touchpoint turns convenience software into an accountability layer.',
+    body: 'Every scan, note, inspection, and approval is timestamped and attributed. Touchpoint turns convenience software into an accountability layer.',
   },
 ];
 
@@ -41,18 +41,22 @@ export function Solution() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-6 max-w-[52ch] text-pretty text-lg leading-[1.6] text-muted">
-                Touchpoint is an asset identity layer. Every physical thing gets
-                a persistent digital record. Every interaction updates it.
-                Every action is logged, attributed, and timestamped — turning
-                field activity into structured history.
+                Touchpoint connects physical assets to structured digital data
+                — making manuals, warranties, and lifecycle information
+                instantly accessible at the point of use.
               </p>
             </Reveal>
             <Reveal delay={0.15}>
+              <p className="mt-4 max-w-[52ch] text-pretty text-base leading-relaxed text-muted">
+                No searching. No disconnected systems. No lost information.
+              </p>
+            </Reveal>
+            <Reveal delay={0.2}>
               <blockquote className="mt-10 rounded-2xl border border-border bg-surface p-6">
                 <p className="display-md italic-accent leading-[1.2] text-text">
-                  &ldquo;The tag is just access.
+                  &ldquo;The tag is the doorway.
                   <br />
-                  The system is the product.&rdquo;
+                  The record is the product.&rdquo;
                 </p>
                 <footer className="mt-4 font-mono text-2xs uppercase tracking-[0.14em] text-muted">
                   Touchpoint, in one line
@@ -104,7 +108,7 @@ export function Solution() {
                 </div>
                 <span className="h-3 w-px bg-border-strong" />
                 <span className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
-                  No app · No login for public info · Works with existing tools
+                  No app · Works with existing tools
                 </span>
               </div>
             </Reveal>

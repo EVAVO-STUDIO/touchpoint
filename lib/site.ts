@@ -4,7 +4,7 @@ export const siteConfig = {
   url: 'https://touchpoint.newwavesynergy.com',
   tagline: 'Digital asset intelligence for the built environment',
   description:
-    'Touchpoint is an asset identity layer for the built environment. Every physical thing — space, system, asset, component — gets a persistent digital record. Every interaction updates it. Every action is logged. Built by New Wave Synergy.',
+    'Touchpoint connects physical assets to structured digital data — making manuals, warranties, and lifecycle information instantly accessible at the point of use. Built by New Wave Synergy from real project delivery and post-completion experience.',
   keywords: [
     'asset identity platform',
     'digital asset intelligence',
@@ -38,6 +38,8 @@ export const siteConfig = {
   },
   social: {
     linkedin: 'https://www.linkedin.com/company/new-wave-synergy',
+    instagram: 'https://www.instagram.com/touchpoint.synergy',
+    instagramHandle: '@touchpoint.synergy',
   },
   // Main nav — About surfaced here, not only in footer
   nav: [

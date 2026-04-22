@@ -17,7 +17,7 @@ const pilot = {
   outcomes: [
     'Time-to-information measured in seconds, not hours',
     'First-visit fix rate on maintenance improved',
-    'Post-completion queries and defect disputes reduced',
+    'Fewer post-completion queries and handover disputes',
     'Operational readiness evidence captured at handover',
   ],
 };

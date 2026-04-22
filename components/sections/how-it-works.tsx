@@ -8,14 +8,14 @@ const steps = [
     icon: Tag,
     title: 'Tag',
     description:
-      'Apply hybrid NFC + QR tags to assets, systems, and spaces during delivery or as a retrofit. The tag holds a short token — nothing more.',
+      'Apply hybrid NFC and QR tags to assets, systems, and spaces during delivery or as a retrofit. The tag is a simple pointer — nothing sensitive lives on it.',
   },
   {
     id: '02',
     icon: Link2,
     title: 'Connect',
     description:
-      'Each token resolves to a structured digital record: documents, defects, inspections, maintenance, history, and audit.',
+      'Each tag is linked to a structured digital record: documents, inspections, maintenance, history, and audit.',
   },
   {
     id: '03',
@@ -29,7 +29,7 @@ const steps = [
     icon: ClipboardCheck,
     title: 'Log',
     description:
-      'Raise a defect. Upload a photo. Complete an inspection. Log maintenance. Every entry is timestamped, attributed, and written to the audit log.',
+      'Log maintenance. Upload a photo. Complete an inspection. Every entry is timestamped, attributed, and written to the audit log — right at the point of use.',
   },
 ];
 

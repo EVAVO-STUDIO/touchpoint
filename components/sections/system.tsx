@@ -36,8 +36,8 @@ const layers = [
     description:
       'What Touchpoint actually does — the workflows that turn taps and scans into structured activity.',
     items: [
-      { icon: FlagTriangleRight, label: 'Defect logging' },
-      { icon: Wrench, label: 'Maintenance events' },
+      { icon: FlagTriangleRight, label: 'Maintenance logging' },
+      { icon: Wrench, label: 'Service events' },
       { icon: Stamp, label: 'Inspections & approvals' },
       { icon: History, label: 'Full audit capture' },
     ],
@@ -89,9 +89,9 @@ export function System() {
           <Reveal delay={0.1}>
             <p className="mx-auto mt-8 max-w-2xl text-pretty text-lg leading-[1.6] text-muted">
               Touchpoint is built as a physical-to-digital platform, not a
-              tagging tool. Access is simple. The application layer handles
-              real site workflows. The data layer stays structured, audited,
-              and queryable — so every tap makes the record better.
+              tagging tool. Access stays simple. The application layer handles
+              real site workflows. The data layer stays structured and fully
+              audited — so every tap makes the record better.
             </p>
           </Reveal>
         </div>

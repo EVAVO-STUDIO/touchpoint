@@ -1,48 +1,46 @@
 # Image assets
 
-All images in this directory are production-ready client assets. Replace them
-at the same filename if the client provides updated versions — no code
-changes needed.
+All images in this directory are production-ready client assets. Replace
+them at the same filename if the client provides updated versions — no
+code changes needed.
 
 ## Current assets
 
-### `touchpoint-logo.png` — 1333×233
-Full Touchpoint wordmark with transparent background, sourced from the client
-and cleaned for web use. Used in the navbar and footer via the `Logo`
-component.
+### `touchpoint-logo.png` — 1200×227
+Full Touchpoint wordmark (the TOUCHPOINT lettering with green fingerprint-S
+in the O). Transparent background. Used in the navbar and footer.
 
 ### `touchpoint-mark.png` — 512×512
-The O-with-fingerprint extracted from the wordmark. Transparent background.
-Used for the small-logo variant and as the source for favicons.
+The standalone green fingerprint-S mark. Transparent background. Source for
+all favicons.
 
-### `hero-tag-hvac.jpg` — 740×542
-Client-supplied product mock-up: a Touchpoint NFC/QR tag mounted on a
-stainless HVAC unit, alongside a phone showing the asset record. Used as the
-hero image. Unmodified original.
+### `touchpoint-logo-full.png` — 1200 wide
+Full logo with "by NEW WAVE SYNERGY" subline. Used in the OG share image.
 
-### `naomi-mabvurira.jpg` — 772×994 (max 1000 wide after optimisation)
-Black-and-white on-site photograph of Naomi Mabvurira (Managing Director,
-New Wave Synergy) in NWS-branded PPE. Used in the About section.
+### `hero-tag-disc.png` — transparent
+The Touchpoint physical tag disc (oval metal disc with wordmark + QR).
+Transparent background — floats on hero without a block container.
+
+### `hero-tag-hvac.jpg` — 740×542 (fallback / alternate)
+Phone + HVAC mock-up. Not currently used on site but kept as an alternate
+hero visual.
+
+### `naomi-mabvurira.jpg` — up to 1000 wide
+Black-and-white on-site photograph of Naomi Mabvurira in NWS-branded PPE.
+Used in the About section.
+
+### `nws-logo.png`
+The parent-brand New Wave Synergy logo (green S + NEW WAVE SYNERGY text).
+Used in the footer attribution card.
 
 ### `og-touchpoint.png` — 1200×630
-Custom-designed Open Graph / Twitter card image. Dark background with a
-subtle green accent glow and grid pattern, featuring the Touchpoint wordmark
-and the italic tagline "Digital asset intelligence for the built environment."
-Regenerated from scratch in a design tool if needed — the existing file is
-final.
+Custom-designed Open Graph / Twitter card. Real Touchpoint wordmark,
+italic tagline, subtle green radial glow + grid.
 
 ## Favicon / icon set (at project root `public/`)
 - `favicon.ico` — multi-size ICO (16/32/48/64)
-- `icon-192.png` — PNG favicon for Android
-- `icon-512.png` — PNG favicon for PWA
-- `apple-touch-icon.png` — 180×180, dark rounded-square background with the
-  mark centered, for iOS home-screen icons
+- `icon-192.png` — PNG for Android/PWA
+- `icon-512.png` — PNG for PWA
+- `apple-touch-icon.png` — 180×180 with dark rounded bg + centered mark
 
-All of these are derived from `touchpoint-mark.png`. If the mark changes,
-regenerate via the image processing script or drop in new files at the same
-paths.
-
-## Replacing
-
-Just overwrite any file at the listed filename. Next.js's image pipeline
-will automatically serve AVIF/WebP variants at build time.
+All derived from `touchpoint-mark.png`.

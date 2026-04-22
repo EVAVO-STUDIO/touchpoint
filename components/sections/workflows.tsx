@@ -20,13 +20,13 @@ const workflows: Workflow[] = [
   {
     icon: FlagTriangleRight,
     tag: 'Workflow 01',
-    title: 'Defect logging',
+    title: 'Maintenance logging',
     description:
-      'From &ldquo;there&rsquo;s an issue&rdquo; to a structured, assigned, photographed defect in seconds — with no typing the location or guessing the asset.',
+      'From &ldquo;there&rsquo;s an issue&rdquo; to a structured, assigned, photographed record in seconds — with no typing the location or guessing the asset.',
     steps: [
       'Scan or tap the asset tag',
-      'Location & asset auto-populated',
-      'Take photo, add note, set severity',
+      'Location &amp; asset auto-populated',
+      'Take photo, add note, set priority',
       'Assign to contractor, set due date',
     ],
     who: 'Supervisors, technicians, clients',
@@ -97,9 +97,9 @@ export function Workflows() {
             <Reveal delay={0.1}>
               <p className="mt-6 text-pretty text-base leading-relaxed text-muted">
                 Touchpoint is designed around what actually happens on real
-                projects — defect calls, handover hand-offs, commissioning
-                sign-offs, maintenance visits. Every workflow is captured
-                where it happens, in under a minute.
+                projects — maintenance calls, handover hand-offs, commissioning
+                sign-offs, service visits. Every workflow is captured where it
+                happens, in under a minute.
               </p>
             </Reveal>
           </div>

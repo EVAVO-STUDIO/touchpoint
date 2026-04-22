@@ -48,24 +48,28 @@ export function Hero() {
             </motion.div>
 
             <motion.h1 {...fadeUp(0.1)} className="display-xl mt-6 text-balance">
-              Asset intelligence,{' '}
-              <span className="italic-accent text-accent">embedded</span>
-              <br className="hidden md:block" />
-              into the built environment.
+              Turn every asset{' '}
+              <span className="italic-accent text-accent">into an interface.</span>
             </motion.h1>
 
             <motion.p
               {...fadeUp(0.2)}
               className="mt-8 max-w-[58ch] text-pretty text-lg leading-[1.55] text-muted md:text-xl"
             >
-              Touchpoint gives every physical thing — space, system, asset,
-              component — a persistent digital identity. Every interaction
-              updates the record. Every action is logged. Accessed in seconds
-              via QR or NFC, from any smartphone.
+              Touchpoint connects physical assets to structured digital data —
+              making manuals, warranties, and lifecycle information instantly
+              accessible at the point of use.
+            </motion.p>
+
+            <motion.p
+              {...fadeUp(0.27)}
+              className="mt-4 max-w-[58ch] text-pretty text-base text-muted md:text-lg"
+            >
+              No searching. No disconnected systems. No lost information.
             </motion.p>
 
             <motion.div
-              {...fadeUp(0.3)}
+              {...fadeUp(0.35)}
               className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center"
             >
               <a href="#contact" className="btn-primary group">
@@ -79,63 +83,59 @@ export function Hero() {
             </motion.div>
 
             <motion.div
-              {...fadeUp(0.45)}
+              {...fadeUp(0.5)}
               className="mt-12 flex items-center gap-4 border-t border-border pt-6"
             >
               <div className="h-8 w-px bg-accent" />
-              <p className="max-w-sm text-sm leading-relaxed text-muted">
-                Designed for{' '}
-                <span className="text-text">handover</span>,{' '}
-                <span className="text-text">operations</span>, and{' '}
-                <span className="text-text">lifecycle performance</span>.
+              <p className="max-w-md text-sm leading-relaxed text-muted">
+                Built from real project delivery and post-completion experience.
               </p>
             </motion.div>
           </div>
 
-          {/* Product photo column */}
+          {/* Product disc column — transparent PNG, floats freely */}
           <motion.div
-            initial={{ opacity: 0, scale: reduce ? 1 : 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="lg:col-span-5"
+            initial={{ opacity: 0, scale: reduce ? 1 : 0.92, rotate: reduce ? 0 : -6 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+            className="relative lg:col-span-5"
           >
-            <div className="relative">
-              {/* Accent glow behind the image */}
+            <div className="relative mx-auto w-full max-w-lg">
+              {/* Soft green glow bloom behind the disc */}
               <div
-                className="pointer-events-none absolute -inset-6 -z-10 rounded-[3rem] opacity-80 blur-3xl"
+                className="pointer-events-none absolute inset-0 -z-10 blur-3xl"
                 style={{
                   background:
-                    'radial-gradient(ellipse at center, var(--color-accent-soft), transparent 70%)',
+                    'radial-gradient(ellipse 70% 60% at 50% 50%, var(--color-accent-soft), transparent 70%)',
                 }}
                 aria-hidden
               />
-              <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-[0_40px_80px_-40px_rgba(0,0,0,0.5)]">
-                <Image
-                  src="/images/hero-tag-hvac.jpg"
-                  alt="A Touchpoint NFC and QR tag mounted on a stainless-steel HVAC unit, alongside a mobile phone showing the asset record screen"
-                  width={740}
-                  height={542}
-                  priority
-                  className="h-auto w-full"
-                />
-              </div>
-
-              {/* Tiny overlaid data caption — anchors the product in 'field' context */}
-              <div className="absolute -bottom-5 left-4 right-4 flex items-center justify-between rounded-xl border border-border bg-bg/90 px-4 py-3 backdrop-blur-md md:left-6 md:right-6">
-                <div className="flex items-center gap-3">
-                  <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
-                    <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-                  </span>
-                  <span className="font-mono text-2xs uppercase tracking-[0.16em] text-muted">
-                    HV-704 · Optimal
-                  </span>
-                </div>
-                <span className="font-mono text-2xs uppercase tracking-[0.14em] text-accent">
-                  Tap to open
-                </span>
-              </div>
+              {/* The disc itself — transparent PNG, no container card */}
+              <Image
+                src="/images/hero-tag-disc.png"
+                alt="A Touchpoint tag disc with the wordmark and a QR code, produced for mounting on assets"
+                width={900}
+                height={594}
+                priority
+                className="h-auto w-full drop-shadow-[0_30px_60px_rgba(0,0,0,0.4)]"
+              />
             </div>
+
+            {/* Floating status pill under the disc */}
+            <motion.div
+              initial={{ opacity: 0, y: reduce ? 0 : 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.9 }}
+              className="mt-6 flex items-center justify-center gap-3 md:mt-8"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+              </span>
+              <span className="font-mono text-2xs uppercase tracking-[0.18em] text-muted">
+                Tap · Scan · Access
+              </span>
+            </motion.div>
           </motion.div>
         </div>
 
@@ -143,12 +143,12 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: reduce ? 0 : 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.55 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
           className="mt-24 grid grid-cols-2 gap-6 border-t border-border pt-10 sm:grid-cols-4 md:mt-32"
         >
           <Stat value="QR + NFC" label="Hybrid access" />
           <Stat value="0" label="App install required" />
-          <Stat value="Every action" label="Timestamped & audited" />
+          <Stat value="Seconds" label="To find information" />
           <Stat value="AU" label="Built for local delivery" />
         </motion.div>
       </div>
