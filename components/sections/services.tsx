@@ -46,14 +46,15 @@ export function Services() {
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="display-lg mt-8 text-balance">
-              Post-completion services,{' '}
-              <span className="italic-accent text-accent">managed in one platform.</span>
+              The work after Practical Completion,{' '}
+              <span className="italic-accent text-accent">properly managed.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-[1.6] text-muted">
-              Everything that happens after Practical Completion — managed in one
-              connected platform by people who understand delivery, handover and operations.
+              Touchpoint brings the services New Wave Synergy already understands —
+              handover, purchaser experience, inspections, digital asset handover and
+              operational readiness — into one governed post-completion platform.
             </p>
           </Reveal>
         </div>
