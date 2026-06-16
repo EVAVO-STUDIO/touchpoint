@@ -20,7 +20,7 @@ export function Contact() {
     const email = String(formData.get('email') ?? '').trim();
     const message = String(formData.get('message') ?? '').trim();
 
-    const subject = `Touchpoint enquiry — ${company || name || 'New contact'}`;
+    const subject = `Touchpoint pilot enquiry — ${company || name || 'New contact'}`;
     const body = [
       `Name: ${name}`,
       `Company: ${company}`,
@@ -36,7 +36,6 @@ export function Contact() {
       subject
     )}&body=${encodeURIComponent(body)}`;
 
-    // Small UX delay so the transition feels considered
     setTimeout(() => {
       window.location.href = mailto;
       setState('sent');
@@ -49,7 +48,6 @@ export function Contact() {
       className="relative border-t border-border py-24 md:py-32"
       aria-label="Contact"
     >
-      {/* Soft top glow */}
       <div
         className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-80 bg-radial-glow opacity-70"
         aria-hidden
@@ -59,78 +57,43 @@ export function Contact() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <Reveal>
-              <SectionEyebrow number="09">Contact</SectionEyebrow>
+              <SectionEyebrow number="10">Explore a pilot</SectionEyebrow>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
-                Explore a pilot or{' '}
-                <span className="italic-accent text-accent">partnership.</span>
+                Pilot the future of{' '}
+                <span className="italic-accent text-accent">post-completion.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
-              <p className="mt-6 max-w-[46ch] text-pretty text-lg leading-[1.6] text-muted">
-                Touchpoint is currently being positioned for pilot deployment
-                across real asset environments. For partnership discussions,
-                pilot opportunities, or investor conversations — get in touch.
+              <p className="mt-6 max-w-[48ch] text-pretty text-lg leading-[1.6] text-muted">
+                Touchpoint is being positioned for pilot deployment across live
+                developments in Australia and New Zealand. For partnership
+                discussions, pilot opportunities or investor conversations — get in touch.
               </p>
             </Reveal>
 
             <Reveal delay={0.15}>
               <div className="mt-10 space-y-4">
-                <a
+                <ContactLink
                   href={`mailto:${siteConfig.contact.email}`}
-                  className="flex items-center gap-4 rounded-2xl border border-border bg-surface px-5 py-4 transition-colors hover:border-border-strong"
-                >
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent-soft text-accent">
-                    <Mail className="h-4 w-4" strokeWidth={1.75} />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <p className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
-                      Email
-                    </p>
-                    <p className="truncate text-sm font-medium text-text">
-                      {siteConfig.contact.email}
-                    </p>
-                  </div>
-                  <ArrowUpRight className="h-4 w-4 shrink-0 text-muted" />
-                </a>
-
-                <a
+                  eyebrow="Email"
+                  label={siteConfig.contact.email}
+                  icon={<Mail className="h-4 w-4" strokeWidth={1.75} />}
+                />
+                <ContactLink
                   href={`tel:${siteConfig.contact.phone.replace(/\s/g, '')}`}
-                  className="flex items-center gap-4 rounded-2xl border border-border bg-surface px-5 py-4 transition-colors hover:border-border-strong"
-                >
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent-soft text-accent">
-                    <Phone className="h-4 w-4" strokeWidth={1.75} />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <p className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
-                      Direct
-                    </p>
-                    <p className="truncate text-sm font-medium text-text">
-                      {siteConfig.contact.phoneDisplay}
-                    </p>
-                  </div>
-                  <ArrowUpRight className="h-4 w-4 shrink-0 text-muted" />
-                </a>
-
-                <a
+                  eyebrow="Direct"
+                  label={siteConfig.contact.phoneDisplay}
+                  icon={<Phone className="h-4 w-4" strokeWidth={1.75} />}
+                />
+                <ContactLink
                   href={siteConfig.parent.contactUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 rounded-2xl border border-border bg-surface px-5 py-4 transition-colors hover:border-border-strong"
-                >
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent-soft text-accent">
-                    <ArrowUpRight className="h-4 w-4" strokeWidth={1.75} />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <p className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
-                      Main office
-                    </p>
-                    <p className="truncate text-sm font-medium text-text">
-                      newwavesynergy.com/contact
-                    </p>
-                  </div>
-                </a>
+                  eyebrow="Main office"
+                  label="newwavesynergy.com/contact"
+                  external
+                  icon={<ArrowUpRight className="h-4 w-4" strokeWidth={1.75} />}
+                />
               </div>
             </Reveal>
           </div>
@@ -171,14 +134,25 @@ export function Contact() {
                     placeholder="Tell us about your project, pilot interest, or how we might collaborate."
                   />
 
+                  <noscript>
+                    <p className="rounded-xl border border-border bg-bg px-4 py-3 text-sm leading-relaxed text-muted">
+                      This form opens an email draft when JavaScript is enabled. You can
+                      still contact Touchpoint directly at{' '}
+                      <a className="font-medium text-accent underline-offset-4 hover:underline" href={`mailto:${siteConfig.contact.email}`}>
+                        {siteConfig.contact.email}
+                      </a>{' '}
+                      or call {siteConfig.contact.phoneDisplay}.
+                    </p>
+                  </noscript>
+
                   <div className="flex flex-col items-start justify-between gap-4 pt-2 sm:flex-row sm:items-center">
                     <p className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
-                      We'll respond within 2 business days.
+                      We&apos;ll respond within 2 business days.
                     </p>
                     <button
                       type="submit"
                       disabled={state !== 'idle'}
-                      className="group inline-flex items-center justify-center gap-2 rounded-full bg-text px-6 py-3.5 text-sm font-medium text-bg transition-all hover:-translate-y-0.5 disabled:cursor-wait disabled:opacity-70"
+                      className="group inline-flex items-center justify-center gap-2 rounded-full bg-text px-6 py-3.5 text-sm font-medium text-bg transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-soft disabled:cursor-wait disabled:opacity-70"
                     >
                       <AnimatePresence mode="wait" initial={false}>
                         {state === 'sent' ? (
@@ -214,6 +188,42 @@ export function Contact() {
         </div>
       </div>
     </section>
+  );
+}
+
+function ContactLink({
+  href,
+  eyebrow,
+  label,
+  icon,
+  external,
+}: {
+  href: string;
+  eyebrow: string;
+  label: string;
+  icon: React.ReactNode;
+  external?: boolean;
+}) {
+  return (
+    <a
+      href={href}
+      target={external ? '_blank' : undefined}
+      rel={external ? 'noopener noreferrer' : undefined}
+      className="flex items-center gap-4 rounded-2xl border border-border bg-surface px-5 py-4 transition-colors hover:border-border-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-soft"
+    >
+      <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent-soft text-accent">
+        {icon}
+      </div>
+      <div className="min-w-0 flex-1">
+        <p className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
+          {eyebrow}
+        </p>
+        <p className="truncate text-sm font-medium text-text">
+          {label}
+        </p>
+      </div>
+      <ArrowUpRight className="h-4 w-4 shrink-0 text-muted" />
+    </a>
   );
 }
 
