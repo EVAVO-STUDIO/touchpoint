@@ -12,40 +12,40 @@ import { Reveal } from '@/components/reveal';
 const impacts = [
   {
     icon: Clock3,
-    title: 'Faster settlement and handover readiness',
+    title: 'Fewer handover delays',
     description:
-      'Teams can see what is complete, what is outstanding and what needs attention before handover delays become commercial issues.',
+      'Project teams can see which inspections, defects, documents and handover actions still need attention before they become settlement or occupation issues.',
     featured: true,
   },
   {
     icon: MessageSquareText,
-    title: 'Clearer purchaser communication',
+    title: 'Calmer purchaser communication',
     description:
-      'Updates, responsibilities and next steps are easier to coordinate, reducing the uncertainty that damages confidence after completion.',
+      'Purchasers receive clearer updates and next steps during the stage where silence, uncertainty and repeated follow-ups usually create frustration.',
   },
   {
     icon: ShieldCheck,
-    title: 'Defect accountability',
+    title: 'Defects that stay visible',
     description:
-      'Items are tracked, attributed and reported through a consistent process instead of being lost across spreadsheets, emails and site notes.',
+      'Outstanding items keep an owner, evidence trail and status, so they are not buried in site notes, inboxes or spreadsheet versions.',
   },
   {
     icon: KeyRound,
-    title: 'Smoother transition to occupation',
+    title: 'A cleaner move into occupation',
     description:
-      'Key handover, documentation and operational readiness become a managed journey, not a last-minute scramble.',
+      'Keys, inspections, documents, access requirements and readiness checks are coordinated as a managed transition rather than a last-minute rush.',
   },
   {
     icon: Link2,
-    title: 'Connected asset information',
+    title: 'Asset information people can use',
     description:
-      'QR and NFC access connects physical assets to the information people need in the field, while existing systems remain in place.',
+      'QR and NFC access help connect physical assets to the right manuals, warranties, certificates and records when people are actually in the field.',
   },
   {
     icon: ScrollText,
-    title: 'Reporting-ready governance',
+    title: 'Evidence for decisions and reporting',
     description:
-      'Structured records support compliance, asset performance, customer care and post-completion reporting without rebuilding history later.',
+      'Structured records give developers, owners and facilities teams a clearer basis for reporting, escalation and post-completion governance.',
   },
 ];
 
@@ -64,15 +64,16 @@ export function Impact() {
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 max-w-[20ch] text-balance">
-                Better handovers.{' '}
-                <span className="italic-accent text-accent">Stronger operations.</span>
+                Less friction after completion.{' '}
+                <span className="italic-accent text-accent">More confidence at handover.</span>
               </h2>
             </Reveal>
           </div>
           <Reveal delay={0.1}>
             <p className="max-w-sm text-pretty text-base leading-relaxed text-muted md:text-right">
-              The outcomes that matter after Practical Completion: less friction,
-              clearer accountability and more confidence for everyone inheriting the asset.
+              The outcome is not another dashboard. It is a cleaner transition
+              from construction into occupation, with fewer gaps for people to
+              chase manually.
             </p>
           </Reveal>
         </div>
