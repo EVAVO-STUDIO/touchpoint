@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 interface LogoProps {
   className?: string;
   size?: 'sm' | 'md' | 'lg';
-  /** Show only the circular mark (no wordmark). For favicons / very tight spots. */
+  /** Show only the app/product mark, without the formal wordmark. */
   markOnly?: boolean;
   /** The approved wordmark is white, so it needs a dark plate in light mode. */
   framed?: boolean;
@@ -13,11 +13,14 @@ interface LogoProps {
 /**
  * Touchpoint by New Wave Synergy wordmark.
  *
- * Logo 3 is a white wordmark. Rather than inverting the image and changing the
- * brand colours, we place it on a deliberate dark brand plate so it remains
- * readable in both light and dark themes.
+ * Logo 3 is the formal white wordmark. Rather than inverting the image and
+ * changing the brand colours, we place it on a deliberate dark brand plate so
+ * it remains readable in both light and dark themes.
  */
 const LOGO_AR = 5.0625;
+
+/** The app mark is a wide New Wave-inspired ribbon, not a square icon. */
+const MARK_AR = 890 / 546;
 
 export function Logo({
   className,
@@ -64,7 +67,10 @@ export function Logo({
 }
 
 /**
- * Standalone mark — current approved mark asset.
+ * Touchpoint app/product mark.
+ *
+ * Used for tight UI moments, app-style marks and small branded accents. The
+ * formal navbar/footer wordmark remains touchpoint-logo-3.png.
  */
 export function LogoMark({
   size = 32,
@@ -75,12 +81,13 @@ export function LogoMark({
 }) {
   return (
     <Image
-      src="/images/touchpoint-mark.png"
-      alt="Touchpoint mark"
-      width={size}
+      src="/images/touchpoint-newwave-logo.png"
+      alt="Touchpoint app mark"
+      width={Math.round(size * MARK_AR)}
       height={size}
       className={cn('select-none', className)}
       priority
+      style={{ height: size, width: 'auto' }}
     />
   );
 }
