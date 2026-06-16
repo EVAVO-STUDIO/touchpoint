@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, type FormEvent } from 'react';
+import { useState, type FormEvent, type ReactNode } from 'react';
 import { Mail, Phone, ArrowUpRight, Check } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SectionEyebrow } from '@/components/section-eyebrow';
@@ -57,19 +57,19 @@ export function Contact() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <Reveal>
-              <SectionEyebrow number="10">Explore a pilot</SectionEyebrow>
+              <SectionEyebrow number="11">Explore a pilot</SectionEyebrow>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
-                Pilot the future of{' '}
-                <span className="italic-accent text-accent">post-completion.</span>
+                Bring Touchpoint into{' '}
+                <span className="italic-accent text-accent">a live handover.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-6 max-w-[48ch] text-pretty text-lg leading-[1.6] text-muted">
-                Touchpoint is being positioned for pilot deployment across live
-                developments in Australia and New Zealand. For partnership
-                discussions, pilot opportunities or investor conversations — get in touch.
+                Talk to New Wave Synergy about a supported pilot for a real project:
+                physical inspections, defect close-out, purchaser communication,
+                key handover, asset information and operational readiness.
               </p>
             </Reveal>
 
@@ -201,7 +201,7 @@ function ContactLink({
   href: string;
   eyebrow: string;
   label: string;
-  icon: React.ReactNode;
+  icon: ReactNode;
   external?: boolean;
 }) {
   return (
