@@ -56,19 +56,20 @@ export function Hero() {
               {...fadeUp(0.2)}
               className="mt-8 max-w-[62ch] text-pretty text-lg leading-[1.55] text-muted md:text-xl"
             >
-              Touchpoint is an integrated Post-Completion, Handover and Asset
-              Transition Platform, helping developers, builders and asset owners
-              manage the journey from construction to occupation and operations.
+              Touchpoint is New Wave Synergy&rsquo;s hands-on post-completion,
+              handover and asset-transition service model — supported by a digital
+              platform, but grounded in real inspections, project close-out and
+              operational-readiness experience.
             </motion.p>
 
             <motion.p
               {...fadeUp(0.27)}
               className="mt-4 max-w-[62ch] text-pretty text-base leading-relaxed text-muted md:text-lg"
             >
-              We bring together people, process and technology to create a
-              connected post-completion experience that improves handovers,
-              customer satisfaction, operational readiness and long-term asset
-              performance.
+              We bring together people, process and technology so developers,
+              builders and asset owners can move from construction into occupation
+              and operations with clearer handovers, fewer surprises and stronger
+              accountability.
             </motion.p>
 
             <motion.div
@@ -79,8 +80,8 @@ export function Hero() {
                 Request a pilot conversation
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
-              <a href="#solution" className="btn-secondary group">
-                View the solution
+              <a href="#services" className="btn-secondary group">
+                View the services
                 <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
               </a>
             </motion.div>
@@ -91,7 +92,8 @@ export function Hero() {
             >
               <div className="h-8 w-px bg-accent" />
               <p className="max-w-md text-sm leading-relaxed text-muted">
-                An NWS product built from real project delivery and post-completion experience.
+                A New Wave Synergy product built around people on the ground,
+                structured close-out processes and field-ready asset information.
               </p>
             </motion.div>
           </div>
@@ -137,7 +139,7 @@ export function Hero() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
               </span>
               <span className="font-mono text-2xs uppercase tracking-[0.18em] text-muted">
-                Post-Completion · Handover · Asset Transition
+                Physical inspections · Handover · Asset Transition
               </span>
             </motion.div>
           </motion.div>
@@ -150,9 +152,9 @@ export function Hero() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
           className="mt-24 grid grid-cols-2 gap-6 border-t border-border pt-10 sm:grid-cols-4 md:mt-32"
         >
-          <Stat value="People" label="Post-completion consultants" />
+          <Stat value="People" label="On-site post-completion support" />
           <Stat value="Process" label="Structured handover workflows" />
-          <Stat value="Technology" label="Single source of truth" />
+          <Stat value="Technology" label="Field-ready asset information" />
           <Stat value="AU + NZ" label="Where we operate" />
         </motion.div>
       </div>
