@@ -5,13 +5,13 @@ import { Reveal } from '@/components/reveal';
 const pillars = [
   {
     icon: ClipboardCheck,
-    title: 'One post-completion operating layer',
-    body: 'Handover, inspections, defects, purchaser communication, documentation and readiness activity are managed through one connected workflow.',
+    title: 'People-led close-out support',
+    body: 'New Wave Synergy supports the practical work after completion: site walks, purchaser inspections, defect follow-up, handover planning and readiness checks.',
   },
   {
     icon: MessageSquareText,
     title: 'Clear communication between parties',
-    body: 'Developers, builders, purchasers, asset owners and facilities teams can work from the same source of truth instead of chasing status across inboxes.',
+    body: 'Developers, builders, purchasers, asset owners and facilities teams can work from the same view instead of chasing status across meetings, inboxes and spreadsheets.',
   },
   {
     icon: ShieldCheck,
@@ -41,15 +41,16 @@ export function Solution() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-6 max-w-[52ch] text-pretty text-lg leading-[1.6] text-muted">
-                Touchpoint is an integrated post-completion platform that helps
-                project teams manage the transition from Practical Completion into
-                occupation and operations.
+                Touchpoint combines New Wave Synergy&rsquo;s hands-on post-completion
+                delivery support with a digital system that keeps handover,
+                inspections, defects, documentation and readiness activity visible.
               </p>
             </Reveal>
             <Reveal delay={0.15}>
               <p className="mt-4 max-w-[52ch] text-pretty text-base leading-relaxed text-muted">
-                It combines people, process and technology so the handover period is
-                structured, visible and governed — not left to email chains and memory.
+                The result is not software replacing people. It is people, process
+                and technology working together so the transition into occupation
+                and operations is structured, accountable and easier to manage.
               </p>
             </Reveal>
             <Reveal delay={0.2}>
@@ -109,7 +110,7 @@ export function Solution() {
                 </div>
                 <span className="h-3 w-px bg-border-strong" />
                 <span className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
-                  Digital records · Handover workflows · Operational readiness
+                  Physical inspections · Handover workflows · Operational readiness
                 </span>
               </div>
             </Reveal>
