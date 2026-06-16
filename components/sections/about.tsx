@@ -29,7 +29,7 @@ export function About() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
             <Reveal>
-              <SectionEyebrow number="10">About</SectionEyebrow>
+              <SectionEyebrow number="09">About</SectionEyebrow>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
@@ -69,10 +69,7 @@ export function About() {
               <div className="mt-12 grid grid-cols-1 gap-5 border-t border-border pt-8 sm:grid-cols-3">
                 {credentials.map((c) => (
                   <div key={c.label}>
-                    <p
-                      className="font-display text-3xl tracking-tight text-text sm:text-2xl md:text-4xl"
-                      style={{ fontVariationSettings: "'opsz' 72, 'SOFT' 40" }}
-                    >
+                    <p className="font-display text-3xl tracking-tight text-text sm:text-2xl md:text-4xl">
                       {c.value}
                     </p>
                     <p className="mt-2 font-mono text-2xs uppercase tracking-[0.14em] text-muted">
@@ -82,46 +79,27 @@ export function About() {
                 ))}
               </div>
             </Reveal>
-
-            <Reveal delay={0.22}>
-              <a
-                href={siteConfig.parent.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline"
-              >
-                Visit {siteConfig.parent.name} <span aria-hidden>↗</span>
-              </a>
-            </Reveal>
           </div>
 
           <div className="lg:col-span-5">
-            <Reveal delay={0.15}>
-              <figure className="card-bordered">
-                <div className="card-inner relative overflow-hidden p-0">
-                  <div className="relative aspect-[4/5] w-full">
+            <Reveal delay={0.1}>
+              <div className="card-bordered overflow-hidden">
+                <div className="card-inner">
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-surface-2">
                     <Image
-                      src="/images/naomi-mabvurira.jpg"
-                      alt="Naomi Mabvurira, Managing Director of New Wave Synergy, on-site in New Wave Synergy branded PPE"
+                      src="/images/nws-logo.png"
+                      alt="New Wave Synergy logo"
                       fill
-                      className="object-cover"
-                      sizes="(min-width: 1024px) 40vw, 100vw"
+                      sizes="(min-width: 1024px) 32vw, 100vw"
+                      className="object-contain p-10"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-bg/95 via-bg/10 to-bg/0" />
                   </div>
-                  <figcaption className="p-6 md:p-7">
-                    <p
-                      className="font-display text-2xl tracking-tight text-text"
-                      style={{ fontVariationSettings: "'opsz' 72, 'SOFT' 40" }}
-                    >
-                      {siteConfig.contact.person}
-                    </p>
-                    <p className="mt-1 text-sm text-muted">
-                      {siteConfig.contact.role}, {siteConfig.contact.entity}
-                    </p>
-                  </figcaption>
+                  <p className="mt-6 text-sm leading-relaxed text-muted">
+                    Touchpoint is designed to extend New Wave Synergy&rsquo;s practical
+                    delivery capability into the post-completion phase.
+                  </p>
                 </div>
-              </figure>
+              </div>
             </Reveal>
           </div>
         </div>
