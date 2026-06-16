@@ -6,15 +6,6 @@ import { Footer } from '@/components/footer';
 import { siteConfig } from '@/lib/site';
 import './globals.css';
 
-/**
- * Typography pairing:
- *  - Space Grotesk (display) — controlled, contemporary and technical without
- *    feeling generic. A better fit for a built-environment service brand than
- *    an expressive editorial serif.
- *  - Manrope (body) — clean geometric sans that reads as premium and practical.
- *  - IBM Plex Mono (labels) — restrained technical feel for section markers,
- *    metadata and navigation details.
- */
 const sans = Manrope({
   subsets: ['latin'],
   variable: '--font-sans',
@@ -55,7 +46,7 @@ export const metadata: Metadata = {
   creator: siteConfig.company,
   publisher: siteConfig.company,
   applicationName: siteConfig.name,
-  category: 'technology',
+  category: 'professional services',
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
@@ -119,17 +110,17 @@ const structuredData = {
       },
     },
     {
-      '@type': 'SoftwareApplication',
-      '@id': `${siteConfig.url}/#software`,
+      '@type': 'Service',
+      '@id': `${siteConfig.url}/#service`,
       name: `${siteConfig.name} by ${siteConfig.company}`,
-      applicationCategory: 'BusinessApplication',
-      operatingSystem: 'Web',
+      serviceType: 'Post-completion, handover and asset transition support',
+      areaServed: ['Australia', 'New Zealand'],
       url: siteConfig.url,
       description: siteConfig.description,
-      publisher: { '@id': `${siteConfig.parent.url}/#organization` },
+      provider: { '@id': `${siteConfig.parent.url}/#organization` },
       audience: {
         '@type': 'Audience',
-        audienceType: 'Developers, builders, asset owners and facilities managers',
+        audienceType: 'Developers, builders, asset owners, purchasers and facilities managers',
       },
     },
     {
