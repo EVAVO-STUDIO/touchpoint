@@ -30,10 +30,10 @@ const footerNav = {
 };
 
 const ecosystem = [
-  'Post-Completion',
-  'Physical Inspections',
-  'Handover',
-  'Operational Readiness',
+  'Post-completion',
+  'Physical inspections',
+  'Defect close-out',
+  'Operational readiness',
 ];
 
 export function Footer() {
@@ -47,14 +47,13 @@ export function Footer() {
       />
 
       <div className="container-tight relative py-16 md:py-24">
-        {/* Top band: wordmark + pitch + CTA */}
         <div className="flex flex-col items-start justify-between gap-10 pb-14 md:flex-row md:items-end">
           <div>
             <Logo size="lg" />
             <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted">
-              A New Wave Synergy-backed support model for post-completion,
-              handover and asset transition — combining physical inspections,
-              structured close-out and field-ready asset information.
+              A New Wave Synergy delivery approach for the work that happens after
+              Practical Completion: inspections, defects, purchaser communication,
+              key handover and asset information people can actually use.
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
               {ecosystem.map((item) => (
@@ -78,7 +77,6 @@ export function Footer() {
 
         <div className="divider-gradient" />
 
-        {/* Link grid */}
         <div className="grid grid-cols-2 gap-8 py-14 md:grid-cols-4 md:gap-12">
           <div className="col-span-2 md:col-span-1">
             <p className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
@@ -223,7 +221,6 @@ export function Footer() {
 
         <div className="divider-gradient" />
 
-        {/* NWS attribution card */}
         <a
           href={siteConfig.parent.url}
           target="_blank"
@@ -240,7 +237,7 @@ export function Footer() {
             />
             <div>
               <p className="text-sm font-medium text-text">
-                Touchpoint is a product of {siteConfig.parent.name}
+                Touchpoint is delivered by {siteConfig.parent.name}
               </p>
               <p className="mt-0.5 text-xs leading-relaxed text-muted">
                 Specialist project delivery, close-out, operational readiness and post-completion performance consultancy.
@@ -253,7 +250,6 @@ export function Footer() {
           />
         </a>
 
-        {/* Bottom bar */}
         <div className="mt-10 flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
           <p className="text-xs text-muted">
             © {year} {siteConfig.contact.entity}. All rights reserved.
