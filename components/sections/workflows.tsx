@@ -22,10 +22,10 @@ const workflows: Workflow[] = [
     tag: 'Workflow 01',
     title: 'Maintenance logging',
     description:
-      'From &ldquo;there&rsquo;s an issue&rdquo; to a structured, assigned, photographed record in seconds — with no typing the location or guessing the asset.',
+      'From “there’s an issue” to a structured, assigned, photographed record in seconds — with no typing the location or guessing the asset.',
     steps: [
       'Scan or tap the asset tag',
-      'Location &amp; asset auto-populated',
+      'Location & asset auto-populated',
       'Take photo, add note, set priority',
       'Assign to contractor, set due date',
     ],
@@ -64,7 +64,7 @@ const workflows: Workflow[] = [
     tag: 'Workflow 04',
     title: 'Maintenance',
     description:
-      'Tap an asset and see everything that&rsquo;s ever happened to it. Log work at source. Real history replaces guesswork.',
+      'Tap an asset and see everything that’s ever happened to it. Log work at source. Real history replaces guesswork.',
     steps: [
       'Tap asset → full service history',
       'Log work performed & outcome',
@@ -86,7 +86,7 @@ export function Workflows() {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
             <Reveal>
-              <SectionEyebrow number="05">Workflows</SectionEyebrow>
+              <SectionEyebrow number="06">Workflows</SectionEyebrow>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
@@ -120,10 +120,9 @@ export function Workflows() {
                     <h3 className="mt-5 text-xl font-medium tracking-tight text-text md:text-2xl">
                       {w.title}
                     </h3>
-                    <p
-                      className="mt-3 text-[0.95rem] leading-relaxed text-muted"
-                      dangerouslySetInnerHTML={{ __html: w.description }}
-                    />
+                    <p className="mt-3 text-[0.95rem] leading-relaxed text-muted">
+                      {w.description}
+                    </p>
                     <ol className="mt-6 space-y-2 border-t border-border pt-5">
                       {w.steps.map((step, j) => (
                         <li key={step} className="flex items-start gap-3">
