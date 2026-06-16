@@ -6,27 +6,27 @@ const stakeholders = [
   {
     icon: Building2,
     title: 'Developers',
-    body: 'Protect settlements, improve purchaser experience and strengthen brand reputation through structured post-completion management.',
+    body: 'Protect settlements, improve purchaser confidence and reduce post-completion risk with a structured handover and customer-care operating layer.',
   },
   {
     icon: HardHat,
     title: 'Builders',
-    body: 'Manage defects, inspections, handovers and post-completion obligations through one connected platform.',
+    body: 'Coordinate defects, inspections, key handover and close-out obligations without losing accountability across emails and spreadsheets.',
   },
   {
     icon: Landmark,
     title: 'Asset owners',
-    body: 'Receive structured information, complete documentation and operationally ready assets at handover.',
+    body: 'Receive complete documentation, clear governance and operationally ready assets instead of a late-stage information dump.',
   },
   {
     icon: ClipboardList,
     title: 'Facilities managers',
-    body: 'Access manuals, warranties, compliance records and asset information instantly through a single source of truth.',
+    body: 'Access manuals, warranties, compliance records and asset information through a searchable, field-ready source of truth.',
   },
   {
     icon: Users,
     title: 'Purchasers and end users',
-    body: 'Receive a seamless, supported and transparent transition into a new home, workplace or asset.',
+    body: 'Move into a new home, workplace or asset with clearer communication, fewer surprises and a more supported handover experience.',
   },
 ];
 
@@ -41,7 +41,7 @@ export function WhoWeHelp() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
             <Reveal>
-              <SectionEyebrow number="02">Who we help</SectionEyebrow>
+              <SectionEyebrow number="01">Who we help</SectionEyebrow>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
@@ -51,8 +51,9 @@ export function WhoWeHelp() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-6 text-pretty text-base leading-relaxed text-muted">
-                Touchpoint is built for every party involved in the post-completion journey,
-                from practical completion through to occupation and operations.
+                Touchpoint is built for every party involved in the post-completion
+                journey — from Practical Completion through to occupation, operations
+                and long-term asset performance.
               </p>
             </Reveal>
           </div>
