@@ -1,22 +1,22 @@
-import { Nfc, QrCode, Fingerprint, ShieldCheck } from 'lucide-react';
+import { Nfc, QrCode, ClipboardCheck, MessageSquareText, ShieldCheck } from 'lucide-react';
 import { SectionEyebrow } from '@/components/section-eyebrow';
 import { Reveal } from '@/components/reveal';
 
 const pillars = [
   {
-    icon: Fingerprint,
-    title: 'Persistent identity',
-    body: 'Every space, system, asset, and component gets one digital record that lives through the full lifecycle — from delivery into operations, and from owner to operator.',
+    icon: ClipboardCheck,
+    title: 'One post-completion operating layer',
+    body: 'Handover, inspections, defects, purchaser communication, documentation and readiness activity are managed through one connected workflow.',
   },
   {
-    icon: Nfc,
-    title: 'Dual access',
-    body: 'Hybrid NFC and QR tags on every object. Tap on newer phones, scan on anything else. The tag is a simple pointer — the record lives in the cloud.',
+    icon: MessageSquareText,
+    title: 'Clear communication between parties',
+    body: 'Developers, builders, purchasers, asset owners and facilities teams can work from the same source of truth instead of chasing status across inboxes.',
   },
   {
     icon: ShieldCheck,
-    title: 'Full audit',
-    body: 'Every scan, note, inspection, and approval is timestamped and attributed. Touchpoint turns convenience software into an accountability layer.',
+    title: 'Governance built into the process',
+    body: 'Every inspection, update, handover item and asset record can be tracked with ownership, timing, evidence and reporting context.',
   },
 ];
 
@@ -31,7 +31,7 @@ export function Solution() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <Reveal>
-              <SectionEyebrow number="02">The solution</SectionEyebrow>
+              <SectionEyebrow number="03">The solution</SectionEyebrow>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
@@ -41,22 +41,23 @@ export function Solution() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-6 max-w-[52ch] text-pretty text-lg leading-[1.6] text-muted">
-                Touchpoint connects physical assets to structured digital data
-                — making manuals, warranties, and lifecycle information
-                instantly accessible at the point of use.
+                Touchpoint is an integrated post-completion platform that helps
+                project teams manage the transition from Practical Completion into
+                occupation and operations.
               </p>
             </Reveal>
             <Reveal delay={0.15}>
               <p className="mt-4 max-w-[52ch] text-pretty text-base leading-relaxed text-muted">
-                No searching. No disconnected systems. No lost information.
+                It combines people, process and technology so the handover period is
+                structured, visible and governed — not left to email chains and memory.
               </p>
             </Reveal>
             <Reveal delay={0.2}>
               <blockquote className="mt-10 rounded-2xl border border-border bg-surface p-6">
                 <p className="display-md italic-accent leading-[1.2] text-text">
-                  &ldquo;The tag is the doorway.
+                  &ldquo;The project changes hands.
                   <br />
-                  The record is the product.&rdquo;
+                  The intelligence should not.&rdquo;
                 </p>
                 <footer className="mt-4 font-mono text-2xs uppercase tracking-[0.14em] text-muted">
                   Touchpoint, in one line
@@ -108,7 +109,7 @@ export function Solution() {
                 </div>
                 <span className="h-3 w-px bg-border-strong" />
                 <span className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
-                  No app · Works with existing tools
+                  Digital records · Handover workflows · Operational readiness
                 </span>
               </div>
             </Reveal>
