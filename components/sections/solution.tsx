@@ -5,18 +5,18 @@ import { Reveal } from '@/components/reveal';
 const pillars = [
   {
     icon: ClipboardCheck,
-    title: 'People-led close-out support',
+    title: 'Close-out support with people on the ground',
     body: 'New Wave Synergy supports the practical work after completion: site walks, purchaser inspections, defect follow-up, handover planning and readiness checks.',
   },
   {
     icon: MessageSquareText,
-    title: 'Clear communication between parties',
-    body: 'Developers, builders, purchasers, asset owners and facilities teams can work from the same view instead of chasing status across meetings, inboxes and spreadsheets.',
+    title: 'Clearer communication when pressure is high',
+    body: 'Developers, builders, purchasers, owners and facilities teams can see what has happened, what is outstanding and who is responsible for the next step.',
   },
   {
     icon: ShieldCheck,
-    title: 'Governance built into the process',
-    body: 'Every inspection, update, handover item and asset record can be tracked with ownership, timing, evidence and reporting context.',
+    title: 'A record that stands up after handover',
+    body: 'Inspections, updates, evidence, asset records and handover items stay connected to the project rather than disappearing into inboxes.',
   },
 ];
 
@@ -35,22 +35,22 @@ export function Solution() {
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
-                Touchpoint keeps the handover phase{' '}
-                <span className="italic-accent text-accent">under control.</span>
+                A clearer way to manage{' '}
+                <span className="italic-accent text-accent">the last mile of delivery.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-6 max-w-[52ch] text-pretty text-lg leading-[1.6] text-muted">
-                It combines New Wave Synergy&rsquo;s hands-on post-completion delivery
-                support with a shared system for inspections, defects, handover
-                tasks, documents and operational readiness.
+                Touchpoint brings New Wave Synergy&rsquo;s post-completion support into
+                one working record for inspections, defects, handover actions,
+                documents, purchaser updates and readiness.
               </p>
             </Reveal>
             <Reveal delay={0.15}>
               <p className="mt-4 max-w-[52ch] text-pretty text-base leading-relaxed text-muted">
-                The work still happens with people on site and in the project team.
-                Touchpoint makes that work visible, easier to coordinate and easier
-                to hand across when the building moves into occupation.
+                The work remains practical and people-led. Touchpoint makes it
+                easier to see, coordinate and hand across when the building moves
+                from project team to owner, purchaser and operator.
               </p>
             </Reveal>
             <Reveal delay={0.2}>
@@ -58,7 +58,7 @@ export function Solution() {
                 <p className="display-md italic-accent leading-[1.2] text-text">
                   &ldquo;The project changes hands.
                   <br />
-                  The intelligence should not.&rdquo;
+                  The record should not fall apart.&rdquo;
                 </p>
                 <footer className="mt-4 font-mono text-2xs uppercase tracking-[0.14em] text-muted">
                   Touchpoint, in one line
@@ -110,7 +110,7 @@ export function Solution() {
                 </div>
                 <span className="h-3 w-px bg-border-strong" />
                 <span className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
-                  Physical inspections · Handover workflows · Operational readiness
+                  Inspection evidence · Handover records · Readiness checks
                 </span>
               </div>
             </Reveal>
