@@ -1,59 +1,62 @@
 import {
+  ClipboardCheck,
+  MessageSquareText,
+  KeyRound,
+  FolderCheck,
   QrCode,
-  Nfc,
-  Search,
-  FileSearch,
-  FlagTriangleRight,
-  Wrench,
-  Stamp,
-  History,
-  Building2,
-  Layers,
-  FileCheck2,
-  Shield,
+  ShieldCheck,
 } from 'lucide-react';
 import { SectionEyebrow } from '@/components/section-eyebrow';
 import { Reveal } from '@/components/reveal';
 
-const layers = [
+const modules = [
   {
-    id: 'Access',
-    tag: 'Layer 01',
-    title: 'Access',
+    icon: ClipboardCheck,
+    tag: 'Module 01',
+    title: 'Handover Management',
     description:
-      'How users reach a record. Public where it should be, authenticated where it has to be.',
-    items: [
-      { icon: QrCode, label: 'QR scan' },
-      { icon: Nfc, label: 'NFC tap' },
-      { icon: Search, label: 'Direct search' },
-      { icon: FileSearch, label: 'Deep link from other tools' },
-    ],
+      'Settlement strategies, reporting dashboards, risk registers and purchaser tracking in one structured handover view.',
+    items: ['Settlement strategies', 'Risk registers', 'Reporting dashboards', 'Purchaser tracking'],
   },
   {
-    id: 'Application',
-    tag: 'Layer 02',
-    title: 'Application',
+    icon: MessageSquareText,
+    tag: 'Module 02',
+    title: 'Customer Experience',
     description:
-      'What Touchpoint actually does — the workflows that turn taps and scans into structured activity.',
-    items: [
-      { icon: FlagTriangleRight, label: 'Maintenance logging' },
-      { icon: Wrench, label: 'Service events' },
-      { icon: Stamp, label: 'Inspections & approvals' },
-      { icon: History, label: 'Full audit capture' },
-    ],
+      'Communication plans, information sessions, direct communications and customer portals for a more supported transition.',
+    items: ['Communication plans', 'Information sessions', 'Direct communications', 'Customer portals'],
   },
   {
-    id: 'Data',
-    tag: 'Layer 03',
-    title: 'Data',
+    icon: KeyRound,
+    tag: 'Module 03',
+    title: 'Inspections & Handover',
     description:
-      'The source of truth. Relational, structured, and built to be queried — not a dumping ground.',
-    items: [
-      { icon: Building2, label: 'Site · Building · Level · Space' },
-      { icon: Layers, label: 'System · Asset · Component' },
-      { icon: FileCheck2, label: 'Documents · Records · Media' },
-      { icon: Shield, label: 'Users · Roles · Audit log' },
-    ],
+      'Purchaser inspections, key handovers, defect reporting and occupation readiness coordinated through one platform.',
+    items: ['Purchaser inspections', 'Key handovers', 'Defect reporting', 'Occupation readiness'],
+  },
+  {
+    icon: FolderCheck,
+    tag: 'Module 04',
+    title: 'Asset Information',
+    description:
+      'Manuals, warranties, certificates, as-builts, commissioning records and asset registers remain structured and accessible.',
+    items: ['Manuals & warranties', 'Certificates', 'As-builts', 'Commissioning records'],
+  },
+  {
+    icon: QrCode,
+    tag: 'Module 05',
+    title: 'Digital Asset Intelligence',
+    description:
+      'QR codes, NFC tags, searchable records, audit logs and lifecycle data management connect physical assets to digital records.',
+    items: ['QR codes', 'NFC tags', 'Searchable records', 'Audit logs'],
+  },
+  {
+    icon: ShieldCheck,
+    tag: 'Module 06',
+    title: 'Operational Readiness',
+    description:
+      'Readiness assessments, FM transition planning, building information packs and governance reporting before operations begin.',
+    items: ['Readiness assessments', 'FM transition', 'Building info packs', 'Governance reporting'],
   },
 ];
 
@@ -62,7 +65,7 @@ export function System() {
     <section
       id="system"
       className="relative border-t border-border py-24 md:py-32"
-      aria-label="System architecture"
+      aria-label="Platform modules"
     >
       <div
         className="pointer-events-none absolute inset-x-0 top-1/2 -z-10 h-96 -translate-y-1/2 opacity-60"
@@ -76,67 +79,64 @@ export function System() {
       <div className="container-tight">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
-            <SectionEyebrow number="04" className="justify-center">
-              The system
+            <SectionEyebrow number="05" className="justify-center">
+              The platform
             </SectionEyebrow>
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="display-lg mt-8 text-balance">
-              Three layers,{' '}
-              <span className="italic-accent text-accent">one source of truth.</span>
+              One platform. Complete{' '}
+              <span className="italic-accent text-accent">post-completion management.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mx-auto mt-8 max-w-2xl text-pretty text-lg leading-[1.6] text-muted">
-              Touchpoint is built as a physical-to-digital platform, not a
-              tagging tool. Access stays simple. The application layer handles
-              real site workflows. The data layer stays structured and fully
-              audited — so every tap makes the record better.
+              Six integrated modules connect people, process and technology across
+              the post-completion lifecycle — from settlement and purchaser
+              communication through to digital asset information and operational readiness.
             </p>
           </Reveal>
         </div>
 
-        <div className="mt-20 grid grid-cols-1 gap-5 md:grid-cols-3">
-          {layers.map((layer, i) => (
-            <Reveal key={layer.id} delay={0.1 + i * 0.08}>
-              <div className="card-bordered h-full">
+        <div className="mt-20 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {modules.map((module, i) => (
+            <Reveal key={module.title} delay={0.1 + i * 0.06}>
+              <article className="card-bordered h-full">
                 <div className="card-inner flex h-full flex-col">
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between gap-4">
                     <span className="font-mono text-2xs uppercase tracking-[0.16em] text-accent">
-                      {layer.tag}
+                      {module.tag}
                     </span>
-                    <span className="h-2 w-2 rounded-full bg-accent" />
+                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-border bg-surface-2 text-accent">
+                      <module.icon className="h-5 w-5" strokeWidth={1.6} />
+                    </span>
                   </div>
-                  <h3 className="display-md mt-6 text-text">{layer.title}</h3>
+                  <h3 className="mt-6 text-xl font-medium tracking-tight text-text md:text-2xl">
+                    {module.title}
+                  </h3>
                   <p className="mt-3 text-[0.95rem] leading-relaxed text-muted">
-                    {layer.description}
+                    {module.description}
                   </p>
                   <ul className="mt-8 space-y-2 border-t border-border pt-6">
-                    {layer.items.map((item) => (
+                    {module.items.map((item) => (
                       <li
-                        key={item.label}
+                        key={item}
                         className="flex items-center gap-3 rounded-lg px-2 py-1.5 text-sm text-text"
                       >
-                        <item.icon
-                          className="h-4 w-4 shrink-0 text-accent"
-                          strokeWidth={1.75}
-                        />
-                        <span>{item.label}</span>
+                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden />
+                        <span>{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-              </div>
+              </article>
             </Reveal>
           ))}
         </div>
 
         <Reveal delay={0.4}>
           <p className="mx-auto mt-12 max-w-2xl text-center font-mono text-2xs uppercase tracking-[0.16em] text-muted">
-            Works alongside existing tools (Procore, Aconex, CMMS)
-            <br className="md:hidden" />
-            <span className="hidden md:inline"> · </span>
-            Doesn&rsquo;t replace them — it connects reality to them
+            Handover Management · Customer Experience · Inspections · Asset Information · Digital Intelligence · Operational Readiness
           </p>
         </Reveal>
       </div>
