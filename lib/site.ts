@@ -2,7 +2,7 @@ export const siteConfig = {
   name: 'Touchpoint',
   company: 'New Wave Synergy',
   url: 'https://touchpoint.newwavesynergy.com',
-  tagline: 'Post-Completion, Handover & Asset Transition Platform',
+  tagline: 'Post-Completion, Handover & Asset Transition Support',
   description:
     'Touchpoint by New Wave Synergy is an integrated Post-Completion, Handover and Asset Transition Platform helping developers, builders and asset owners manage the journey from Practical Completion to occupation and operations.',
   keywords: [
@@ -45,7 +45,7 @@ export const siteConfig = {
     { label: 'Who we help', href: '#who-we-help' },
     { label: 'Problem', href: '#problem' },
     { label: 'Services', href: '#services' },
-    { label: 'Platform', href: '#system' },
+    { label: 'Support model', href: '#system' },
     { label: 'Pilot', href: '#pilot' },
     { label: 'About', href: '#about' },
     { label: 'Contact', href: '#contact' },
