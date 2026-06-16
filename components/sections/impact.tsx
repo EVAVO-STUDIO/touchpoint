@@ -1,8 +1,8 @@
 import {
-  Zap,
-  History,
-  GitBranchPlus,
+  Clock3,
+  MessageSquareText,
   ShieldCheck,
+  KeyRound,
   Link2,
   ScrollText,
 } from 'lucide-react';
@@ -11,41 +11,41 @@ import { Reveal } from '@/components/reveal';
 
 const impacts = [
   {
-    icon: Zap,
-    title: 'Eliminates information friction',
+    icon: Clock3,
+    title: 'Faster settlement and handover readiness',
     description:
-      'Frontline teams move from hours of searching to seconds at the asset. No more asking where the manual is.',
+      'Teams can see what is complete, what is outstanding and what needs attention before handover delays become commercial issues.',
     featured: true,
   },
   {
-    icon: History,
-    title: 'Creates real history',
+    icon: MessageSquareText,
+    title: 'Clearer purchaser communication',
     description:
-      'Every interaction is captured at source — timestamped, attributed, and tied to the object. Not lost. Not disputed.',
-  },
-  {
-    icon: GitBranchPlus,
-    title: 'Bridges delivery to operations',
-    description:
-      'One continuous record survives practical completion. The FM team inherits a working system, not a zip file.',
+      'Updates, responsibilities and next steps are easier to coordinate, reducing the uncertainty that damages confidence after completion.',
   },
   {
     icon: ShieldCheck,
-    title: 'Accountability by default',
+    title: 'Defect accountability',
     description:
-      '&ldquo;Who logged this?&rdquo; stops being a question. Every write is auditable, with before-and-after state on key updates.',
+      'Items are tracked, attributed and reported through a consistent process instead of being lost across spreadsheets, emails and site notes.',
+  },
+  {
+    icon: KeyRound,
+    title: 'Smoother transition to occupation',
+    description:
+      'Key handover, documentation and operational readiness become a managed journey, not a last-minute scramble.',
   },
   {
     icon: Link2,
-    title: 'Connects, doesn\u2019t replace',
+    title: 'Connected asset information',
     description:
-      'Touchpoint works alongside Procore, Aconex, and existing CMMS tools. It&rsquo;s the physical-to-digital bridge they don&rsquo;t have.',
+      'QR and NFC access connects physical assets to the information people need in the field, while existing systems remain in place.',
   },
   {
     icon: ScrollText,
-    title: 'Reporting-ready from day one',
+    title: 'Reporting-ready governance',
     description:
-      'Structured records mean ESG, compliance, and asset-performance reporting is a query — not a forensic rebuild.',
+      'Structured records support compliance, asset performance, customer care and post-completion reporting without rebuilding history later.',
   },
 ];
 
@@ -60,18 +60,19 @@ export function Impact() {
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
           <div>
             <Reveal>
-              <SectionEyebrow number="07">Impact</SectionEyebrow>
+              <SectionEyebrow number="09">Impact</SectionEyebrow>
             </Reveal>
             <Reveal delay={0.05}>
-              <h2 className="display-lg mt-8 max-w-[18ch] text-balance">
-                More than convenience —{' '}
-                <span className="italic-accent text-accent">accountability.</span>
+              <h2 className="display-lg mt-8 max-w-[20ch] text-balance">
+                Better handovers.{' '}
+                <span className="italic-accent text-accent">Stronger operations.</span>
               </h2>
             </Reveal>
           </div>
           <Reveal delay={0.1}>
             <p className="max-w-sm text-pretty text-base leading-relaxed text-muted md:text-right">
-              The outcomes that make Touchpoint a system, not a scanner.
+              The outcomes that matter after Practical Completion: less friction,
+              clearer accountability and more confidence for everyone inheriting the asset.
             </p>
           </Reveal>
         </div>
@@ -95,10 +96,9 @@ export function Impact() {
                 <h3 className="mt-6 text-xl font-medium tracking-tight text-text md:text-2xl">
                   {item.title}
                 </h3>
-                <p
-                  className="mt-3 max-w-[42ch] text-[0.95rem] leading-relaxed text-muted"
-                  dangerouslySetInnerHTML={{ __html: item.description }}
-                />
+                <p className="mt-3 max-w-[42ch] text-[0.95rem] leading-relaxed text-muted">
+                  {item.description}
+                </p>
               </div>
             </Reveal>
           ))}
