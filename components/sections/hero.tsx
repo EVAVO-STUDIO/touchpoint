@@ -47,7 +47,7 @@ export function Hero() {
               Touchpoint by New Wave Synergy™
             </motion.div>
 
-            <motion.h1 {...fadeUp(0.1)} className="display-xl mt-6 text-balance">
+            <motion.h1 {...fadeUp(0.1)} className="display-xl mt-6 max-w-[13ch] text-balance sm:max-w-[14ch] lg:max-w-none">
               Construction doesn&rsquo;t end at{' '}
               <span className="italic-accent text-accent">Practical Completion.</span>
             </motion.h1>
@@ -105,7 +105,7 @@ export function Hero() {
             transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
             className="relative lg:col-span-6"
           >
-            <div className="relative mx-auto w-full max-w-xl lg:max-w-2xl">
+            <div className="relative mx-auto w-full max-w-[26rem] sm:max-w-xl lg:max-w-2xl">
               {/* Soft green glow bloom behind the disc */}
               <div
                 className="pointer-events-none absolute inset-0 -z-10 blur-3xl"
@@ -123,7 +123,7 @@ export function Hero() {
                 height={594}
                 priority
                 sizes="(min-width: 1024px) 48vw, 100vw"
-                className="h-auto w-full drop-shadow-[0_30px_60px_rgba(0,0,0,0.4)]"
+                className="h-auto w-full drop-shadow-[0_30px_60px_rgba(0,0,0,0.35)]"
               />
             </div>
 
@@ -132,13 +132,13 @@ export function Hero() {
               initial={{ opacity: 0, y: reduce ? 0 : 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.9 }}
-              className="mt-6 flex items-center justify-center gap-3 md:mt-8"
+              className="mx-auto mt-6 flex max-w-sm items-center justify-center gap-3 text-center md:mt-8 md:max-w-none"
             >
-              <span className="relative flex h-2 w-2">
+              <span className="relative hidden h-2 w-2 shrink-0 sm:flex">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
               </span>
-              <span className="font-mono text-2xs uppercase tracking-[0.18em] text-muted">
+              <span className="font-mono text-2xs uppercase leading-relaxed tracking-[0.16em] text-muted">
                 Physical inspections · Handover · Asset Transition
               </span>
             </motion.div>
@@ -150,7 +150,7 @@ export function Hero() {
           initial={{ opacity: 0, y: reduce ? 0 : 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
-          className="mt-24 grid grid-cols-2 gap-6 border-t border-border pt-10 sm:grid-cols-4 md:mt-32"
+          className="mt-20 grid grid-cols-2 gap-6 border-t border-border pt-10 sm:grid-cols-4 md:mt-28"
         >
           <Stat value="People" label="On-site post-completion support" />
           <Stat value="Process" label="Structured handover workflows" />
@@ -165,13 +165,10 @@ export function Hero() {
 function Stat({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex flex-col gap-1.5">
-      <span
-        className="font-display text-2xl tracking-tight text-text md:text-3xl"
-        style={{ fontVariationSettings: "'opsz' 48, 'SOFT' 40" }}
-      >
+      <span className="font-display text-2xl font-medium tracking-[-0.04em] text-text md:text-3xl">
         {value}
       </span>
-      <span className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
+      <span className="font-mono text-2xs uppercase leading-relaxed tracking-[0.14em] text-muted">
         {label}
       </span>
     </div>
