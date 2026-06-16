@@ -46,7 +46,7 @@ export const siteConfig = {
   nav: [
     { label: 'Who we help', href: '#who-we-help' },
     { label: 'Problem', href: '#problem' },
-    { label: 'Services', href: '#services' },
+    { label: 'How it works', href: '#how' },
     { label: 'Support model', href: '#system' },
     { label: 'Pilot', href: '#pilot' },
     { label: 'About', href: '#about' },
