@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ==========================================================================
+/* ========================================================================== 
    Theme tokens
    ========================================================================== */
 
@@ -36,7 +36,7 @@
   --color-grid: rgba(244, 244, 241, 0.04);
 }
 
-/* ==========================================================================
+/* ========================================================================== 
    Base
    ========================================================================== */
 
@@ -64,7 +64,7 @@ body {
   color: var(--color-bg);
 }
 
-/* ==========================================================================
+/* ========================================================================== 
    Components
    ========================================================================== */
 
@@ -77,33 +77,29 @@ body {
     @apply font-mono text-2xs uppercase tracking-[0.18em] text-muted;
   }
 
-  /* Fraunces with tuned optical sizing and subtle soft axis.
-     Weight 400 at large opsz reads more editorial than a heavier default. */
+  /* Controlled display type for a modern built-environment service brand. */
   .display-xl {
-    font-family: var(--font-display), Georgia, serif;
-    font-variation-settings: 'opsz' 144, 'SOFT' 30;
-    @apply text-[clamp(2.5rem,7vw,5.5rem)] leading-[0.98] tracking-[-0.03em];
-    font-weight: 400;
+    font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+    @apply text-[clamp(2.45rem,6.6vw,5.25rem)] leading-[0.98] tracking-[-0.055em];
+    font-weight: 500;
   }
 
   .display-lg {
-    font-family: var(--font-display), Georgia, serif;
-    font-variation-settings: 'opsz' 96, 'SOFT' 40;
-    @apply text-[clamp(2rem,5vw,3.75rem)] leading-[1.02] tracking-[-0.025em];
-    font-weight: 400;
+    font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+    @apply text-[clamp(2rem,4.8vw,3.6rem)] leading-[1.02] tracking-[-0.045em];
+    font-weight: 500;
   }
 
   .display-md {
-    font-family: var(--font-display), Georgia, serif;
-    font-variation-settings: 'opsz' 48, 'SOFT' 50;
-    @apply text-[clamp(1.625rem,3.5vw,2.5rem)] leading-[1.1] tracking-[-0.02em];
-    font-weight: 400;
+    font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+    @apply text-[clamp(1.625rem,3.2vw,2.35rem)] leading-[1.08] tracking-[-0.035em];
+    font-weight: 500;
   }
 
   .italic-accent {
-    font-style: italic;
-    font-family: var(--font-display), Georgia, serif;
-    font-variation-settings: 'opsz' 144, 'SOFT' 50;
+    font-style: normal;
+    font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+    letter-spacing: -0.055em;
   }
 
   .btn {
@@ -150,9 +146,8 @@ body {
     @apply text-[0.95rem] leading-[1.7] text-muted;
   }
   .legal-prose h2 {
-    font-family: var(--font-display), Georgia, serif;
-    font-variation-settings: 'opsz' 72, 'SOFT' 40;
-    @apply mb-4 mt-10 text-2xl font-normal tracking-tight text-text md:text-3xl;
+    font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+    @apply mb-4 mt-10 text-2xl font-medium tracking-tight text-text md:text-3xl;
   }
   .legal-prose h3 {
     @apply mb-3 mt-8 text-base font-semibold uppercase tracking-[0.08em] text-text;
@@ -171,7 +166,7 @@ body {
   }
 }
 
-/* ==========================================================================
+/* ========================================================================== 
    Utilities
    ========================================================================== */
 
@@ -201,7 +196,7 @@ body {
   }
 }
 
-/* ==========================================================================
+/* ========================================================================== 
    Reduced motion
    ========================================================================== */
 
