@@ -32,7 +32,7 @@ export function Problem() {
     >
       <div className="container-tight">
         <Reveal>
-          <SectionEyebrow number="03">The problem</SectionEyebrow>
+          <SectionEyebrow number="02">The problem</SectionEyebrow>
         </Reveal>
 
         <div className="mt-8 grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
