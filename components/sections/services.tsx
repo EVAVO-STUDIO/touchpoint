@@ -6,7 +6,7 @@ const services = [
   {
     icon: ClipboardCheck,
     title: 'Handover management',
-    items: ['Settlement strategies', 'Risk management', 'Handover reporting', 'Purchaser tracking'],
+    items: ['Settlement strategies', 'Close-out planning', 'Handover reporting', 'Purchaser tracking'],
   },
   {
     icon: MessageSquareText,
@@ -15,8 +15,8 @@ const services = [
   },
   {
     icon: KeyRound,
-    title: 'Inspections & handover',
-    items: ['Handover packs', 'Defect reporting', 'Key handover coordination', 'Occupation readiness'],
+    title: 'Physical inspections & handover',
+    items: ['Purchaser inspections', 'Valuation inspections', 'Key handover coordination', 'Occupation readiness'],
   },
   {
     icon: FolderCheck,
@@ -46,15 +46,16 @@ export function Services() {
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="display-lg mt-8 text-balance">
-              The work after Practical Completion,{' '}
-              <span className="italic-accent text-accent">properly managed.</span>
+              Hands-on post-completion support,{' '}
+              <span className="italic-accent text-accent">properly structured.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-[1.6] text-muted">
-              Touchpoint brings the services New Wave Synergy already understands —
-              handover, purchaser experience, inspections, digital asset handover and
-              operational readiness — into one governed post-completion platform.
+              Touchpoint is not just a platform. It packages the practical work
+              New Wave Synergy already does — inspections, handover coordination,
+              purchaser support, close-out governance and operational readiness —
+              into a clearer, more accountable service model.
             </p>
           </Reveal>
         </div>
