@@ -27,7 +27,6 @@ export function Hero() {
       className="relative overflow-hidden pt-28 md:pt-36 lg:pt-40"
       aria-label="Hero"
     >
-      {/* Atmospheric background */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-grid opacity-60 mask-fade-b" aria-hidden />
         <div
@@ -42,7 +41,6 @@ export function Hero() {
 
       <div className="container-tight">
         <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-12 lg:gap-12">
-          {/* Copy column */}
           <div className="lg:col-span-6">
             <motion.div
               {...fadeUp(0)}
@@ -107,9 +105,8 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Phone app showcase */}
           <motion.div
-            initial={{ opacity: 0, scale: reduce ? 1 : 0.94, y: reduce ? 0 : 18 }}
+            initial={{ opacity: 0, scale: reduce ? 1 : 0.96, y: reduce ? 0 : 18 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
             className="relative lg:col-span-6"
@@ -118,7 +115,6 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Stat band */}
         <motion.div
           initial={{ opacity: 0, y: reduce ? 0 : 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -137,60 +133,51 @@ export function Hero() {
 
 function PhoneShowcase() {
   const workflowItems = [
-    { label: 'Valuation inspection', status: 'Complete', icon: CheckCircle2 },
-    { label: 'Purchaser defects', status: '12 open', icon: Clock3 },
-    { label: 'Key handover', status: 'Ready', icon: KeyRound },
+    { label: 'Valuation inspection', status: 'Complete', meta: 'Tower B · Level 14', icon: CheckCircle2 },
+    { label: 'Purchaser defects', status: '12 open', meta: '5 due this week', icon: Clock3 },
+    { label: 'Key handover', status: 'Ready', meta: '32 lots scheduled', icon: KeyRound },
   ];
 
   return (
-    <div className="relative mx-auto flex min-h-[34rem] w-full max-w-[34rem] items-center justify-center sm:min-h-[38rem] lg:max-w-[38rem]">
+    <div className="relative mx-auto flex min-h-[33rem] w-full max-w-[34rem] items-center justify-center sm:min-h-[38rem] lg:max-w-[38rem]">
       <div
-        className="pointer-events-none absolute inset-0 -z-10 rounded-full blur-3xl"
+        className="pointer-events-none absolute inset-x-8 top-8 h-[28rem] rounded-full blur-3xl"
         style={{
           background:
-            'radial-gradient(ellipse 58% 58% at 50% 45%, var(--color-accent-soft), transparent 72%)',
+            'radial-gradient(ellipse 62% 58% at 50% 45%, var(--color-accent-soft), transparent 72%)',
         }}
         aria-hidden
       />
 
-      <div className="absolute left-2 top-12 hidden max-w-[14rem] rounded-2xl border border-border bg-surface/95 p-4 shadow-[0_24px_80px_-48px_rgba(0,0,0,0.55)] backdrop-blur md:block">
-        <p className="font-mono text-2xs uppercase tracking-[0.16em] text-muted">
-          Field note
-        </p>
-        <p className="mt-2 text-sm leading-relaxed text-text">
-          Site team uploaded photos and confirmed close-out evidence.
-        </p>
-      </div>
+      <div className="pointer-events-none absolute left-1/2 top-10 hidden h-[82%] w-[72%] -translate-x-1/2 rotate-3 rounded-[3rem] border border-border bg-surface/45 shadow-[0_36px_110px_-70px_rgba(0,0,0,0.55)] md:block" />
 
-      <div className="absolute bottom-16 right-0 hidden max-w-[14rem] rounded-2xl border border-border bg-surface/95 p-4 shadow-[0_24px_80px_-48px_rgba(0,0,0,0.55)] backdrop-blur sm:block">
-        <div className="flex items-center gap-2 text-accent">
-          <QrCode className="h-4 w-4" strokeWidth={1.7} />
-          <p className="font-mono text-2xs uppercase tracking-[0.16em]">
-            Asset tag scanned
-          </p>
-        </div>
-        <p className="mt-2 text-sm leading-relaxed text-muted">
-          Warranty and O&M record linked to the asset.
-        </p>
-      </div>
-
-      <div className="relative w-[17rem] rounded-[2.35rem] border border-border-strong bg-[#0b0d10] p-2 shadow-[0_36px_100px_-52px_rgba(0,0,0,0.8)] sm:w-[19.5rem] lg:rotate-[-3deg]">
-        <div className="absolute left-1/2 top-3 z-10 h-1.5 w-16 -translate-x-1/2 rounded-full bg-white/18" />
-        <div className="overflow-hidden rounded-[1.85rem] border border-white/10 bg-[#f7f6f1] text-[#15181d]">
-          <div className="bg-[#0f1418] px-5 pb-5 pt-8 text-white">
-            <div className="flex items-center justify-between gap-4">
-              <div>
-                <p className="font-mono text-[0.58rem] uppercase tracking-[0.18em] text-white/55">
-                  Touchpoint
-                </p>
-                <h3 className="mt-2 text-xl font-semibold tracking-[-0.045em]">
-                  Live handover
+      <div className="relative w-[18rem] rounded-[2.55rem] border border-white/10 bg-[#090b0d] p-2 shadow-[0_38px_110px_-54px_rgba(0,0,0,0.82)] sm:w-[20.25rem] lg:rotate-[-2deg]">
+        <div className="absolute left-1/2 top-3 z-10 h-1.5 w-16 -translate-x-1/2 rounded-full bg-white/20" />
+        <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-[#f5f3eb] text-[#15181d]">
+          <div className="bg-[#0d1113] px-5 pb-5 pt-8 text-white">
+            <div className="flex items-start justify-between gap-4">
+              <div className="min-w-0">
+                <div className="flex items-center gap-2.5">
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-accent text-[0.7rem] font-semibold text-[#07110b]">
+                    T
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold tracking-[-0.035em]">Touchpoint</p>
+                    <p className="font-mono text-[0.54rem] uppercase tracking-[0.16em] text-white/50">
+                      New Wave Synergy
+                    </p>
+                  </div>
+                </div>
+                <h3 className="mt-5 text-2xl font-semibold tracking-[-0.055em]">
+                  Harbour Quarter
                 </h3>
+                <p className="mt-1 text-sm text-white/58">Handover control · Today</p>
               </div>
-              <span className="rounded-full bg-accent px-2.5 py-1 font-mono text-[0.58rem] uppercase tracking-[0.14em] text-[#06130d]">
-                On site
+              <span className="rounded-full bg-accent px-2.5 py-1 font-mono text-[0.56rem] uppercase tracking-[0.14em] text-[#06130d]">
+                Live
               </span>
             </div>
+
             <div className="mt-5 grid grid-cols-3 gap-2">
               <Metric value="18" label="Items" />
               <Metric value="12" label="Open" />
@@ -199,14 +186,21 @@ function PhoneShowcase() {
           </div>
 
           <div className="space-y-4 p-5">
-            <div className="rounded-2xl border border-[#e0ddd2] bg-white p-4 shadow-[0_18px_50px_-40px_rgba(0,0,0,0.45)]">
-              <div className="flex items-center justify-between gap-4">
+            <div className="grid grid-cols-4 gap-1 rounded-2xl border border-[#dedbd0] bg-[#ebe8dd] p-1 font-mono text-[0.56rem] uppercase tracking-[0.12em] text-[#687066]">
+              <span className="rounded-xl bg-white px-2 py-2 text-center text-[#15181d] shadow-sm">Inspect</span>
+              <span className="px-2 py-2 text-center">Defects</span>
+              <span className="px-2 py-2 text-center">Keys</span>
+              <span className="px-2 py-2 text-center">Assets</span>
+            </div>
+
+            <div className="rounded-2xl border border-[#dedbd0] bg-white p-4 shadow-[0_18px_50px_-40px_rgba(0,0,0,0.45)]">
+              <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="font-mono text-[0.58rem] uppercase tracking-[0.16em] text-[#6f746f]">
-                    Today
+                  <p className="font-mono text-[0.58rem] uppercase tracking-[0.16em] text-[#687066]">
+                    Site inspection run
                   </p>
-                  <p className="mt-1 text-sm font-semibold tracking-tight">
-                    Purchaser inspection run
+                  <p className="mt-1 text-base font-semibold tracking-[-0.035em]">
+                    72% closed out
                   </p>
                 </div>
                 <ShieldCheck className="h-5 w-5 text-accent" strokeWidth={1.8} />
@@ -214,42 +208,49 @@ function PhoneShowcase() {
               <div className="mt-4 h-2 rounded-full bg-[#e7e4db]">
                 <div className="h-2 w-[72%] rounded-full bg-accent" />
               </div>
-              <p className="mt-3 text-xs leading-relaxed text-[#6f746f]">
-                Inspection notes, defects and close-out evidence stay with the project record.
-              </p>
+              <div className="mt-4 grid grid-cols-2 gap-2 text-xs">
+                <MiniStatus label="Photos" value="48" />
+                <MiniStatus label="Evidence" value="31" />
+              </div>
             </div>
 
             <div className="space-y-2.5">
               {workflowItems.map((item) => (
                 <div
                   key={item.label}
-                  className="flex items-center gap-3 rounded-2xl border border-[#e0ddd2] bg-white px-3.5 py-3"
+                  className="flex items-center gap-3 rounded-2xl border border-[#dedbd0] bg-white px-3.5 py-3"
                 >
-                  <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#edf8f1] text-accent">
+                  <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#e9f6ee] text-accent">
                     <item.icon className="h-4 w-4" strokeWidth={1.8} />
                   </span>
                   <span className="min-w-0 flex-1">
                     <span className="block truncate text-sm font-medium tracking-tight">
                       {item.label}
                     </span>
-                    <span className="block font-mono text-[0.58rem] uppercase tracking-[0.14em] text-[#6f746f]">
-                      {item.status}
+                    <span className="block truncate text-xs text-[#687066]">
+                      {item.meta}
                     </span>
+                  </span>
+                  <span className="shrink-0 rounded-full bg-[#f0eee6] px-2 py-1 font-mono text-[0.56rem] uppercase tracking-[0.12em] text-[#4f5750]">
+                    {item.status}
                   </span>
                 </div>
               ))}
             </div>
 
-            <div className="rounded-2xl border border-[#d9ecdf] bg-[#edf8f1] p-4">
-              <div className="flex items-center gap-2 text-accent">
-                <MessageSquareText className="h-4 w-4" strokeWidth={1.8} />
-                <p className="font-mono text-[0.58rem] uppercase tracking-[0.14em]">
-                  Purchaser update queued
+            <div className="grid grid-cols-[1fr_auto] gap-3 rounded-2xl border border-[#d4eadb] bg-[#eaf7ef] p-4">
+              <div>
+                <div className="flex items-center gap-2 text-accent">
+                  <MessageSquareText className="h-4 w-4" strokeWidth={1.8} />
+                  <p className="font-mono text-[0.58rem] uppercase tracking-[0.14em]">
+                    Purchaser update
+                  </p>
+                </div>
+                <p className="mt-2 text-sm leading-relaxed text-[#27312b]">
+                  Inspection outcome and next steps ready to send.
                 </p>
               </div>
-              <p className="mt-2 text-sm leading-relaxed text-[#27312b]">
-                Inspection outcome and next steps ready to send.
-              </p>
+              <QrCode className="mt-1 h-5 w-5 text-accent" strokeWidth={1.8} />
             </div>
           </div>
         </div>
@@ -260,10 +261,23 @@ function PhoneShowcase() {
 
 function Metric({ value, label }: { value: string; label: string }) {
   return (
-    <div className="rounded-xl border border-white/10 bg-white/8 px-3 py-2">
+    <div className="rounded-xl border border-white/10 bg-white/10 px-3 py-2">
       <span className="block text-lg font-semibold tracking-[-0.04em]">{value}</span>
       <span className="block font-mono text-[0.55rem] uppercase tracking-[0.14em] text-white/55">
         {label}
+      </span>
+    </div>
+  );
+}
+
+function MiniStatus({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-xl bg-[#f5f3eb] px-3 py-2">
+      <span className="block font-mono text-[0.54rem] uppercase tracking-[0.13em] text-[#777b73]">
+        {label}
+      </span>
+      <span className="mt-0.5 block text-sm font-semibold tracking-[-0.02em] text-[#15181d]">
+        {value}
       </span>
     </div>
   );
