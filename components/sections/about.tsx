@@ -39,18 +39,17 @@ export function About() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-8 max-w-[60ch] text-pretty text-lg leading-[1.6] text-muted">
-                Touchpoint is a product of {siteConfig.company} — a specialist
-                consultancy focused on project delivery and close-out,
-                operational readiness and post-completion performance across
-                Australia and New Zealand.
+                Touchpoint is delivered by {siteConfig.company}, a specialist
+                consultancy focused on project delivery, close-out, operational
+                readiness and post-completion performance across Australia and New Zealand.
               </p>
             </Reveal>
 
             <Reveal delay={0.14}>
               <p className="mt-5 max-w-[60ch] text-pretty text-base leading-relaxed text-muted">
-                The platform has been developed from direct experience supporting
-                the teams responsible for taking projects from Practical
-                Completion into occupation and operations.
+                The approach comes from direct experience supporting the people
+                responsible for taking projects from Practical Completion into
+                settlement, occupancy and operations.
               </p>
             </Reveal>
 
@@ -95,8 +94,8 @@ export function About() {
                     />
                   </div>
                   <p className="mt-6 text-sm leading-relaxed text-muted">
-                    Touchpoint is designed to extend New Wave Synergy&rsquo;s practical
-                    delivery capability into the post-completion phase.
+                    Touchpoint extends New Wave Synergy&rsquo;s practical delivery
+                    capability into the post-completion phase.
                   </p>
                 </div>
               </div>
