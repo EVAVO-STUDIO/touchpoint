@@ -9,7 +9,7 @@ const footerNav = {
     { label: 'Problem', href: '/#problem' },
     { label: 'Solution', href: '/#solution' },
     { label: 'How it works', href: '/#how' },
-    { label: 'System', href: '/#system' },
+    { label: 'Support model', href: '/#system' },
     { label: 'Workflows', href: '/#workflows' },
     { label: 'Pilot', href: '/#pilot' },
     { label: 'Impact', href: '/#impact' },
@@ -31,8 +31,8 @@ const footerNav = {
 
 const ecosystem = [
   'Post-Completion',
+  'Physical Inspections',
   'Handover',
-  'Asset Transition',
   'Operational Readiness',
 ];
 
@@ -52,9 +52,9 @@ export function Footer() {
           <div>
             <Logo size="lg" />
             <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted">
-              A New Wave Synergy product for post-completion, handover and
-              asset transition — designed for developers, builders and asset
-              owners moving from practical completion into occupation and operations.
+              A New Wave Synergy-backed support model for post-completion,
+              handover and asset transition — combining physical inspections,
+              structured close-out and field-ready asset information.
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
               {ecosystem.map((item) => (
@@ -121,7 +121,7 @@ export function Footer() {
 
           <div>
             <p className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
-              Product
+              Touchpoint
             </p>
             <ul className="mt-5 space-y-3">
               {footerNav.product.map((item) => (
