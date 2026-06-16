@@ -1,16 +1,8 @@
 'use client';
 
+import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
-import {
-  ArrowRight,
-  ArrowDown,
-  CheckCircle2,
-  Clock3,
-  KeyRound,
-  MessageSquareText,
-  QrCode,
-  ShieldCheck,
-} from 'lucide-react';
+import { ArrowRight, ArrowDown } from 'lucide-react';
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -111,7 +103,7 @@ export function Hero() {
             transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
             className="relative lg:col-span-6"
           >
-            <PhoneShowcase />
+            <HeroImage />
           </motion.div>
         </div>
 
@@ -131,154 +123,27 @@ export function Hero() {
   );
 }
 
-function PhoneShowcase() {
-  const workflowItems = [
-    { label: 'Valuation inspection', status: 'Complete', meta: 'Tower B · Level 14', icon: CheckCircle2 },
-    { label: 'Purchaser defects', status: '12 open', meta: '5 due this week', icon: Clock3 },
-    { label: 'Key handover', status: 'Ready', meta: '32 lots scheduled', icon: KeyRound },
-  ];
-
+function HeroImage() {
   return (
-    <div className="relative mx-auto flex min-h-[33rem] w-full max-w-[34rem] items-center justify-center sm:min-h-[38rem] lg:max-w-[38rem]">
+    <div className="relative mx-auto flex min-h-[32rem] w-full items-center justify-center sm:min-h-[38rem] lg:min-h-[42rem]">
       <div
-        className="pointer-events-none absolute inset-x-8 top-8 h-[28rem] rounded-full blur-3xl"
+        className="pointer-events-none absolute inset-x-6 top-8 -z-10 h-[30rem] rounded-full blur-3xl sm:inset-x-10 lg:h-[34rem]"
         style={{
           background:
-            'radial-gradient(ellipse 62% 58% at 50% 45%, var(--color-accent-soft), transparent 72%)',
+            'radial-gradient(ellipse 58% 58% at 50% 48%, var(--color-accent-soft), transparent 72%)',
         }}
         aria-hidden
       />
-
-      <div className="pointer-events-none absolute left-1/2 top-10 hidden h-[82%] w-[72%] -translate-x-1/2 rotate-3 rounded-[3rem] border border-border bg-surface/45 shadow-[0_36px_110px_-70px_rgba(0,0,0,0.55)] md:block" />
-
-      <div className="relative w-[18rem] rounded-[2.55rem] border border-white/10 bg-[#090b0d] p-2 shadow-[0_38px_110px_-54px_rgba(0,0,0,0.82)] sm:w-[20.25rem] lg:rotate-[-2deg]">
-        <div className="absolute left-1/2 top-3 z-10 h-1.5 w-16 -translate-x-1/2 rounded-full bg-white/20" />
-        <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-[#f5f3eb] text-[#15181d]">
-          <div className="bg-[#0d1113] px-5 pb-5 pt-8 text-white">
-            <div className="flex items-start justify-between gap-4">
-              <div className="min-w-0">
-                <div className="flex items-center gap-2.5">
-                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-accent text-[0.7rem] font-semibold text-[#07110b]">
-                    T
-                  </span>
-                  <div>
-                    <p className="text-sm font-semibold tracking-[-0.035em]">Touchpoint</p>
-                    <p className="font-mono text-[0.54rem] uppercase tracking-[0.16em] text-white/50">
-                      New Wave Synergy
-                    </p>
-                  </div>
-                </div>
-                <h3 className="mt-5 text-2xl font-semibold tracking-[-0.055em]">
-                  Harbour Quarter
-                </h3>
-                <p className="mt-1 text-sm text-white/58">Handover control · Today</p>
-              </div>
-              <span className="rounded-full bg-accent px-2.5 py-1 font-mono text-[0.56rem] uppercase tracking-[0.14em] text-[#06130d]">
-                Live
-              </span>
-            </div>
-
-            <div className="mt-5 grid grid-cols-3 gap-2">
-              <Metric value="18" label="Items" />
-              <Metric value="12" label="Open" />
-              <Metric value="4" label="Ready" />
-            </div>
-          </div>
-
-          <div className="space-y-4 p-5">
-            <div className="grid grid-cols-4 gap-1 rounded-2xl border border-[#dedbd0] bg-[#ebe8dd] p-1 font-mono text-[0.56rem] uppercase tracking-[0.12em] text-[#687066]">
-              <span className="rounded-xl bg-white px-2 py-2 text-center text-[#15181d] shadow-sm">Inspect</span>
-              <span className="px-2 py-2 text-center">Defects</span>
-              <span className="px-2 py-2 text-center">Keys</span>
-              <span className="px-2 py-2 text-center">Assets</span>
-            </div>
-
-            <div className="rounded-2xl border border-[#dedbd0] bg-white p-4 shadow-[0_18px_50px_-40px_rgba(0,0,0,0.45)]">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="font-mono text-[0.58rem] uppercase tracking-[0.16em] text-[#687066]">
-                    Site inspection run
-                  </p>
-                  <p className="mt-1 text-base font-semibold tracking-[-0.035em]">
-                    72% closed out
-                  </p>
-                </div>
-                <ShieldCheck className="h-5 w-5 text-accent" strokeWidth={1.8} />
-              </div>
-              <div className="mt-4 h-2 rounded-full bg-[#e7e4db]">
-                <div className="h-2 w-[72%] rounded-full bg-accent" />
-              </div>
-              <div className="mt-4 grid grid-cols-2 gap-2 text-xs">
-                <MiniStatus label="Photos" value="48" />
-                <MiniStatus label="Evidence" value="31" />
-              </div>
-            </div>
-
-            <div className="space-y-2.5">
-              {workflowItems.map((item) => (
-                <div
-                  key={item.label}
-                  className="flex items-center gap-3 rounded-2xl border border-[#dedbd0] bg-white px-3.5 py-3"
-                >
-                  <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#e9f6ee] text-accent">
-                    <item.icon className="h-4 w-4" strokeWidth={1.8} />
-                  </span>
-                  <span className="min-w-0 flex-1">
-                    <span className="block truncate text-sm font-medium tracking-tight">
-                      {item.label}
-                    </span>
-                    <span className="block truncate text-xs text-[#687066]">
-                      {item.meta}
-                    </span>
-                  </span>
-                  <span className="shrink-0 rounded-full bg-[#f0eee6] px-2 py-1 font-mono text-[0.56rem] uppercase tracking-[0.12em] text-[#4f5750]">
-                    {item.status}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            <div className="grid grid-cols-[1fr_auto] gap-3 rounded-2xl border border-[#d4eadb] bg-[#eaf7ef] p-4">
-              <div>
-                <div className="flex items-center gap-2 text-accent">
-                  <MessageSquareText className="h-4 w-4" strokeWidth={1.8} />
-                  <p className="font-mono text-[0.58rem] uppercase tracking-[0.14em]">
-                    Purchaser update
-                  </p>
-                </div>
-                <p className="mt-2 text-sm leading-relaxed text-[#27312b]">
-                  Inspection outcome and next steps ready to send.
-                </p>
-              </div>
-              <QrCode className="mt-1 h-5 w-5 text-accent" strokeWidth={1.8} />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Metric({ value, label }: { value: string; label: string }) {
-  return (
-    <div className="rounded-xl border border-white/10 bg-white/10 px-3 py-2">
-      <span className="block text-lg font-semibold tracking-[-0.04em]">{value}</span>
-      <span className="block font-mono text-[0.55rem] uppercase tracking-[0.14em] text-white/55">
-        {label}
-      </span>
-    </div>
-  );
-}
-
-function MiniStatus({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="rounded-xl bg-[#f5f3eb] px-3 py-2">
-      <span className="block font-mono text-[0.54rem] uppercase tracking-[0.13em] text-[#777b73]">
-        {label}
-      </span>
-      <span className="mt-0.5 block text-sm font-semibold tracking-[-0.02em] text-[#15181d]">
-        {value}
-      </span>
+      <div className="pointer-events-none absolute left-1/2 top-10 -z-10 hidden h-[34rem] w-[70%] -translate-x-1/2 rounded-[4rem] border border-border bg-surface/45 shadow-[0_36px_110px_-70px_rgba(0,0,0,0.55)] md:block" />
+      <Image
+        src="/images/touchpoint-hero.png"
+        alt="Touchpoint mobile app interface showing a live handover dashboard, inspections, purchaser defects, key handover and purchaser updates"
+        width={1024}
+        height={1536}
+        priority
+        sizes="(min-width: 1280px) 38vw, (min-width: 768px) 46vw, 86vw"
+        className="relative z-10 h-auto w-[min(86vw,22rem)] select-none drop-shadow-[0_38px_95px_rgba(0,0,0,0.45)] sm:w-[min(60vw,25rem)] lg:w-[min(38vw,29rem)]"
+      />
     </div>
   );
 }
