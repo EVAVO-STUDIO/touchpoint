@@ -47,7 +47,7 @@ export function Pilot() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <Reveal>
-              <SectionEyebrow number="08">Pilot pathway</SectionEyebrow>
+              <SectionEyebrow number="07">Pilot pathway</SectionEyebrow>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
