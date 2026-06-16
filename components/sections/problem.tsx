@@ -19,7 +19,7 @@ const points = [
     icon: FileWarning,
     title: 'Handover information arrives too late',
     description:
-      'Manuals, warranties, certificates, as-builts and asset registers are often delivered as a document dump, not as an operationally useful system that teams can trust from day one.',
+      'Manuals, warranties, certificates, as-builts and asset registers are often delivered as a document dump, not as usable information that operations teams can trust from day one.',
   },
 ];
 
@@ -50,8 +50,8 @@ export function Problem() {
                 The most sensitive phase often begins after construction is
                 technically complete: purchaser communications, inspections,
                 defects, key handover, document transfer and operational readiness.
-                Without a structured platform, this period becomes expensive,
-                reactive and difficult to govern.
+                When those pieces are managed in different places, the work becomes
+                reactive, expensive and hard to govern.
               </p>
             </Reveal>
           </div>
