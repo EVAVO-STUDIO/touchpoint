@@ -21,19 +21,19 @@ const pilot = {
     'Purchasers and end users',
   ],
   outcomes: [
-    'Improved purchaser experience',
+    'Clearer purchaser experience',
     'Faster inspection visibility',
-    'Reduced handover risk',
-    'Increased operational readiness',
+    'Lower handover risk',
+    'Stronger operational readiness',
     'Better stakeholder communication',
-    'Structured post-completion governance',
+    'Clearer post-completion governance',
   ],
 };
 
 const groups = [
-  { title: 'Pilot includes', items: pilot.scope, tag: 'Scope' },
-  { title: 'Stakeholders supported', items: pilot.stakeholders, tag: 'Who' },
-  { title: 'Outcomes delivered', items: pilot.outcomes, tag: 'Proof' },
+  { title: 'What the pilot covers', items: pilot.scope, tag: 'Scope' },
+  { title: 'Who it supports', items: pilot.stakeholders, tag: 'People' },
+  { title: 'What should improve', items: pilot.outcomes, tag: 'Outcomes' },
 ];
 
 export function Pilot() {
@@ -51,16 +51,16 @@ export function Pilot() {
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
-                Prove the model on{' '}
-                <span className="italic-accent text-accent">a live project.</span>
+                Trial Touchpoint on{' '}
+                <span className="italic-accent text-accent">a real handover.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-6 max-w-[48ch] text-pretty text-lg leading-[1.6] text-muted">
-                The 90-day pilot is a supported engagement, not just access to a
-                tool. New Wave Synergy works with project teams across inspections,
-                handover activity, purchaser communication and readiness reporting
-                so Touchpoint can be tested against real post-completion pressure.
+                The 90-day pilot is a supported engagement with New Wave Synergy,
+                not just access to a login. It is designed around a live project,
+                real inspections, live purchaser questions, defect follow-up and
+                the information needed before operations begin.
               </p>
             </Reveal>
             <Reveal delay={0.15}>
