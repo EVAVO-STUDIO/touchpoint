@@ -29,7 +29,7 @@ export function About() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
             <Reveal>
-              <SectionEyebrow number="08">About</SectionEyebrow>
+              <SectionEyebrow number="10">About</SectionEyebrow>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
@@ -49,8 +49,8 @@ export function About() {
             <Reveal delay={0.14}>
               <p className="mt-5 max-w-[60ch] text-pretty text-base leading-relaxed text-muted">
                 The platform has been developed from direct experience supporting
-                the teams responsible for taking projects from practical
-                completion into occupation and operations.
+                the teams responsible for taking projects from Practical
+                Completion into occupation and operations.
               </p>
             </Reveal>
 
@@ -66,11 +66,11 @@ export function About() {
             </Reveal>
 
             <Reveal delay={0.18}>
-              <div className="mt-12 grid grid-cols-3 gap-4 border-t border-border pt-8">
+              <div className="mt-12 grid grid-cols-1 gap-5 border-t border-border pt-8 sm:grid-cols-3">
                 {credentials.map((c) => (
                   <div key={c.label}>
                     <p
-                      className="font-display text-2xl tracking-tight text-text md:text-4xl"
+                      className="font-display text-3xl tracking-tight text-text sm:text-2xl md:text-4xl"
                       style={{ fontVariationSettings: "'opsz' 72, 'SOFT' 40" }}
                     >
                       {c.value}
