@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Manrope, Fraunces, IBM_Plex_Mono } from 'next/font/google';
+import { Manrope, Space_Grotesk, IBM_Plex_Mono } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
@@ -8,10 +8,12 @@ import './globals.css';
 
 /**
  * Typography pairing:
- *  - Fraunces (display) — distinctive variable serif with optical sizes + true italic.
- *    Gives editorial gravitas without defaulting to Inter/Space-Grotesk-style sans.
- *  - Manrope (body) — clean geometric sans that reads as premium, not overused.
- *  - IBM Plex Mono (labels) — technical feel for eyebrows/metadata, not trendy.
+ *  - Space Grotesk (display) — controlled, contemporary and technical without
+ *    feeling generic. A better fit for a built-environment service brand than
+ *    an expressive editorial serif.
+ *  - Manrope (body) — clean geometric sans that reads as premium and practical.
+ *  - IBM Plex Mono (labels) — restrained technical feel for section markers,
+ *    metadata and navigation details.
  */
 const sans = Manrope({
   subsets: ['latin'],
@@ -19,12 +21,10 @@ const sans = Manrope({
   display: 'swap',
 });
 
-const display = Fraunces({
+const display = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-display',
   display: 'swap',
-  axes: ['opsz', 'SOFT'],
-  style: ['normal', 'italic'],
 });
 
 const mono = IBM_Plex_Mono({
@@ -121,56 +121,42 @@ const structuredData = {
     {
       '@type': 'SoftwareApplication',
       '@id': `${siteConfig.url}/#software`,
-      name: siteConfig.name,
-      alternateName: 'Touchpoint by New Wave Synergy',
+      name: `${siteConfig.name} by ${siteConfig.company}`,
       applicationCategory: 'BusinessApplication',
-      operatingSystem: 'Web, iOS, Android',
-      description: siteConfig.description,
+      operatingSystem: 'Web',
       url: siteConfig.url,
+      description: siteConfig.description,
       publisher: { '@id': `${siteConfig.parent.url}/#organization` },
-      offers: {
-        '@type': 'Offer',
-        availability: 'https://schema.org/PreOrder',
-        category: 'Pilot / Subscription',
+      audience: {
+        '@type': 'Audience',
+        audienceType: 'Developers, builders, asset owners and facilities managers',
       },
     },
     {
       '@type': 'WebSite',
       '@id': `${siteConfig.url}/#website`,
       url: siteConfig.url,
-      name: siteConfig.name,
-      alternateName: 'Touchpoint by New Wave Synergy',
-      inLanguage: 'en-AU',
+      name: `${siteConfig.name} by ${siteConfig.company}`,
+      description: siteConfig.description,
       publisher: { '@id': `${siteConfig.parent.url}/#organization` },
     },
   ],
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
-      lang="en-AU"
+      lang="en"
       suppressHydrationWarning
       className={`${sans.variable} ${display.variable} ${mono.variable}`}
     >
-      <body className="min-h-screen bg-bg text-text antialiased">
+      <body>
         <ThemeProvider>
-          <a
-            href="#main"
-            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-text focus:px-4 focus:py-2 focus:text-bg"
-          >
-            Skip to content
-          </a>
           <Navbar />
-          <main id="main">{children}</main>
+          <main id="main-content">{children}</main>
           <Footer />
         </ThemeProvider>
         <script
-          id="structured-data"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
