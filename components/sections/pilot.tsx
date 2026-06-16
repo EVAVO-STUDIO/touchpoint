@@ -4,28 +4,36 @@ import { Reveal } from '@/components/reveal';
 
 const pilot = {
   scope: [
-    'Tag key plant, equipment, and common spaces',
-    'Build structured digital records for each object',
-    'Upload manuals, warranties, and commissioning data',
-    'Configure user roles and permissions',
+    'Handover dashboard',
+    'Customer communications',
+    'Inspection management',
+    'Defect tracking',
+    'Key handover coordination',
+    'Digital asset information',
+    'QR & NFC asset tagging',
+    'Operational readiness reporting',
   ],
   stakeholders: [
-    'Developer or asset owner',
-    'Builder during handover',
-    'Facility manager or operator',
+    'Developers',
+    'Builders',
+    'Asset owners',
+    'Facilities managers',
+    'Purchasers and end users',
   ],
   outcomes: [
-    'Time-to-information measured in seconds, not hours',
-    'First-visit fix rate on maintenance improved',
-    'Fewer post-completion queries and handover disputes',
-    'Operational readiness evidence captured at handover',
+    'Improved purchaser experience',
+    'Faster information accessibility',
+    'Reduced handover risk',
+    'Increased operational readiness',
+    'Better stakeholder communication',
+    'Structured post-completion governance',
   ],
 };
 
 const groups = [
-  { title: 'Pilot scope', items: pilot.scope, tag: 'Scope' },
-  { title: 'Stakeholders engaged', items: pilot.stakeholders, tag: 'Who' },
-  { title: 'Measured outcomes', items: pilot.outcomes, tag: 'Proof' },
+  { title: 'Pilot includes', items: pilot.scope, tag: 'Scope' },
+  { title: 'Stakeholders supported', items: pilot.stakeholders, tag: 'Who' },
+  { title: 'Outcomes delivered', items: pilot.outcomes, tag: 'Proof' },
 ];
 
 export function Pilot() {
@@ -43,16 +51,15 @@ export function Pilot() {
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
-                A low-risk entry to{' '}
-                <span className="italic-accent text-accent">real deployment.</span>
+                Pilot the future of{' '}
+                <span className="italic-accent text-accent">post-completion.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-6 max-w-[48ch] text-pretty text-lg leading-[1.6] text-muted">
-                Touchpoint deploys inside a live project or asset environment
-                with minimal disruption. Phase 1 is QR-first on the web. NFC
-                and deeper workflows follow once the record model is trusted
-                on the ground.
+                Our 90-day pilot allows project teams to test Touchpoint on a
+                live development, with real stakeholders, real handover activity
+                and measurable outcomes across the post-completion journey.
               </p>
             </Reveal>
             <Reveal delay={0.15}>
@@ -78,7 +85,7 @@ export function Pilot() {
                         {g.tag}
                       </span>
                     </div>
-                    <ul className="mt-5 space-y-3">
+                    <ul className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
                       {g.items.map((item) => (
                         <li key={item} className="flex items-start gap-3">
                           <span className="mt-1 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-accent-soft">
