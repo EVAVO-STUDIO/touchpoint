@@ -11,10 +11,10 @@ interface LogoProps {
 /**
  * Touchpoint wordmark.
  *
- * The second approved logo asset is used for the main site wordmark. The mark-only
- * variant remains separate for tight UI contexts, favicons and small icon placements.
+ * Logo 3 is used for the main site wordmark. The mark-only variant remains
+ * separate for tight UI contexts, favicons and small icon placements.
  */
-const LOGO_AR = 4;
+const LOGO_AR = 5.0625;
 
 export function Logo({ className, size = 'md', markOnly = false }: LogoProps) {
   const heights = { sm: 22, md: 30, lg: 44 };
@@ -26,7 +26,7 @@ export function Logo({ className, size = 'md', markOnly = false }: LogoProps) {
 
   return (
     <Image
-      src="/images/touchpoint-logo-2.png"
+      src="/images/touchpoint-logo-3.png"
       alt="Touchpoint"
       width={Math.round(h * LOGO_AR)}
       height={h}
