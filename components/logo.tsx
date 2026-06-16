@@ -9,12 +9,12 @@ interface LogoProps {
 }
 
 /**
- * Touchpoint wordmark — keep the current approved logo asset in production.
+ * Touchpoint wordmark.
  *
- * The logo may be revisited later as a separate brand exercise, but this component
- * intentionally preserves the existing client-facing mark for now.
+ * The second approved logo asset is used for the main site wordmark. The mark-only
+ * variant remains separate for tight UI contexts, favicons and small icon placements.
  */
-const LOGO_AR = 5.286;
+const LOGO_AR = 4;
 
 export function Logo({ className, size = 'md', markOnly = false }: LogoProps) {
   const heights = { sm: 22, md: 30, lg: 44 };
@@ -26,7 +26,7 @@ export function Logo({ className, size = 'md', markOnly = false }: LogoProps) {
 
   return (
     <Image
-      src="/images/touchpoint-logo.png"
+      src="/images/touchpoint-logo-2.png"
       alt="Touchpoint"
       width={Math.round(h * LOGO_AR)}
       height={h}
