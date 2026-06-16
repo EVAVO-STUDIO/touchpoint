@@ -29,6 +29,13 @@ const footerNav = {
   ],
 };
 
+const ecosystem = [
+  'Post-Completion',
+  'Handover',
+  'Asset Transition',
+  'Operational Readiness',
+];
+
 export function Footer() {
   const year = new Date().getFullYear();
 
@@ -44,14 +51,25 @@ export function Footer() {
         <div className="flex flex-col items-start justify-between gap-10 pb-14 md:flex-row md:items-end">
           <div>
             <Logo size="lg" />
-            <p className="mt-6 max-w-md text-pretty text-base leading-relaxed text-muted">
-              Digital asset intelligence for the built environment — designed
-              for handover, operations, and lifecycle performance.
+            <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted">
+              A New Wave Synergy product for post-completion, handover and
+              asset transition — designed for developers, builders and asset
+              owners moving from practical completion into occupation and operations.
             </p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {ecosystem.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-border bg-bg px-3 py-1.5 font-mono text-2xs uppercase tracking-[0.14em] text-muted"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 rounded-full border border-border-strong bg-bg px-5 py-3 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
+            className="inline-flex items-center gap-2 rounded-full border border-border-strong bg-bg px-5 py-3 text-sm font-medium transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-soft"
           >
             Request a pilot conversation
             <ArrowUpRight className="h-4 w-4" />
@@ -78,7 +96,7 @@ export function Footer() {
               <li>
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
-                  className="text-sm text-muted transition-colors hover:text-text"
+                  className="text-sm text-muted transition-colors hover:text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-soft"
                 >
                   {siteConfig.contact.email}
                 </a>
@@ -86,7 +104,7 @@ export function Footer() {
               <li>
                 <a
                   href={`tel:${siteConfig.contact.phone.replace(/\s/g, '')}`}
-                  className="text-sm text-muted transition-colors hover:text-text"
+                  className="text-sm text-muted transition-colors hover:text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-soft"
                 >
                   {siteConfig.contact.phoneDisplay}
                 </a>
@@ -95,7 +113,7 @@ export function Footer() {
                 <p className="text-xs text-muted">
                   {siteConfig.contact.entity}
                   <br />
-                  {siteConfig.contact.location}
+                  Australia and New Zealand
                 </p>
               </li>
             </ul>
@@ -110,7 +128,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-muted transition-colors hover:text-text"
+                    className="text-sm text-muted transition-colors hover:text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-soft"
                   >
                     {item.label}
                   </Link>
@@ -121,7 +139,7 @@ export function Footer() {
 
           <div>
             <p className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
-              Company
+              New Wave Synergy
             </p>
             <ul className="mt-5 space-y-3">
               {footerNav.company.map((item) => (
@@ -131,7 +149,7 @@ export function Footer() {
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-text"
+                      className="inline-flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-soft"
                     >
                       {item.label}
                       <ArrowUpRight className="h-3 w-3" />
@@ -139,7 +157,7 @@ export function Footer() {
                   ) : (
                     <Link
                       href={item.href}
-                      className="text-sm text-muted transition-colors hover:text-text"
+                      className="text-sm text-muted transition-colors hover:text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-soft"
                     >
                       {item.label}
                     </Link>
@@ -158,7 +176,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-muted transition-colors hover:text-text"
+                    className="text-sm text-muted transition-colors hover:text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-soft"
                   >
                     {item.label}
                   </Link>
@@ -177,7 +195,7 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Touchpoint on Instagram (${siteConfig.social.instagramHandle})`}
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-bg transition-colors hover:border-accent hover:text-accent"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-bg transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-soft"
                   >
                     <Instagram className="h-4 w-4" strokeWidth={1.75} />
                   </a>
@@ -188,7 +206,7 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="New Wave Synergy on LinkedIn"
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-bg transition-colors hover:border-accent hover:text-accent"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-bg transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-soft"
                   >
                     <Linkedin className="h-4 w-4" strokeWidth={1.75} />
                   </a>
@@ -210,7 +228,7 @@ export function Footer() {
           href={siteConfig.parent.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="group mt-10 flex items-center justify-between gap-4 rounded-2xl border border-border bg-bg/40 p-5 transition-colors hover:border-border-strong md:p-6"
+          className="group mt-10 flex flex-col justify-between gap-5 rounded-2xl border border-border bg-bg/40 p-5 transition-colors hover:border-border-strong md:flex-row md:items-center md:p-6"
         >
           <div className="flex items-center gap-4">
             <Image
@@ -222,10 +240,10 @@ export function Footer() {
             />
             <div>
               <p className="text-sm font-medium text-text">
-                A product of {siteConfig.parent.name}
+                Touchpoint is a product of {siteConfig.parent.name}
               </p>
               <p className="mt-0.5 text-xs leading-relaxed text-muted">
-                Construction and digital delivery consultancy · Australia
+                Specialist project delivery, close-out, operational readiness and post-completion performance consultancy.
               </p>
             </div>
           </div>
@@ -241,7 +259,7 @@ export function Footer() {
             © {year} {siteConfig.contact.entity}. All rights reserved.
           </p>
           <p className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
-            Touchpoint · Made in Australia
+            Touchpoint · New Wave Synergy · Australia and New Zealand
           </p>
         </div>
       </div>
