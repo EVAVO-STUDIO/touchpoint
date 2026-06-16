@@ -1,25 +1,25 @@
-import { FileWarning, MapPinOff, Unplug } from 'lucide-react';
+import { FileWarning, MessageSquareWarning, ClipboardX } from 'lucide-react';
 import { SectionEyebrow } from '@/components/section-eyebrow';
 import { Reveal } from '@/components/reveal';
 
 const points = [
   {
+    icon: MessageSquareWarning,
+    title: 'Purchasers are left chasing answers',
+    description:
+      'After Practical Completion, updates, inspection outcomes, defect status and handover information often sit across email chains, spreadsheets and individual inboxes. The customer experience depends on who remembers what.',
+  },
+  {
+    icon: ClipboardX,
+    title: 'Defects become a governance problem',
+    description:
+      'Unresolved items, unclear ownership and fragmented reporting create unnecessary friction between developers, builders, purchasers and facilities teams — exactly when confidence should be increasing.',
+  },
+  {
     icon: FileWarning,
-    title: 'Information exists but it\u2019s unusable',
+    title: 'Handover information arrives too late',
     description:
-      'Manuals buried in PDFs. Drawings scattered across platforms. Warranties in email chains. Decisions locked in people\u2019s heads. The data is there — it just can\u2019t be reached.',
-  },
-  {
-    icon: MapPinOff,
-    title: 'No link to physical reality',
-    description:
-      'The asset register doesn\u2019t match what\u2019s on site. Defects aren\u2019t tied to location. Maintenance history lives somewhere else. Nothing connects the digital record to the thing you\u2019re standing in front of.',
-  },
-  {
-    icon: Unplug,
-    title: 'Handover is a document dump',
-    description:
-      'Practical completion arrives as a zip file with no structure, no usability, and no continuity. Operations teams inherit paper instead of a working system — and maintenance starts blind.',
+      'Manuals, warranties, certificates, as-builts and asset registers are often delivered as a document dump, not as an operationally useful system that teams can trust from day one.',
   },
 ];
 
@@ -32,25 +32,26 @@ export function Problem() {
     >
       <div className="container-tight">
         <Reveal>
-          <SectionEyebrow number="01">The problem</SectionEyebrow>
+          <SectionEyebrow number="03">The problem</SectionEyebrow>
         </Reveal>
 
         <div className="mt-8 grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-6">
             <Reveal delay={0.05}>
               <h2 className="display-lg text-balance">
-                The missing layer in{' '}
-                <span className="italic-accent text-accent">real assets.</span>
+                Practical Completion is not{' '}
+                <span className="italic-accent text-accent">the end of the project.</span>
               </h2>
             </Reveal>
           </div>
           <div className="lg:col-span-6">
             <Reveal delay={0.1}>
               <p className="text-pretty text-lg leading-[1.6] text-muted">
-                Across real estate and infrastructure, asset data doesn&rsquo;t
-                transfer from delivery into operations. The result is wasted
-                time, poor decisions, defect disputes, and assets that quietly
-                underperform for years after practical completion.
+                The most sensitive phase often begins after construction is
+                technically complete: purchaser communications, inspections,
+                defects, key handover, document transfer and operational readiness.
+                Without a structured platform, this period becomes expensive,
+                reactive and difficult to govern.
               </p>
             </Reveal>
           </div>
