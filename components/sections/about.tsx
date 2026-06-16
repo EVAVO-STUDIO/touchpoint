@@ -5,8 +5,17 @@ import { siteConfig } from '@/lib/site';
 
 const credentials = [
   { value: '10+', label: 'Years in delivery' },
-  { value: 'AU', label: 'Based & operating' },
-  { value: 'Bldg. + Infra.', label: 'Project exposure' },
+  { value: 'AU + NZ', label: 'Operating region' },
+  { value: 'Tier 1–2 + Govt', label: 'Project exposure' },
+];
+
+const experience = [
+  'Tier 1 and Tier 2 contractors',
+  'Government projects',
+  'Residential developments',
+  'Infrastructure projects',
+  'Asset owners',
+  'Facilities management teams',
 ];
 
 export function About() {
@@ -24,26 +33,44 @@ export function About() {
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
-                Built from{' '}
-                <span className="italic-accent text-accent">industry experience.</span>
+                Built from real project{' '}
+                <span className="italic-accent text-accent">delivery experience.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-8 max-w-[60ch] text-pretty text-lg leading-[1.6] text-muted">
-                Touchpoint is developed by {siteConfig.company} — a construction
-                and digital delivery consultancy specialising in project
-                closeout, defects management, and operational readiness. The
-                product is grounded in direct site experience across building
-                and infrastructure projects, not theoretical use cases.
+                Touchpoint is a product of {siteConfig.company} — a specialist
+                consultancy focused on project delivery and close-out,
+                operational readiness and post-completion performance across
+                Australia and New Zealand.
               </p>
             </Reveal>
 
-            <Reveal delay={0.15}>
+            <Reveal delay={0.14}>
+              <p className="mt-5 max-w-[60ch] text-pretty text-base leading-relaxed text-muted">
+                The platform has been developed from direct experience supporting
+                the teams responsible for taking projects from practical
+                completion into occupation and operations.
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.16}>
+              <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {experience.map((item) => (
+                  <div key={item} className="flex items-center gap-3 text-sm text-muted">
+                    <span className="h-5 w-1 rounded-full bg-accent" aria-hidden />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.18}>
               <div className="mt-12 grid grid-cols-3 gap-4 border-t border-border pt-8">
                 {credentials.map((c) => (
                   <div key={c.label}>
                     <p
-                      className="font-display text-3xl tracking-tight text-text md:text-4xl"
+                      className="font-display text-2xl tracking-tight text-text md:text-4xl"
                       style={{ fontVariationSettings: "'opsz' 72, 'SOFT' 40" }}
                     >
                       {c.value}
@@ -56,7 +83,7 @@ export function About() {
               </div>
             </Reveal>
 
-            <Reveal delay={0.2}>
+            <Reveal delay={0.22}>
               <a
                 href={siteConfig.parent.url}
                 target="_blank"
