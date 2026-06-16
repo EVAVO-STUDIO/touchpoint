@@ -120,7 +120,7 @@ export function Hero() {
                 src="/images/hero-tag-disc.png"
                 alt="A Touchpoint tag disc with the wordmark and a QR code, produced for mounting on assets"
                 width={900}
-                height={594}
+                height={277}
                 priority
                 sizes="(min-width: 1024px) 48vw, 100vw"
                 className="h-auto w-full drop-shadow-[0_30px_60px_rgba(0,0,0,0.35)]"
