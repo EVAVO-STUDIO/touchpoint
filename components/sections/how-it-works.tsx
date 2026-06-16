@@ -15,35 +15,35 @@ const stages = [
     icon: ClipboardList,
     title: 'Prepare',
     description:
-      'Handover planning, communication strategies and project readiness assessments before the pressure of occupation begins.',
+      'Agree the handover plan, communication rhythm, inspection approach and readiness checks before the pressure builds.',
   },
   {
     id: '02',
     icon: MessageSquareText,
     title: 'Coordinate',
     description:
-      'Purchaser communication, inspections, defect management and stakeholder engagement move through a structured workflow.',
+      'Keep purchaser questions, inspection bookings, defects and stakeholder actions moving through one working record.',
   },
   {
     id: '03',
     icon: KeyRound,
     title: 'Transition',
     description:
-      'Key handover, documentation management and information transfer are managed as one connected post-completion journey.',
+      'Manage key handover, outstanding items, documents and final readiness steps as the building moves into occupation.',
   },
   {
     id: '04',
     icon: FolderCheck,
     title: 'Operate',
     description:
-      'Digital asset records, warranties, lifecycle information and operational readiness are available when the asset goes live.',
+      'Give asset owners and facilities teams the records, warranties and asset information they need from day one.',
   },
   {
     id: '05',
     icon: TrendingUp,
-    title: 'Optimise',
+    title: 'Improve',
     description:
-      'Continuous reporting, asset intelligence and long-term information accessibility support stronger performance after handover.',
+      'Use the close-out record to see where delays, defects and information gaps are recurring across projects.',
   },
 ];
 
@@ -63,14 +63,15 @@ export function HowItWorks() {
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="display-lg mt-8 text-balance">
-              One journey.{' '}
-              <span className="italic-accent text-accent">Five stages.</span>
+              From completion to occupation,{' '}
+              <span className="italic-accent text-accent">without losing the thread.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-[1.6] text-muted">
-              From the moment Practical Completion is reached through to long-term
-              operations, Touchpoint manages every step of the post-completion journey.
+              Touchpoint follows the handover work as it actually happens: planning,
+              site activity, purchaser updates, key handover, asset records and the
+              move into operations.
             </p>
           </Reveal>
 
