@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next';
 import { Manrope, Fraunces, IBM_Plex_Mono } from 'next/font/google';
-import Script from 'next/script';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
@@ -106,7 +105,7 @@ const structuredData = {
   '@graph': [
     {
       '@type': 'Organization',
-      '@id': `${siteConfig.url}/#organization`,
+      '@id': `${siteConfig.parent.url}/#organization`,
       name: siteConfig.company,
       url: siteConfig.parent.url,
       sameAs: [siteConfig.parent.url, siteConfig.social.linkedin].filter(Boolean),
@@ -115,18 +114,20 @@ const structuredData = {
         email: siteConfig.contact.email,
         telephone: siteConfig.contact.phone,
         contactType: 'Sales',
-        areaServed: 'AU',
+        areaServed: ['AU', 'NZ'],
         availableLanguage: 'English',
       },
     },
     {
       '@type': 'SoftwareApplication',
+      '@id': `${siteConfig.url}/#software`,
       name: siteConfig.name,
+      alternateName: 'Touchpoint by New Wave Synergy',
       applicationCategory: 'BusinessApplication',
       operatingSystem: 'Web, iOS, Android',
       description: siteConfig.description,
       url: siteConfig.url,
-      publisher: { '@id': `${siteConfig.url}/#organization` },
+      publisher: { '@id': `${siteConfig.parent.url}/#organization` },
       offers: {
         '@type': 'Offer',
         availability: 'https://schema.org/PreOrder',
@@ -135,10 +136,12 @@ const structuredData = {
     },
     {
       '@type': 'WebSite',
+      '@id': `${siteConfig.url}/#website`,
       url: siteConfig.url,
       name: siteConfig.name,
+      alternateName: 'Touchpoint by New Wave Synergy',
       inLanguage: 'en-AU',
-      publisher: { '@id': `${siteConfig.url}/#organization` },
+      publisher: { '@id': `${siteConfig.parent.url}/#organization` },
     },
   ],
 };
@@ -166,10 +169,9 @@ export default function RootLayout({
           <main id="main">{children}</main>
           <Footer />
         </ThemeProvider>
-        <Script
+        <script
           id="structured-data"
           type="application/ld+json"
-          strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </body>
