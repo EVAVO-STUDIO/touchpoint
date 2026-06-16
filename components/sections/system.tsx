@@ -79,7 +79,7 @@ export function System() {
       <div className="container-tight">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
-            <SectionEyebrow number="05" className="justify-center">
+            <SectionEyebrow number="06" className="justify-center">
               The platform
             </SectionEyebrow>
           </Reveal>
