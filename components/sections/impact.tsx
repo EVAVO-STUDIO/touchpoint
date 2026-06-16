@@ -63,16 +63,15 @@ export function Impact() {
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 max-w-[20ch] text-balance">
-                Less friction after completion.{' '}
-                <span className="italic-accent text-accent">More confidence at handover.</span>
+                Fewer loose ends.{' '}
+                <span className="italic-accent text-accent">A cleaner handover.</span>
               </h2>
             </Reveal>
           </div>
           <Reveal delay={0.1}>
             <p className="max-w-sm text-pretty text-base leading-relaxed text-muted md:text-right">
-              The outcome is not another dashboard. It is a cleaner transition
-              from construction into occupancy, with fewer gaps for people to
-              chase manually.
+              Touchpoint reduces the manual chasing that usually sits between
+              completion, settlement, occupancy and operations.
             </p>
           </Reveal>
         </div>
