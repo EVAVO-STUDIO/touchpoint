@@ -46,23 +46,26 @@ export function Services() {
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="display-lg mt-8 text-balance">
-              Hands-on post-completion support,{' '}
-              <span className="italic-accent text-accent">properly structured.</span>
+              Practical handover work,{' '}
+              <span className="italic-accent text-accent">properly controlled.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-[1.6] text-muted">
-              Touchpoint is not just a platform. It packages the practical work
-              New Wave Synergy already does — inspections, handover coordination,
-              purchaser support, close-out governance and operational readiness —
-              into a clearer, more accountable service model.
+              Touchpoint gives structure to the work New Wave Synergy already does
+              on real projects: inspections, handover coordination, purchaser
+              support, defect close-out, asset information and operational readiness.
             </p>
           </Reveal>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-5">
+        <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
-            <Reveal key={service.title} delay={0.08 + index * 0.05}>
+            <Reveal
+              key={service.title}
+              delay={0.08 + index * 0.05}
+              className={index === 2 ? 'lg:row-span-2' : ''}
+            >
               <article className="card flex h-full flex-col">
                 <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-surface-2 text-accent">
                   <service.icon className="h-5 w-5" strokeWidth={1.6} />
