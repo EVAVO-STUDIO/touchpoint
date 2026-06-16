@@ -4,10 +4,10 @@ import { Reveal } from '@/components/reveal';
 
 const pilot = {
   scope: [
+    'Physical inspection support',
     'Handover dashboard',
     'Customer communications',
-    'Inspection management',
-    'Defect tracking',
+    'Defect close-out tracking',
     'Key handover coordination',
     'Digital asset information',
     'QR & NFC asset tagging',
@@ -22,7 +22,7 @@ const pilot = {
   ],
   outcomes: [
     'Improved purchaser experience',
-    'Faster information accessibility',
+    'Faster inspection visibility',
     'Reduced handover risk',
     'Increased operational readiness',
     'Better stakeholder communication',
@@ -51,15 +51,16 @@ export function Pilot() {
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
-                Pilot the future of{' '}
-                <span className="italic-accent text-accent">post-completion.</span>
+                Prove the model on{' '}
+                <span className="italic-accent text-accent">a live project.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-6 max-w-[48ch] text-pretty text-lg leading-[1.6] text-muted">
-                Our 90-day pilot allows project teams to test Touchpoint on a
-                live development, with real stakeholders, real handover activity
-                and measurable outcomes across the post-completion journey.
+                The 90-day pilot is a supported engagement, not just access to a
+                tool. New Wave Synergy works with project teams across inspections,
+                handover activity, purchaser communication and readiness reporting
+                so Touchpoint can be tested against real post-completion pressure.
               </p>
             </Reveal>
             <Reveal delay={0.15}>
