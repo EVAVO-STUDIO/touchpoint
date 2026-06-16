@@ -20,10 +20,10 @@ interface Workflow {
 const workflows: Workflow[] = [
   {
     icon: SearchCheck,
-    tag: 'Workflow 01',
+    tag: 'On site',
     title: 'Physical inspection',
     description:
-      'Site walks, purchaser inspections and valuation inspections are captured as structured records, not scattered notes and follow-up emails.',
+      'Site walks, purchaser inspections and valuation inspections are captured as proper project records, not scattered notes and follow-up emails.',
     steps: [
       'Walk the asset or lot on site',
       'Capture findings, photos and status',
@@ -34,7 +34,7 @@ const workflows: Workflow[] = [
   },
   {
     icon: ClipboardCheck,
-    tag: 'Workflow 02',
+    tag: 'Close-out',
     title: 'Defect close-out',
     description:
       'Outstanding defects are easier to govern when each item has evidence, responsibility, timing and a clear path to closure.',
@@ -48,7 +48,7 @@ const workflows: Workflow[] = [
   },
   {
     icon: MessageSquareText,
-    tag: 'Workflow 03',
+    tag: 'Purchasers',
     title: 'Purchaser communication',
     description:
       'Purchasers and end users receive clearer information during the period when uncertainty can quickly become frustration.',
@@ -62,7 +62,7 @@ const workflows: Workflow[] = [
   },
   {
     icon: KeyRound,
-    tag: 'Workflow 04',
+    tag: 'Handover',
     title: 'Key handover',
     description:
       'Keys, documents, access requirements and final readiness steps are coordinated as a managed transition, not a last-minute scramble.',
@@ -76,7 +76,7 @@ const workflows: Workflow[] = [
   },
   {
     icon: ShieldCheck,
-    tag: 'Workflow 05',
+    tag: 'Readiness',
     title: 'Operational readiness',
     description:
       'Facilities teams inherit a clearer picture of the asset before operations begin, with documentation and readiness evidence in one place.',
