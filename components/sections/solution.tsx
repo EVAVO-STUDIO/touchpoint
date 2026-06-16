@@ -35,22 +35,22 @@ export function Solution() {
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
-                Introducing{' '}
-                <span className="italic-accent text-accent">Touchpoint.</span>
+                Touchpoint keeps the handover phase{' '}
+                <span className="italic-accent text-accent">under control.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-6 max-w-[52ch] text-pretty text-lg leading-[1.6] text-muted">
-                Touchpoint combines New Wave Synergy&rsquo;s hands-on post-completion
-                delivery support with a digital system that keeps handover,
-                inspections, defects, documentation and readiness activity visible.
+                It combines New Wave Synergy&rsquo;s hands-on post-completion delivery
+                support with a shared system for inspections, defects, handover
+                tasks, documents and operational readiness.
               </p>
             </Reveal>
             <Reveal delay={0.15}>
               <p className="mt-4 max-w-[52ch] text-pretty text-base leading-relaxed text-muted">
-                The result is not software replacing people. It is people, process
-                and technology working together so the transition into occupation
-                and operations is structured, accountable and easier to manage.
+                The work still happens with people on site and in the project team.
+                Touchpoint makes that work visible, easier to coordinate and easier
+                to hand across when the building moves into occupation.
               </p>
             </Reveal>
             <Reveal delay={0.2}>
