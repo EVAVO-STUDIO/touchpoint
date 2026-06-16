@@ -15,7 +15,6 @@ const impacts = [
     title: 'Fewer handover delays',
     description:
       'Project teams can see which inspections, defects, documents and handover actions still need attention before they become settlement or occupation issues.',
-    featured: true,
   },
   {
     icon: MessageSquareText,
@@ -80,12 +79,8 @@ export function Impact() {
 
         <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           {impacts.map((item, i) => (
-            <Reveal
-              key={item.title}
-              delay={0.08 + i * 0.06}
-              className={item.featured ? 'lg:col-span-2' : ''}
-            >
-              <div className={`card h-full ${item.featured ? 'bg-surface-2/60' : ''}`}>
+            <Reveal key={item.title} delay={0.08 + i * 0.06}>
+              <div className="card h-full">
                 <div className="flex items-center gap-4">
                   <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-surface text-accent">
                     <item.icon className="h-4 w-4" strokeWidth={1.75} />
@@ -97,7 +92,7 @@ export function Impact() {
                 <h3 className="mt-6 text-xl font-medium tracking-tight text-text md:text-2xl">
                   {item.title}
                 </h3>
-                <p className="mt-3 max-w-[42ch] text-[0.95rem] leading-relaxed text-muted">
+                <p className="mt-3 text-[0.95rem] leading-relaxed text-muted">
                   {item.description}
                 </p>
               </div>
