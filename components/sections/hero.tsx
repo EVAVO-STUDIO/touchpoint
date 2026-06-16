@@ -33,39 +33,42 @@ export function Hero() {
       </div>
 
       <div className="container-tight">
-        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-12 lg:gap-12">
+        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-12 lg:gap-12">
           {/* Copy column */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-6">
             <motion.div
               {...fadeUp(0)}
-              className="flex items-center gap-3 font-mono text-2xs uppercase tracking-[0.18em] text-muted"
+              className="flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-2xs uppercase tracking-[0.18em] text-muted"
             >
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
               </span>
-              New Wave Synergy presents
+              Touchpoint by New Wave Synergy™
             </motion.div>
 
             <motion.h1 {...fadeUp(0.1)} className="display-xl mt-6 text-balance">
-              Turn every asset{' '}
-              <span className="italic-accent text-accent">into an interface.</span>
+              Construction doesn&rsquo;t end at{' '}
+              <span className="italic-accent text-accent">Practical Completion.</span>
             </motion.h1>
 
             <motion.p
               {...fadeUp(0.2)}
-              className="mt-8 max-w-[58ch] text-pretty text-lg leading-[1.55] text-muted md:text-xl"
+              className="mt-8 max-w-[62ch] text-pretty text-lg leading-[1.55] text-muted md:text-xl"
             >
-              Touchpoint connects physical assets to structured digital data —
-              making manuals, warranties, and lifecycle information instantly
-              accessible at the point of use.
+              Touchpoint is an integrated Post-Completion, Handover and Asset
+              Transition Platform, helping developers, builders and asset owners
+              manage the journey from construction to occupation and operations.
             </motion.p>
 
             <motion.p
               {...fadeUp(0.27)}
-              className="mt-4 max-w-[58ch] text-pretty text-base text-muted md:text-lg"
+              className="mt-4 max-w-[62ch] text-pretty text-base leading-relaxed text-muted md:text-lg"
             >
-              No searching. No disconnected systems. No lost information.
+              We bring together people, process and technology to create a
+              connected post-completion experience that improves handovers,
+              customer satisfaction, operational readiness and long-term asset
+              performance.
             </motion.p>
 
             <motion.div
@@ -88,7 +91,7 @@ export function Hero() {
             >
               <div className="h-8 w-px bg-accent" />
               <p className="max-w-md text-sm leading-relaxed text-muted">
-                Built from real project delivery and post-completion experience.
+                An NWS product built from real project delivery and post-completion experience.
               </p>
             </motion.div>
           </div>
@@ -98,9 +101,9 @@ export function Hero() {
             initial={{ opacity: 0, scale: reduce ? 1 : 0.92, rotate: reduce ? 0 : -6 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="relative lg:col-span-5"
+            className="relative lg:col-span-6"
           >
-            <div className="relative mx-auto w-full max-w-lg">
+            <div className="relative mx-auto w-full max-w-xl lg:max-w-2xl">
               {/* Soft green glow bloom behind the disc */}
               <div
                 className="pointer-events-none absolute inset-0 -z-10 blur-3xl"
@@ -117,6 +120,7 @@ export function Hero() {
                 width={900}
                 height={594}
                 priority
+                sizes="(min-width: 1024px) 48vw, 100vw"
                 className="h-auto w-full drop-shadow-[0_30px_60px_rgba(0,0,0,0.4)]"
               />
             </div>
@@ -133,7 +137,7 @@ export function Hero() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
               </span>
               <span className="font-mono text-2xs uppercase tracking-[0.18em] text-muted">
-                Tap · Scan · Access
+                Post-Completion · Handover · Asset Transition
               </span>
             </motion.div>
           </motion.div>
@@ -146,10 +150,10 @@ export function Hero() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.6 }}
           className="mt-24 grid grid-cols-2 gap-6 border-t border-border pt-10 sm:grid-cols-4 md:mt-32"
         >
-          <Stat value="QR + NFC" label="Hybrid access" />
-          <Stat value="0" label="App install required" />
-          <Stat value="Seconds" label="To find information" />
-          <Stat value="AU" label="Built for local delivery" />
+          <Stat value="People" label="Post-completion consultants" />
+          <Stat value="Process" label="Structured handover workflows" />
+          <Stat value="Technology" label="Single source of truth" />
+          <Stat value="AU + NZ" label="Where we operate" />
         </motion.div>
       </div>
     </section>
