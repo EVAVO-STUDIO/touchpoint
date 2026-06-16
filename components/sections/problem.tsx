@@ -7,19 +7,19 @@ const points = [
     icon: MessageSquareWarning,
     title: 'Purchasers are left chasing answers',
     description:
-      'After Practical Completion, updates, inspection outcomes, defect status and handover information often sit across email chains, spreadsheets and individual inboxes. The customer experience depends on who remembers what.',
+      'After Practical Completion, updates, inspection outcomes, defect status and handover information often sit across email chains, spreadsheets and individual inboxes. The experience depends on who remembers the latest version.',
   },
   {
     icon: ClipboardX,
-    title: 'Defects become a governance problem',
+    title: 'Defects lose clear ownership',
     description:
-      'Unresolved items, unclear ownership and fragmented reporting create unnecessary friction between developers, builders, purchasers and facilities teams — exactly when confidence should be increasing.',
+      'Unresolved items, unclear responsibility and fragmented reporting create friction between developers, builders, purchasers and facilities teams at the point confidence should be increasing.',
   },
   {
     icon: FileWarning,
-    title: 'Handover information arrives too late',
+    title: 'Information arrives as a document dump',
     description:
-      'Manuals, warranties, certificates, as-builts and asset registers are often delivered as a document dump, not as usable information that operations teams can trust from day one.',
+      'Manuals, warranties, certificates, as-builts and asset registers often arrive too late, with too little structure, and with no easy way for operations teams to use them in the field.',
   },
 ];
 
@@ -47,11 +47,11 @@ export function Problem() {
           <div className="lg:col-span-6">
             <Reveal delay={0.1}>
               <p className="text-pretty text-lg leading-[1.6] text-muted">
-                The most sensitive phase often begins after construction is
-                technically complete: purchaser communications, inspections,
-                defects, key handover, document transfer and operational readiness.
-                When those pieces are managed in different places, the work becomes
-                reactive, expensive and hard to govern.
+                The hard part often starts when construction is technically complete:
+                purchasers need answers, inspections need evidence, defects need
+                owners, keys need coordination and operations teams need reliable
+                records. If those pieces are managed in different places, the handover
+                becomes harder than it needs to be.
               </p>
             </Reveal>
           </div>
