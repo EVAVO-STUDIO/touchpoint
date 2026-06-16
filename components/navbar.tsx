@@ -35,7 +35,7 @@ export function Navbar() {
           : 'border-b border-transparent'
       )}
     >
-      <div className="container-tight flex h-16 items-center justify-between md:h-18">
+      <div className="container-tight flex h-16 items-center justify-between gap-4 md:h-18">
         <Link
           href="/"
           className="shrink-0 transition-opacity hover:opacity-80"
@@ -44,23 +44,23 @@ export function Navbar() {
           <Logo />
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
+        <nav className="hidden min-w-0 items-center justify-center gap-0.5 xl:flex" aria-label="Primary">
           {siteConfig.nav.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="rounded-full px-4 py-2 text-sm text-muted transition-colors hover:bg-surface hover:text-text focus-visible:bg-surface focus-visible:text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-soft"
+              className="rounded-full px-3 py-2 text-sm text-muted transition-colors hover:bg-surface hover:text-text focus-visible:bg-surface focus-visible:text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-soft 2xl:px-4"
             >
               {item.label}
             </a>
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2">
           <ThemeToggle />
           <a
             href="#contact"
-            className="hidden rounded-full bg-text px-5 py-2.5 text-sm font-medium text-bg transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-soft md:inline-flex"
+            className="hidden rounded-full bg-text px-4 py-2.5 text-sm font-medium text-bg transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-soft sm:inline-flex 2xl:px-5"
           >
             Request a pilot
           </a>
@@ -70,18 +70,18 @@ export function Navbar() {
             aria-expanded={open}
             aria-controls="mobile-primary-navigation"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-soft lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-soft xl:hidden"
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile sheet */}
+      {/* Mobile / tablet sheet */}
       <div
         id="mobile-primary-navigation"
         className={cn(
-          'fixed inset-x-0 top-16 z-30 origin-top border-b border-border bg-bg/98 backdrop-blur-xl transition-all duration-300 lg:hidden',
+          'fixed inset-x-0 top-16 z-30 origin-top border-b border-border bg-bg/98 backdrop-blur-xl transition-all duration-300 xl:hidden',
           open ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-2 opacity-0'
         )}
       >
@@ -113,7 +113,7 @@ export function Navbar() {
 
       <noscript>
         <nav
-          className="container-tight border-t border-border bg-bg py-4 lg:hidden"
+          className="container-tight border-t border-border bg-bg py-4 xl:hidden"
           aria-label="Mobile primary fallback"
         >
           <div className="grid grid-cols-2 gap-2 text-sm">
