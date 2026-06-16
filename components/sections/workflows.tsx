@@ -1,14 +1,15 @@
 import {
-  FlagTriangleRight,
-  KeyRound,
   ClipboardCheck,
-  Wrench,
+  KeyRound,
+  MessageSquareText,
+  ShieldCheck,
+  SearchCheck,
 } from 'lucide-react';
 import { SectionEyebrow } from '@/components/section-eyebrow';
 import { Reveal } from '@/components/reveal';
 
 interface Workflow {
-  icon: typeof FlagTriangleRight;
+  icon: typeof ClipboardCheck;
   tag: string;
   title: string;
   description: string;
@@ -18,60 +19,74 @@ interface Workflow {
 
 const workflows: Workflow[] = [
   {
-    icon: FlagTriangleRight,
+    icon: SearchCheck,
     tag: 'Workflow 01',
-    title: 'Maintenance logging',
+    title: 'Physical inspection',
     description:
-      'From “there’s an issue” to a structured, assigned, photographed record in seconds — with no typing the location or guessing the asset.',
+      'Site walks, purchaser inspections and valuation inspections are captured as structured records, not scattered notes and follow-up emails.',
     steps: [
-      'Scan or tap the asset tag',
-      'Location & asset auto-populated',
-      'Take photo, add note, set priority',
-      'Assign to contractor, set due date',
+      'Walk the asset or lot on site',
+      'Capture findings, photos and status',
+      'Assign ownership and next action',
+      'Report progress without rebuilding the record',
     ],
-    who: 'Supervisors, technicians, clients',
-  },
-  {
-    icon: KeyRound,
-    tag: 'Workflow 02',
-    title: 'Handover',
-    description:
-      'Replace the practical-completion document dump with something a facility manager can actually use on day one.',
-    steps: [
-      'Client or operator taps the asset',
-      'Opens manuals, warranties, certificates',
-      'Sees installer, commissioning date, serial',
-      'No PDF digging. No missing records.',
-    ],
-    who: 'Developers, operators, FM teams',
+    who: 'NWS, developers, builders, purchasers',
   },
   {
     icon: ClipboardCheck,
-    tag: 'Workflow 03',
-    title: 'Commissioning',
+    tag: 'Workflow 02',
+    title: 'Defect close-out',
     description:
-      'Structured checklists at the point of use, with evidence attached to the asset itself — not stored in a separate folder someone has to find later.',
+      'Outstanding defects are easier to govern when each item has evidence, responsibility, timing and a clear path to closure.',
     steps: [
-      'Tap asset to open the right checklist',
-      'Complete items with photos & notes',
-      'Sign off if permitted by role',
-      'Evidence written to asset record',
+      'Log item with location and evidence',
+      'Assign to the right party',
+      'Track updates and completion status',
+      'Retain a clear audit trail',
     ],
-    who: 'Contractors, commissioning agents',
+    who: 'Builders, developers, project teams',
   },
   {
-    icon: Wrench,
-    tag: 'Workflow 04',
-    title: 'Maintenance',
+    icon: MessageSquareText,
+    tag: 'Workflow 03',
+    title: 'Purchaser communication',
     description:
-      'Tap an asset and see everything that’s ever happened to it. Log work at source. Real history replaces guesswork.',
+      'Purchasers and end users receive clearer information during the period when uncertainty can quickly become frustration.',
     steps: [
-      'Tap asset → full service history',
-      'Log work performed & outcome',
-      'Attach photos, mark parts replaced',
-      'Set next service due date',
+      'Prepare communication plan',
+      'Coordinate updates and responses',
+      'Track inspection and handover status',
+      'Reduce repeated questions and confusion',
     ],
-    who: 'Facility managers, field technicians',
+    who: 'Developers, customer care teams, purchasers',
+  },
+  {
+    icon: KeyRound,
+    tag: 'Workflow 04',
+    title: 'Key handover',
+    description:
+      'Keys, documents, access requirements and final readiness steps are coordinated as a managed transition, not a last-minute scramble.',
+    steps: [
+      'Confirm handover readiness',
+      'Coordinate keys and documents',
+      'Record handover completion',
+      'Escalate anything still outstanding',
+    ],
+    who: 'Developers, owners, purchasers, FM teams',
+  },
+  {
+    icon: ShieldCheck,
+    tag: 'Workflow 05',
+    title: 'Operational readiness',
+    description:
+      'Facilities teams inherit a clearer picture of the asset before operations begin, with documentation and readiness evidence in one place.',
+    steps: [
+      'Review readiness requirements',
+      'Confirm asset information is available',
+      'Prepare transition and FM packs',
+      'Report readiness gaps early',
+    ],
+    who: 'Asset owners, FM teams, operators',
   },
 ];
 
@@ -90,16 +105,15 @@ export function Workflows() {
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
-                Built for the site,{' '}
-                <span className="italic-accent text-accent">not the spreadsheet.</span>
+                What happens on site,{' '}
+                <span className="italic-accent text-accent">captured properly.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-6 text-pretty text-base leading-relaxed text-muted">
-                Touchpoint is designed around what actually happens on real
-                projects — maintenance calls, handover hand-offs, commissioning
-                sign-offs, service visits. Every workflow is captured where it
-                happens, in under a minute.
+                Touchpoint supports the practical work that happens after Practical
+                Completion: inspections, defects, purchaser updates, key handover
+                and operational readiness. The work stays human; the record becomes clearer.
               </p>
             </Reveal>
           </div>
