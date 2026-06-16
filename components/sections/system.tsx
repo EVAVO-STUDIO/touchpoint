@@ -12,50 +12,50 @@ import { Reveal } from '@/components/reveal';
 const modules = [
   {
     icon: ClipboardCheck,
-    tag: 'Module 01',
+    tag: 'Support 01',
     title: 'Handover Management',
     description:
-      'Settlement strategies, reporting dashboards, risk registers and purchaser tracking in one structured handover view.',
+      'Supports settlement strategies, reporting dashboards, risk registers and purchaser tracking in one structured handover view.',
     items: ['Settlement strategies', 'Risk registers', 'Reporting dashboards', 'Purchaser tracking'],
   },
   {
     icon: MessageSquareText,
-    tag: 'Module 02',
+    tag: 'Support 02',
     title: 'Customer Experience',
     description:
-      'Communication plans, information sessions, direct communications and customer portals for a more supported transition.',
+      'Gives purchaser liaison, communication plans, information sessions and customer care a clear operational structure.',
     items: ['Communication plans', 'Information sessions', 'Direct communications', 'Customer portals'],
   },
   {
     icon: KeyRound,
-    tag: 'Module 03',
+    tag: 'Support 03',
     title: 'Inspections & Handover',
     description:
-      'Purchaser inspections, key handovers, defect reporting and occupation readiness coordinated through one platform.',
-    items: ['Purchaser inspections', 'Key handovers', 'Defect reporting', 'Occupation readiness'],
+      'Keeps purchaser inspections, valuation inspections, key handovers, defect reporting and occupation readiness visible.',
+    items: ['Purchaser inspections', 'Valuation inspections', 'Key handovers', 'Occupation readiness'],
   },
   {
     icon: FolderCheck,
-    tag: 'Module 04',
+    tag: 'Support 04',
     title: 'Asset Information',
     description:
-      'Manuals, warranties, certificates, as-builts, commissioning records and asset registers remain structured and accessible.',
+      'Keeps manuals, warranties, certificates, as-builts, commissioning records and asset registers structured and accessible.',
     items: ['Manuals & warranties', 'Certificates', 'As-builts', 'Commissioning records'],
   },
   {
     icon: QrCode,
-    tag: 'Module 05',
+    tag: 'Support 05',
     title: 'Digital Asset Intelligence',
     description:
-      'QR codes, NFC tags, searchable records, audit logs and lifecycle data management connect physical assets to digital records.',
+      'Connects physical assets to useful records through QR codes, NFC tags, searchable information, audit logs and lifecycle data.',
     items: ['QR codes', 'NFC tags', 'Searchable records', 'Audit logs'],
   },
   {
     icon: ShieldCheck,
-    tag: 'Module 06',
+    tag: 'Support 06',
     title: 'Operational Readiness',
     description:
-      'Readiness assessments, FM transition planning, building information packs and governance reporting before operations begin.',
+      'Helps readiness assessments, FM transition planning, building information packs and governance reporting happen before operations begin.',
     items: ['Readiness assessments', 'FM transition', 'Building info packs', 'Governance reporting'],
   },
 ];
@@ -65,7 +65,7 @@ export function System() {
     <section
       id="system"
       className="relative border-t border-border py-24 md:py-32"
-      aria-label="Platform modules"
+      aria-label="Support model"
     >
       <div
         className="pointer-events-none absolute inset-x-0 top-1/2 -z-10 h-96 -translate-y-1/2 opacity-60"
@@ -80,20 +80,20 @@ export function System() {
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
             <SectionEyebrow number="06" className="justify-center">
-              The platform
+              Support model
             </SectionEyebrow>
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="display-lg mt-8 text-balance">
-              One platform. Complete{' '}
-              <span className="italic-accent text-accent">post-completion management.</span>
+              The service is human.{' '}
+              <span className="italic-accent text-accent">The system keeps it accountable.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mx-auto mt-8 max-w-2xl text-pretty text-lg leading-[1.6] text-muted">
-              Six integrated modules connect people, process and technology across
-              the post-completion lifecycle — from settlement and purchaser
-              communication through to digital asset information and operational readiness.
+              Touchpoint gives New Wave Synergy&rsquo;s post-completion work a shared
+              operating structure: inspections, purchaser communication, defect
+              follow-up, documentation, digital asset information and operational readiness.
             </p>
           </Reveal>
         </div>
@@ -136,7 +136,7 @@ export function System() {
 
         <Reveal delay={0.4}>
           <p className="mx-auto mt-12 max-w-2xl text-center font-mono text-2xs uppercase tracking-[0.16em] text-muted">
-            Handover Management · Customer Experience · Inspections · Asset Information · Digital Intelligence · Operational Readiness
+            People on site · Structured process · Field-ready information · Governance from day one
           </p>
         </Reveal>
       </div>
