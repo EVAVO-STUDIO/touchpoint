@@ -12,48 +12,48 @@ import { Reveal } from '@/components/reveal';
 const modules = [
   {
     icon: ClipboardCheck,
-    tag: 'Support 01',
-    title: 'Handover Management',
+    tag: 'Close-out',
+    title: 'Handover management',
     description:
-      'Supports settlement strategies, reporting dashboards, risk registers and purchaser tracking in one structured handover view.',
+      'Helps the project team keep settlement strategy, handover risks, reporting and purchaser tracking in one clear view.',
     items: ['Settlement strategies', 'Risk registers', 'Reporting dashboards', 'Purchaser tracking'],
   },
   {
     icon: MessageSquareText,
-    tag: 'Support 02',
-    title: 'Customer Experience',
+    tag: 'Purchasers',
+    title: 'Customer experience',
     description:
-      'Gives purchaser liaison, communication plans, information sessions and customer care a clear operational structure.',
+      'Gives purchaser liaison, communication plans, information sessions and customer care a clearer rhythm after completion.',
     items: ['Communication plans', 'Information sessions', 'Direct communications', 'Customer portals'],
   },
   {
     icon: KeyRound,
-    tag: 'Support 03',
-    title: 'Inspections & Handover',
+    tag: 'On site',
+    title: 'Inspections & handover',
     description:
-      'Keeps purchaser inspections, valuation inspections, key handovers, defect reporting and occupation readiness visible.',
-    items: ['Purchaser inspections', 'Valuation inspections', 'Key handovers', 'Occupation readiness'],
+      'Keeps purchaser inspections, valuation inspections, key handover, defect reporting and occupation readiness visible.',
+    items: ['Purchaser inspections', 'Valuation inspections', 'Key handover', 'Occupation readiness'],
   },
   {
     icon: FolderCheck,
-    tag: 'Support 04',
-    title: 'Asset Information',
+    tag: 'Records',
+    title: 'Asset information',
     description:
       'Keeps manuals, warranties, certificates, as-builts, commissioning records and asset registers structured and accessible.',
     items: ['Manuals & warranties', 'Certificates', 'As-builts', 'Commissioning records'],
   },
   {
     icon: QrCode,
-    tag: 'Support 05',
-    title: 'Digital Asset Intelligence',
+    tag: 'Field data',
+    title: 'Digital asset intelligence',
     description:
-      'Connects physical assets to useful records through QR codes, NFC tags, searchable information, audit logs and lifecycle data.',
+      'Links physical assets to useful records through QR codes, NFC tags, searchable information, audit logs and lifecycle data.',
     items: ['QR codes', 'NFC tags', 'Searchable records', 'Audit logs'],
   },
   {
     icon: ShieldCheck,
-    tag: 'Support 06',
-    title: 'Operational Readiness',
+    tag: 'Readiness',
+    title: 'Operational readiness',
     description:
       'Helps readiness assessments, FM transition planning, building information packs and governance reporting happen before operations begin.',
     items: ['Readiness assessments', 'FM transition', 'Building info packs', 'Governance reporting'],
@@ -85,15 +85,16 @@ export function System() {
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="display-lg mt-8 text-balance">
-              The service is human.{' '}
-              <span className="italic-accent text-accent">The system keeps it accountable.</span>
+              People do the work.{' '}
+              <span className="italic-accent text-accent">Touchpoint keeps it visible.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mx-auto mt-8 max-w-2xl text-pretty text-lg leading-[1.6] text-muted">
-              Touchpoint gives New Wave Synergy&rsquo;s post-completion work a shared
-              operating structure: inspections, purchaser communication, defect
-              follow-up, documentation, digital asset information and operational readiness.
+              New Wave Synergy still leads the practical work: inspections,
+              purchaser communication, defect follow-up, document control and
+              readiness checks. Touchpoint keeps the record clear so nothing is
+              lost between site, project teams and operations.
             </p>
           </Reveal>
         </div>
@@ -136,7 +137,7 @@ export function System() {
 
         <Reveal delay={0.4}>
           <p className="mx-auto mt-12 max-w-2xl text-center font-mono text-2xs uppercase tracking-[0.16em] text-muted">
-            People on site · Structured process · Field-ready information · Governance from day one
+            People on site · Clear records · Field-ready information · Governance from day one
           </p>
         </Reveal>
       </div>
