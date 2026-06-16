@@ -86,7 +86,7 @@ export function Workflows() {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
             <Reveal>
-              <SectionEyebrow number="06">Workflows</SectionEyebrow>
+              <SectionEyebrow number="07">Workflows</SectionEyebrow>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
