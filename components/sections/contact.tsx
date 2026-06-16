@@ -57,7 +57,7 @@ export function Contact() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <Reveal>
-              <SectionEyebrow number="11">Explore a pilot</SectionEyebrow>
+              <SectionEyebrow number="10">Explore a pilot</SectionEyebrow>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
@@ -78,198 +78,142 @@ export function Contact() {
                 <ContactLink
                   href={`mailto:${siteConfig.contact.email}`}
                   eyebrow="Email"
-                  label={siteConfig.contact.email}
+                  value={siteConfig.contact.email}
                   icon={<Mail className="h-4 w-4" strokeWidth={1.75} />}
                 />
                 <ContactLink
-                  href={`tel:${siteConfig.contact.phone.replace(/\s/g, '')}`}
-                  eyebrow="Direct"
-                  label={siteConfig.contact.phoneDisplay}
+                  href={`tel:${siteConfig.contact.phone}`}
+                  eyebrow="Phone"
+                  value={siteConfig.contact.phoneDisplay}
                   icon={<Phone className="h-4 w-4" strokeWidth={1.75} />}
-                />
-                <ContactLink
-                  href={siteConfig.parent.contactUrl}
-                  eyebrow="Main office"
-                  label="newwavesynergy.com/contact"
-                  external
-                  icon={<ArrowUpRight className="h-4 w-4" strokeWidth={1.75} />}
                 />
               </div>
             </Reveal>
           </div>
 
-          <div className="lg:col-span-7">
-            <Reveal delay={0.1}>
-              <form
-                onSubmit={handleSubmit}
-                className="card-bordered"
-                noValidate
-              >
-                <div className="card-inner space-y-5">
-                  <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                    <Field
-                      label="Name"
-                      name="name"
-                      required
-                      placeholder="Your name"
-                    />
-                    <Field
-                      label="Company"
-                      name="company"
-                      placeholder="Organisation"
-                    />
-                  </div>
-                  <Field
-                    label="Email"
-                    name="email"
-                    type="email"
-                    required
-                    placeholder="you@company.com"
-                  />
-                  <Field
-                    label="Message"
-                    name="message"
-                    as="textarea"
-                    required
-                    placeholder="Tell us about your project, pilot interest, or how we might collaborate."
-                  />
-
-                  <noscript>
-                    <p className="rounded-xl border border-border bg-bg px-4 py-3 text-sm leading-relaxed text-muted">
-                      This form opens an email draft when JavaScript is enabled. You can
-                      still contact Touchpoint directly at{' '}
-                      <a className="font-medium text-accent underline-offset-4 hover:underline" href={`mailto:${siteConfig.contact.email}`}>
-                        {siteConfig.contact.email}
-                      </a>{' '}
-                      or call {siteConfig.contact.phoneDisplay}.
-                    </p>
-                  </noscript>
-
-                  <div className="flex flex-col items-start justify-between gap-4 pt-2 sm:flex-row sm:items-center">
-                    <p className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
-                      We&apos;ll respond within 2 business days.
-                    </p>
-                    <button
-                      type="submit"
-                      disabled={state !== 'idle'}
-                      className="group inline-flex items-center justify-center gap-2 rounded-full bg-text px-6 py-3.5 text-sm font-medium text-bg transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-soft disabled:cursor-wait disabled:opacity-70"
-                    >
-                      <AnimatePresence mode="wait" initial={false}>
-                        {state === 'sent' ? (
-                          <motion.span
-                            key="sent"
-                            initial={{ opacity: 0, y: 6 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -6 }}
-                            className="inline-flex items-center gap-2"
-                          >
-                            Opening your email
-                            <Check className="h-4 w-4" />
-                          </motion.span>
-                        ) : (
-                          <motion.span
-                            key="send"
-                            initial={{ opacity: 0, y: 6 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -6 }}
-                            className="inline-flex items-center gap-2"
-                          >
-                            Start the conversation
-                            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                          </motion.span>
-                        )}
-                      </AnimatePresence>
-                    </button>
-                  </div>
+          <Reveal delay={0.1} className="lg:col-span-7">
+            <form onSubmit={handleSubmit} className="card-bordered">
+              <div className="card-inner">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <Field label="Name" name="name" autoComplete="name" required />
+                  <Field label="Company" name="company" autoComplete="organization" required />
                 </div>
-              </form>
-            </Reveal>
-          </div>
+                <div className="mt-4">
+                  <Field label="Email" name="email" type="email" autoComplete="email" required />
+                </div>
+                <label className="mt-4 block">
+                  <span className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
+                    Message
+                  </span>
+                  <textarea
+                    name="message"
+                    required
+                    rows={6}
+                    className="mt-3 w-full resize-none rounded-2xl border border-border bg-surface px-4 py-3 text-sm text-text outline-none transition-colors placeholder:text-muted/60 focus:border-accent"
+                    placeholder="Tell us about the project, handover phase, stakeholders and what you would like to test."
+                  />
+                </label>
+
+                <button
+                  type="submit"
+                  disabled={state === 'sending'}
+                  className="btn-primary mt-6 w-full justify-center disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
+                >
+                  <AnimatePresence mode="wait" initial={false}>
+                    {state === 'sent' ? (
+                      <motion.span
+                        key="sent"
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        className="inline-flex items-center gap-2"
+                      >
+                        Prepared email <Check className="h-4 w-4" />
+                      </motion.span>
+                    ) : state === 'sending' ? (
+                      <motion.span
+                        key="sending"
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                      >
+                        Preparing email…
+                      </motion.span>
+                    ) : (
+                      <motion.span
+                        key="idle"
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        className="inline-flex items-center gap-2"
+                      >
+                        Start a pilot conversation <ArrowUpRight className="h-4 w-4" />
+                      </motion.span>
+                    )}
+                  </AnimatePresence>
+                </button>
+              </div>
+            </form>
+          </Reveal>
         </div>
       </div>
     </section>
   );
 }
 
-function ContactLink({
-  href,
-  eyebrow,
-  label,
-  icon,
-  external,
-}: {
-  href: string;
-  eyebrow: string;
-  label: string;
-  icon: ReactNode;
-  external?: boolean;
-}) {
-  return (
-    <a
-      href={href}
-      target={external ? '_blank' : undefined}
-      rel={external ? 'noopener noreferrer' : undefined}
-      className="flex items-center gap-4 rounded-2xl border border-border bg-surface px-5 py-4 transition-colors hover:border-border-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-soft"
-    >
-      <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent-soft text-accent">
-        {icon}
-      </div>
-      <div className="min-w-0 flex-1">
-        <p className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
-          {eyebrow}
-        </p>
-        <p className="truncate text-sm font-medium text-text">
-          {label}
-        </p>
-      </div>
-      <ArrowUpRight className="h-4 w-4 shrink-0 text-muted" />
-    </a>
-  );
-}
-
-interface FieldProps {
-  label: string;
-  name: string;
-  type?: string;
-  required?: boolean;
-  placeholder?: string;
-  as?: 'input' | 'textarea';
-}
-
 function Field({
   label,
   name,
   type = 'text',
-  required,
-  placeholder,
-  as = 'input',
-}: FieldProps) {
-  const baseClasses =
-    'w-full rounded-xl border border-border bg-bg px-4 py-3.5 text-sm text-text placeholder:text-muted/70 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent-soft';
-
+  autoComplete,
+  required = false,
+}: {
+  label: string;
+  name: string;
+  type?: string;
+  autoComplete?: string;
+  required?: boolean;
+}) {
   return (
     <label className="block">
-      <span className="mb-2 block font-mono text-2xs uppercase tracking-[0.14em] text-muted">
+      <span className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
         {label}
-        {required && <span className="ml-1 text-accent">*</span>}
       </span>
-      {as === 'textarea' ? (
-        <textarea
-          name={name}
-          required={required}
-          placeholder={placeholder}
-          rows={5}
-          className={`${baseClasses} resize-none`}
-        />
-      ) : (
-        <input
-          name={name}
-          type={type}
-          required={required}
-          placeholder={placeholder}
-          className={baseClasses}
-        />
-      )}
+      <input
+        name={name}
+        type={type}
+        autoComplete={autoComplete}
+        required={required}
+        className="mt-3 w-full rounded-2xl border border-border bg-surface px-4 py-3 text-sm text-text outline-none transition-colors placeholder:text-muted/60 focus:border-accent"
+      />
     </label>
+  );
+}
+
+function ContactLink({
+  href,
+  eyebrow,
+  value,
+  icon,
+}: {
+  href: string;
+  eyebrow: string;
+  value: string;
+  icon: ReactNode;
+}) {
+  return (
+    <a href={href} className="group flex items-center gap-4 rounded-2xl border border-border bg-surface p-4 transition-colors hover:border-accent/60">
+      <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-accent-soft text-accent">
+        {icon}
+      </span>
+      <span>
+        <span className="block font-mono text-2xs uppercase tracking-[0.14em] text-muted">
+          {eyebrow}
+        </span>
+        <span className="mt-1 block text-sm font-medium text-text group-hover:text-accent">
+          {value}
+        </span>
+      </span>
+    </a>
   );
 }
