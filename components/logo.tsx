@@ -6,17 +6,25 @@ interface LogoProps {
   size?: 'sm' | 'md' | 'lg';
   /** Show only the circular mark (no wordmark). For favicons / very tight spots. */
   markOnly?: boolean;
+  /** The approved wordmark is white, so it needs a dark plate in light mode. */
+  framed?: boolean;
 }
 
 /**
- * Touchpoint wordmark.
+ * Touchpoint by New Wave Synergy wordmark.
  *
- * Logo 3 is used for the main site wordmark. The mark-only variant remains
- * separate for tight UI contexts, favicons and small icon placements.
+ * Logo 3 is a white wordmark. Rather than inverting the image and changing the
+ * brand colours, we place it on a deliberate dark brand plate so it remains
+ * readable in both light and dark themes.
  */
 const LOGO_AR = 5.0625;
 
-export function Logo({ className, size = 'md', markOnly = false }: LogoProps) {
+export function Logo({
+  className,
+  size = 'md',
+  markOnly = false,
+  framed = true,
+}: LogoProps) {
   const heights = { sm: 22, md: 30, lg: 44 };
   const h = heights[size];
 
@@ -24,16 +32,34 @@ export function Logo({ className, size = 'md', markOnly = false }: LogoProps) {
     return <LogoMark size={h} className={className} />;
   }
 
-  return (
+  const image = (
     <Image
       src="/images/touchpoint-logo-3.png"
-      alt="Touchpoint"
+      alt="Touchpoint by New Wave Synergy"
       width={Math.round(h * LOGO_AR)}
       height={h}
       priority
-      className={cn('select-none', className)}
+      className="select-none"
       style={{ height: h, width: 'auto' }}
     />
+  );
+
+  if (!framed) {
+    return <span className={cn('inline-flex items-center', className)}>{image}</span>;
+  }
+
+  return (
+    <span
+      className={cn(
+        'inline-flex items-center rounded-full border border-white/10 bg-[#0b0d10] shadow-[0_14px_40px_-24px_rgba(0,0,0,0.65)] ring-1 ring-black/5',
+        size === 'sm' && 'px-2.5 py-1.5',
+        size === 'md' && 'px-3 py-2',
+        size === 'lg' && 'px-4 py-2.5',
+        className
+      )}
+    >
+      {image}
+    </span>
   );
 }
 
