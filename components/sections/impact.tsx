@@ -14,7 +14,7 @@ const impacts = [
     icon: Clock3,
     title: 'Fewer handover delays',
     description:
-      'Project teams can see which inspections, defects, documents and handover actions still need attention before they become settlement or occupation issues.',
+      'Project teams can see which inspections, defects, documents and handover actions still need attention before they become settlement or occupancy issues.',
   },
   {
     icon: MessageSquareText,
@@ -30,7 +30,7 @@ const impacts = [
   },
   {
     icon: KeyRound,
-    title: 'A cleaner move into occupation',
+    title: 'A cleaner move into occupancy',
     description:
       'Keys, inspections, documents, access requirements and readiness checks are coordinated as a managed transition rather than a last-minute rush.',
   },
@@ -59,7 +59,7 @@ export function Impact() {
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
           <div>
             <Reveal>
-              <SectionEyebrow number="09">Impact</SectionEyebrow>
+              <SectionEyebrow number="08">Impact</SectionEyebrow>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 max-w-[20ch] text-balance">
@@ -71,7 +71,7 @@ export function Impact() {
           <Reveal delay={0.1}>
             <p className="max-w-sm text-pretty text-base leading-relaxed text-muted md:text-right">
               The outcome is not another dashboard. It is a cleaner transition
-              from construction into occupation, with fewer gaps for people to
+              from construction into occupancy, with fewer gaps for people to
               chase manually.
             </p>
           </Reveal>
