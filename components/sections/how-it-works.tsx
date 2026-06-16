@@ -57,7 +57,7 @@ export function HowItWorks() {
       <div className="container-tight">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
-            <SectionEyebrow number="05" className="justify-center">
+            <SectionEyebrow number="04" className="justify-center">
               How it works
             </SectionEyebrow>
           </Reveal>
