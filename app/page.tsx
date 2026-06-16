@@ -2,7 +2,6 @@ import { Hero } from '@/components/sections/hero';
 import { WhoWeHelp } from '@/components/sections/who-we-help';
 import { Problem } from '@/components/sections/problem';
 import { Solution } from '@/components/sections/solution';
-import { Services } from '@/components/sections/services';
 import { HowItWorks } from '@/components/sections/how-it-works';
 import { System } from '@/components/sections/system';
 import { Workflows } from '@/components/sections/workflows';
@@ -18,7 +17,6 @@ export default function HomePage() {
       <WhoWeHelp />
       <Problem />
       <Solution />
-      <Services />
       <HowItWorks />
       <System />
       <Workflows />
