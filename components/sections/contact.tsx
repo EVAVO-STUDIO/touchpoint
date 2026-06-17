@@ -62,7 +62,7 @@ export function Contact() {
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
                 Bring Touchpoint into{' '}
-                <span className="italic-accent text-accent">a live handover.</span>
+                <span className="italic-accent text-accent">a live handover</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
