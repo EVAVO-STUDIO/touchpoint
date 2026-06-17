@@ -123,7 +123,7 @@ export function Hero() {
         >
           <Stat value="People" label="On-site post-completion support" />
           <Stat value="Process" label="Structured handover workflows" />
-          <Stat value="Technology" label="Field-ready asset information" />
+          <Stat value="Records" label="Field-ready asset information" />
           <Stat value="AU + NZ" label="Where we operate" />
         </motion.div>
       </div>
