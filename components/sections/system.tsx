@@ -31,8 +31,8 @@ const modules = [
     tag: 'On site',
     title: 'Inspections & handover',
     description:
-      'Keeps purchaser inspections, valuation inspections, key handover, defect reporting and occupancy readiness visible.',
-    items: ['Purchaser inspections', 'Valuation inspections', 'Key handover', 'Occupancy readiness'],
+      'Keeps purchaser inspections, valuation inspections, key handover, defect reporting and occupation readiness visible.',
+    items: ['Purchaser inspections', 'Valuation inspections', 'Key handover', 'Occupation readiness'],
   },
   {
     icon: FolderCheck,
@@ -85,8 +85,8 @@ export function System() {
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="display-lg mt-8 text-balance">
-              People on site,{' '}
-              <span className="italic-accent text-accent">a record everyone can trust</span>
+              People do the work.{' '}
+              <span className="italic-accent text-accent">Touchpoint keeps it visible.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
