@@ -20,7 +20,7 @@ export function Contact() {
     const email = String(formData.get('email') ?? '').trim();
     const message = String(formData.get('message') ?? '').trim();
 
-    const subject = `Touchpoint pilot enquiry — ${company || name || 'New contact'}`;
+    const subject = `Touchpoint pilot enquiry: ${company || name || 'New contact'}`;
     const body = [
       `Name: ${name}`,
       `Company: ${company}`,
@@ -29,7 +29,7 @@ export function Contact() {
       'Message:',
       message,
       '',
-      '— Sent from touchpoint.newwavesynergy.com',
+      'Sent from touchpoint.newwavesynergy.com',
     ].join('\n');
 
     const mailto = `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(
@@ -65,15 +65,15 @@ export function Contact() {
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
-                Bring Touchpoint into{' '}
-                <span className="italic-accent text-accent">a live handover</span>
+                Pilot the future of{' '}
+                <span className="italic-accent text-accent">post-completion.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-6 max-w-[48ch] text-pretty text-lg leading-[1.6] text-muted">
-                Talk to New Wave Synergy about a supported pilot for a real project:
-                physical inspections, defect close-out, purchaser communication,
-                key handover, asset information and operational readiness.
+                Touchpoint is being positioned for pilot deployment across live
+                developments in Australia and New Zealand. For partnership
+                discussions, pilot opportunities or investor conversations, get in touch.
               </p>
             </Reveal>
 
