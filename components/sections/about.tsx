@@ -34,22 +34,23 @@ export function About() {
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
                 Built from real project{' '}
-                <span className="italic-accent text-accent">delivery experience</span>
+                <span className="italic-accent text-accent">delivery experience.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-8 max-w-[60ch] text-pretty text-lg leading-[1.6] text-muted">
-                Touchpoint is delivered by {siteConfig.company}, a specialist
-                consultancy focused on project delivery, close-out, operational
-                readiness and post-completion performance across Australia and New Zealand.
+                Touchpoint is a product of {siteConfig.company}, a specialist
+                consultancy focused on project delivery and close-out,
+                operational readiness and post-completion performance across
+                Australia and New Zealand.
               </p>
             </Reveal>
 
             <Reveal delay={0.14}>
               <p className="mt-5 max-w-[60ch] text-pretty text-base leading-relaxed text-muted">
-                The approach comes from direct experience supporting the people
-                responsible for taking projects from Practical Completion into
-                settlement, occupancy and operations.
+                The platform has been developed from direct experience supporting
+                the teams responsible for taking projects from Practical
+                Completion into occupation and operations.
               </p>
             </Reveal>
 
@@ -81,24 +82,29 @@ export function About() {
           </div>
 
           <div className="lg:col-span-5">
-            <Reveal delay={0.1}>
-              <div className="card-bordered overflow-hidden">
-                <div className="card-inner">
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-surface-2">
+            <Reveal delay={0.15}>
+              <figure className="card-bordered overflow-hidden">
+                <div className="card-inner relative overflow-hidden p-0">
+                  <div className="relative aspect-[4/5] w-full">
                     <Image
-                      src="/images/nws-logo.png"
-                      alt="New Wave Synergy logo"
+                      src="/images/naomi-mabvurira.jpg"
+                      alt="Naomi Mabvurira from New Wave Synergy"
                       fill
-                      sizes="(min-width: 1024px) 32vw, 100vw"
-                      className="object-contain p-10"
+                      className="object-cover grayscale"
+                      sizes="(min-width: 1024px) 40vw, 100vw"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-bg/95 via-bg/10 to-bg/0" />
                   </div>
-                  <p className="mt-6 text-sm leading-relaxed text-muted">
-                    Touchpoint extends New Wave Synergy&rsquo;s practical delivery
-                    capability into the post-completion phase.
-                  </p>
+                  <figcaption className="p-6 md:p-7">
+                    <p className="font-display text-2xl tracking-tight text-text">
+                      {siteConfig.contact.person}
+                    </p>
+                    <p className="mt-1 text-sm text-muted">
+                      {siteConfig.contact.role}, {siteConfig.contact.entity}
+                    </p>
+                  </figcaption>
                 </div>
-              </div>
+              </figure>
             </Reveal>
           </div>
         </div>
