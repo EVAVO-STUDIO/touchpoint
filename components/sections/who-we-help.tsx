@@ -6,27 +6,27 @@ const stakeholders = [
   {
     icon: Building2,
     title: 'Developers',
-    body: 'Protect settlement confidence, purchaser experience and post-completion governance when the project is most exposed.',
+    body: 'Protect settlements, improve purchaser confidence and reduce post-completion risk with a structured handover and customer-care operating layer.',
   },
   {
     icon: HardHat,
     title: 'Builders',
-    body: 'Keep defects, inspections, handover actions and close-out responsibilities visible without chasing multiple email trails.',
+    body: 'Coordinate defects, inspections, key handover and close-out obligations without losing accountability across emails and spreadsheets.',
   },
   {
     icon: Landmark,
     title: 'Asset owners',
-    body: 'Receive a clearer building record, stronger handover evidence and fewer late surprises before operations begin.',
+    body: 'Receive complete documentation, clear governance and operationally ready assets instead of a late-stage information dump.',
   },
   {
     icon: ClipboardList,
     title: 'Facilities managers',
-    body: 'Find manuals, warranties, compliance records and asset information in a form that works in the field, not just in a folder.',
+    body: 'Access manuals, warranties, compliance records and asset information through a searchable, field-ready source of truth.',
   },
   {
     icon: Users,
     title: 'Purchasers and end users',
-    body: 'Move into a new home, workplace or asset with clearer communication, fewer unknowns and a more supported handover experience.',
+    body: 'Move into a new home, workplace or asset with clearer communication, fewer surprises and a more supported handover experience.',
   },
 ];
 
@@ -45,14 +45,15 @@ export function WhoWeHelp() {
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
-                Built for the people carrying a project{' '}
-                <span className="italic-accent text-accent">over the line</span>
+                One platform.{' '}
+                <span className="italic-accent text-accent">Five stakeholders.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-6 text-pretty text-base leading-relaxed text-muted">
-                Touchpoint supports the parties most involved after Practical
-                Completion, when communication, evidence, readiness and trust matter most.
+                Touchpoint is built for every party involved in the post-completion
+                journey, from Practical Completion through to occupation, operations
+                and long-term asset performance.
               </p>
             </Reveal>
           </div>
