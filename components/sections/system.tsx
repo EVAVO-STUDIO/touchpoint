@@ -85,8 +85,8 @@ export function System() {
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="display-lg mt-8 text-balance">
-              People on site.{' '}
-              <span className="italic-accent text-accent">A record everyone can trust</span>
+              People on site,{' '}
+              <span className="italic-accent text-accent">a record everyone can trust</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
