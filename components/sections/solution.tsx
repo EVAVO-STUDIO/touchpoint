@@ -36,7 +36,7 @@ export function Solution() {
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
                 A clearer way to manage{' '}
-                <span className="italic-accent text-accent">the last mile of delivery.</span>
+                <span className="italic-accent text-accent">the last mile of delivery</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
@@ -56,9 +56,9 @@ export function Solution() {
             <Reveal delay={0.2}>
               <blockquote className="mt-10 rounded-2xl border border-border bg-surface p-6">
                 <p className="display-md italic-accent leading-[1.2] text-text">
-                  &ldquo;The project changes hands.
+                  &ldquo;The project changes hands
                   <br />
-                  The record should not fall apart.&rdquo;
+                  The record should not fall apart&rdquo;
                 </p>
                 <footer className="mt-4 font-mono text-2xs uppercase tracking-[0.14em] text-muted">
                   Touchpoint, in one line
