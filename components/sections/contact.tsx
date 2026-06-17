@@ -49,7 +49,11 @@ export function Contact() {
       aria-label="Contact"
     >
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-80 bg-radial-glow opacity-70"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-80 opacity-55"
+        style={{
+          backgroundImage:
+            'radial-gradient(ellipse at top, var(--color-accent-soft), transparent 68%)',
+        }}
         aria-hidden
       />
 
