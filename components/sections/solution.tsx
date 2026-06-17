@@ -5,18 +5,18 @@ import { Reveal } from '@/components/reveal';
 const pillars = [
   {
     icon: ClipboardCheck,
-    title: 'Close-out support with people on the ground',
+    title: 'People-led close-out support',
     body: 'New Wave Synergy supports the practical work after completion: site walks, purchaser inspections, defect follow-up, handover planning and readiness checks.',
   },
   {
     icon: MessageSquareText,
-    title: 'Clearer communication when pressure is high',
-    body: 'Developers, builders, purchasers, owners and facilities teams can see what has happened, what is outstanding and who is responsible for the next step.',
+    title: 'Clear communication between parties',
+    body: 'Developers, builders, purchasers, asset owners and facilities teams can work from the same view instead of chasing status across meetings, inboxes and spreadsheets.',
   },
   {
     icon: ShieldCheck,
-    title: 'A record that stands up after handover',
-    body: 'Inspections, updates, evidence, asset records and handover items stay connected to the project rather than disappearing into inboxes.',
+    title: 'Governance built into the process',
+    body: 'Every inspection, update, handover item and asset record can be tracked with ownership, timing, evidence and reporting context.',
   },
 ];
 
@@ -35,30 +35,30 @@ export function Solution() {
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
-                A clearer way to manage{' '}
-                <span className="italic-accent text-accent">the last mile of delivery</span>
+                Touchpoint keeps the handover phase{' '}
+                <span className="italic-accent text-accent">under control.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-6 max-w-[52ch] text-pretty text-lg leading-[1.6] text-muted">
-                Touchpoint brings New Wave Synergy&rsquo;s post-completion support into
-                one working record for inspections, defects, handover actions,
-                documents, purchaser updates and readiness.
+                It combines New Wave Synergy&rsquo;s hands-on post-completion delivery
+                support with a shared system for inspections, defects, handover
+                tasks, documents and operational readiness.
               </p>
             </Reveal>
             <Reveal delay={0.15}>
               <p className="mt-4 max-w-[52ch] text-pretty text-base leading-relaxed text-muted">
-                The work remains practical and people-led. Touchpoint makes it
-                easier to see, coordinate and hand across when the building moves
-                from project team to owner, purchaser and operator.
+                The work still happens with people on site and in the project team.
+                Touchpoint makes that work visible, easier to coordinate and easier
+                to hand across when the building moves into occupation.
               </p>
             </Reveal>
             <Reveal delay={0.2}>
               <blockquote className="mt-10 rounded-2xl border border-border bg-surface p-6">
                 <p className="display-md italic-accent leading-[1.2] text-text">
-                  &ldquo;The project changes hands
+                  &ldquo;The project changes hands.
                   <br />
-                  The record should not fall apart&rdquo;
+                  The intelligence should not.&rdquo;
                 </p>
                 <footer className="mt-4 font-mono text-2xs uppercase tracking-[0.14em] text-muted">
                   Touchpoint, in one line
@@ -110,7 +110,7 @@ export function Solution() {
                 </div>
                 <span className="h-3 w-px bg-border-strong" />
                 <span className="font-mono text-2xs uppercase tracking-[0.14em] text-muted">
-                  Inspection evidence · Handover records · Readiness checks
+                  Physical inspections · Handover workflows · Operational readiness
                 </span>
               </div>
             </Reveal>
