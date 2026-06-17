@@ -35,7 +35,7 @@ export function Navbar() {
           : 'border-b border-transparent'
       )}
     >
-      <div className="container-tight flex h-16 items-center justify-between gap-4 md:h-18">
+      <div className="container-tight flex h-16 items-center justify-between gap-4 md:h-[4.5rem]">
         <Link
           href="/"
           className="shrink-0 transition-opacity hover:opacity-80"
