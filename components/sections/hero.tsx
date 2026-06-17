@@ -56,26 +56,25 @@ export function Hero() {
               className="display-xl mt-6 max-w-[13ch] text-balance sm:max-w-[14ch] lg:max-w-none"
             >
               Construction doesn&rsquo;t end at{' '}
-              <span className="italic-accent text-accent">Practical Completion</span>
+              <span className="italic-accent text-accent">Practical Completion.</span>
             </motion.h1>
 
             <motion.p
               {...fadeUp(0.2)}
               className="mt-8 max-w-[62ch] text-pretty text-lg leading-[1.55] text-muted md:text-xl"
             >
-              Touchpoint gives New Wave Synergy&rsquo;s post-completion team one place
-              to run the work that usually gets split across inboxes, site notes
-              and spreadsheets: inspections, defects, purchaser updates, key
-              handover and readiness.
+              Touchpoint gives New Wave Synergy&rsquo;s post-completion team a clear
+              way to manage the real work after completion: inspections, defects,
+              purchaser updates, key handover and operational readiness.
             </motion.p>
 
             <motion.p
               {...fadeUp(0.27)}
               className="mt-4 max-w-[62ch] text-pretty text-base leading-relaxed text-muted md:text-lg"
             >
-              It is practical support first, technology second — built for the
-              people carrying a project from construction into settlement,
-              occupancy and operations.
+              It supports the people on site and in the project team, so nothing
+              important is lost between construction, settlement, occupation and
+              operations.
             </motion.p>
 
             <motion.div
@@ -98,9 +97,8 @@ export function Hero() {
             >
               <div className="h-8 w-px bg-accent" />
               <p className="max-w-md text-sm leading-relaxed text-muted">
-                Designed for live handover work: site inspections, defect
-                close-out, purchaser communication and asset information that
-                teams can actually use.
+                A New Wave Synergy product built around site support, practical
+                close-out and field-ready asset information.
               </p>
             </motion.div>
           </div>
@@ -123,7 +121,7 @@ export function Hero() {
         >
           <Stat value="People" label="On-site post-completion support" />
           <Stat value="Process" label="Structured handover workflows" />
-          <Stat value="Records" label="Field-ready asset information" />
+          <Stat value="Technology" label="Field-ready asset information" />
           <Stat value="AU + NZ" label="Where we operate" />
         </motion.div>
       </div>
