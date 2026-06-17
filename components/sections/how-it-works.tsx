@@ -29,7 +29,7 @@ const stages = [
     icon: KeyRound,
     title: 'Transition',
     description:
-      'Manage key handover, outstanding items, documents and final readiness steps as the building moves into occupation.',
+      'Manage key handover, outstanding items, documents and final readiness steps as the building moves into occupancy.',
   },
   {
     id: '04',
@@ -63,8 +63,8 @@ export function HowItWorks() {
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="display-lg mt-8 text-balance">
-              From completion to occupation,{' '}
-              <span className="italic-accent text-accent">without losing the thread.</span>
+              From completion to occupancy,{' '}
+              <span className="italic-accent text-accent">without losing the thread</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
@@ -79,7 +79,7 @@ export function HowItWorks() {
             <div className="mt-10 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-2 rounded-full border border-border bg-surface px-5 py-2.5 font-mono text-xs uppercase tracking-[0.16em]">
               <span className="text-muted">Practical Completion</span>
               <ArrowRight className="h-3 w-3 text-accent" />
-              <span className="text-muted">Occupation</span>
+              <span className="text-muted">Occupancy</span>
               <ArrowRight className="h-3 w-3 text-accent" />
               <span className="text-text">Operations</span>
             </div>
