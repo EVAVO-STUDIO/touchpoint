@@ -106,7 +106,7 @@ export function Workflows() {
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
                 What happens on site,{' '}
-                <span className="italic-accent text-accent">captured properly.</span>
+                <span className="italic-accent text-accent">captured properly</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
