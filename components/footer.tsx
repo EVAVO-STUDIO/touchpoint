@@ -30,10 +30,10 @@ const footerNav = {
 };
 
 const ecosystem = [
-  'Post-completion',
-  'Physical inspections',
-  'Defect close-out',
-  'Operational readiness',
+  'Post-Completion',
+  'Physical Inspections',
+  'Handover',
+  'Operational Readiness',
 ];
 
 export function Footer() {
@@ -51,9 +51,9 @@ export function Footer() {
           <div>
             <Logo size="lg" />
             <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted">
-              A New Wave Synergy delivery approach for the work that happens after
-              Practical Completion: inspections, defects, purchaser communication,
-              key handover and asset information people can actually use.
+              A New Wave Synergy-backed support model for post-completion,
+              handover and asset transition, combining physical inspections,
+              structured close-out and field-ready asset information.
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
               {ecosystem.map((item) => (
@@ -237,7 +237,7 @@ export function Footer() {
             />
             <div>
               <p className="text-sm font-medium text-text">
-                Touchpoint is delivered by {siteConfig.parent.name}
+                Touchpoint is a product of {siteConfig.parent.name}
               </p>
               <p className="mt-0.5 text-xs leading-relaxed text-muted">
                 Specialist project delivery, close-out, operational readiness and post-completion performance consultancy.
