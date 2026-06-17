@@ -31,8 +31,8 @@ const modules = [
     tag: 'On site',
     title: 'Inspections & handover',
     description:
-      'Keeps purchaser inspections, valuation inspections, key handover, defect reporting and occupation readiness visible.',
-    items: ['Purchaser inspections', 'Valuation inspections', 'Key handover', 'Occupation readiness'],
+      'Keeps purchaser inspections, valuation inspections, key handover, defect reporting and occupancy readiness visible.',
+    items: ['Purchaser inspections', 'Valuation inspections', 'Key handover', 'Occupancy readiness'],
   },
   {
     icon: FolderCheck,
@@ -68,10 +68,10 @@ export function System() {
       aria-label="Support model"
     >
       <div
-        className="pointer-events-none absolute inset-x-0 top-1/2 -z-10 h-96 -translate-y-1/2 opacity-60"
+        className="pointer-events-none absolute inset-x-0 top-1/2 -z-10 h-80 -translate-y-1/2 opacity-45"
         style={{
           backgroundImage:
-            'radial-gradient(ellipse at center, var(--color-accent-soft), transparent 70%)',
+            'radial-gradient(ellipse at center, var(--color-accent-soft), transparent 72%)',
         }}
         aria-hidden
       />
@@ -85,8 +85,8 @@ export function System() {
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="display-lg mt-8 text-balance">
-              People do the work.{' '}
-              <span className="italic-accent text-accent">Touchpoint keeps it visible.</span>
+              People on site.{' '}
+              <span className="italic-accent text-accent">A record everyone can trust</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
