@@ -46,7 +46,7 @@ export function WhoWeHelp() {
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
                 Built for the people carrying a project{' '}
-                <span className="italic-accent text-accent">over the line.</span>
+                <span className="italic-accent text-accent">over the line</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
