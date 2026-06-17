@@ -52,7 +52,7 @@ export function Pilot() {
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
                 Trial Touchpoint on{' '}
-                <span className="italic-accent text-accent">a real handover.</span>
+                <span className="italic-accent text-accent">a real handover</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
