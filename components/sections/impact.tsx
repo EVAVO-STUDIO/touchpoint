@@ -14,7 +14,7 @@ const impacts = [
     icon: Clock3,
     title: 'Fewer handover delays',
     description:
-      'Project teams can see which inspections, defects, documents and handover actions still need attention before they become settlement or occupancy issues.',
+      'Project teams can see which inspections, defects, documents and handover actions still need attention before they become settlement or occupation issues.',
   },
   {
     icon: MessageSquareText,
@@ -30,7 +30,7 @@ const impacts = [
   },
   {
     icon: KeyRound,
-    title: 'A cleaner move into occupancy',
+    title: 'A cleaner move into occupation',
     description:
       'Keys, inspections, documents, access requirements and readiness checks are coordinated as a managed transition rather than a last-minute rush.',
   },
@@ -63,15 +63,16 @@ export function Impact() {
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 max-w-[20ch] text-balance">
-                Fewer loose ends,{' '}
-                <span className="italic-accent text-accent">a cleaner handover</span>
+                Less friction after completion.{' '}
+                <span className="italic-accent text-accent">More confidence at handover.</span>
               </h2>
             </Reveal>
           </div>
           <Reveal delay={0.1}>
             <p className="max-w-sm text-pretty text-base leading-relaxed text-muted md:text-right">
-              Touchpoint reduces the manual chasing that usually sits between
-              completion, settlement, occupancy and operations.
+              The outcome is not another dashboard. It is a cleaner transition
+              from construction into occupation, with fewer gaps for people to
+              chase manually.
             </p>
           </Reveal>
         </div>
