@@ -20,12 +20,12 @@ export function Hero() {
       aria-label="Hero"
     >
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-grid opacity-60 mask-fade-b" aria-hidden />
+        <div className="absolute inset-0 bg-grid opacity-40 mask-fade-b" aria-hidden />
         <div
-          className="absolute inset-x-0 top-0 h-[90%]"
+          className="absolute inset-x-0 top-0 h-[80%]"
           style={{
             backgroundImage:
-              'radial-gradient(ellipse at top, var(--color-accent-soft), transparent 60%)',
+              'radial-gradient(ellipse at top, var(--color-accent-soft), transparent 66%)',
           }}
           aria-hidden
         />
@@ -56,7 +56,7 @@ export function Hero() {
               className="display-xl mt-6 max-w-[13ch] text-balance sm:max-w-[14ch] lg:max-w-none"
             >
               Construction doesn&rsquo;t end at{' '}
-              <span className="italic-accent text-accent">Practical Completion.</span>
+              <span className="italic-accent text-accent">Practical Completion</span>
             </motion.h1>
 
             <motion.p
@@ -135,14 +135,14 @@ function HeroImage() {
   return (
     <div className="relative mx-auto flex min-h-[32rem] w-full items-center justify-center sm:min-h-[38rem] lg:min-h-[42rem]">
       <div
-        className="pointer-events-none absolute inset-x-6 top-8 -z-10 h-[30rem] rounded-full blur-3xl sm:inset-x-10 lg:h-[34rem]"
+        className="pointer-events-none absolute inset-x-10 top-12 -z-10 h-[28rem] rounded-full blur-3xl sm:inset-x-16 lg:h-[32rem]"
         style={{
           background:
-            'radial-gradient(ellipse 58% 58% at 50% 48%, var(--color-accent-soft), transparent 72%)',
+            'radial-gradient(ellipse 56% 56% at 50% 48%, rgba(47, 189, 111, 0.16), transparent 74%)',
         }}
         aria-hidden
       />
-      <div className="pointer-events-none absolute left-1/2 top-10 -z-10 hidden h-[34rem] w-[70%] -translate-x-1/2 rounded-[4rem] border border-border bg-surface/45 shadow-[0_36px_110px_-70px_rgba(0,0,0,0.55)] md:block" />
+      <div className="pointer-events-none absolute left-1/2 top-12 -z-10 hidden h-[32rem] w-[64%] -translate-x-1/2 rounded-[3.25rem] border border-border bg-surface/35 shadow-[0_34px_100px_-76px_rgba(0,0,0,0.5)] md:block" />
       <Image
         src="/images/touchpoint-hero.png"
         alt="Touchpoint mobile app interface showing a live handover dashboard, inspections, purchaser defects, key handover and purchaser updates"
@@ -150,7 +150,7 @@ function HeroImage() {
         height={1536}
         priority
         sizes="(min-width: 1280px) 38vw, (min-width: 768px) 46vw, 86vw"
-        className="relative z-10 h-auto w-[min(86vw,22rem)] select-none drop-shadow-[0_38px_95px_rgba(0,0,0,0.45)] sm:w-[min(60vw,25rem)] lg:w-[min(38vw,29rem)]"
+        className="relative z-10 h-auto w-[min(86vw,22rem)] select-none drop-shadow-[0_34px_82px_rgba(0,0,0,0.38)] sm:w-[min(60vw,25rem)] lg:w-[min(38vw,28.25rem)]"
       />
     </div>
   );
