@@ -66,7 +66,7 @@ export function Contact() {
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 text-balance">
                 Pilot the future of{' '}
-                <span className="italic-accent text-accent">post-completion.</span>
+                <span className="italic-accent text-accent">post-completion</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
