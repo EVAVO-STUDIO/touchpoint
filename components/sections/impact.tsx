@@ -63,8 +63,8 @@ export function Impact() {
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-lg mt-8 max-w-[20ch] text-balance">
-                Less friction after completion.{' '}
-                <span className="italic-accent text-accent">More confidence at handover.</span>
+                Less friction after completion{' '}
+                <span className="italic-accent text-accent">More confidence at handover</span>
               </h2>
             </Reveal>
           </div>
