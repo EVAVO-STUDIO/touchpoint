@@ -56,7 +56,7 @@ export function Hero() {
               className="display-xl mt-6 max-w-[13ch] text-balance sm:max-w-[14ch] lg:max-w-none"
             >
               Construction doesn&rsquo;t end at{' '}
-              <span className="italic-accent text-accent">Practical Completion.</span>
+              <span className="italic-accent text-accent">Practical Completion</span>
             </motion.h1>
 
             <motion.p
