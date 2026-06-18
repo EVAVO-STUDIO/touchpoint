@@ -40,7 +40,7 @@ export function Problem() {
             <Reveal delay={0.05}>
               <h2 className="display-lg text-balance">
                 Practical Completion is not{' '}
-                <span className="italic-accent text-accent">the end of the project.</span>
+                <span className="italic-accent text-accent">the end of the project</span>
               </h2>
             </Reveal>
           </div>
