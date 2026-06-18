@@ -85,8 +85,8 @@ export function System() {
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="display-lg mt-8 text-balance">
-              People do the work.{' '}
-              <span className="italic-accent text-accent">Touchpoint keeps it visible.</span>
+              People do the work{' '}
+              <span className="italic-accent text-accent">Touchpoint keeps it visible</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
