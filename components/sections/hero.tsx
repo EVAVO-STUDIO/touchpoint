@@ -63,18 +63,19 @@ export function Hero() {
               {...fadeUp(0.2)}
               className="mt-8 max-w-[62ch] text-pretty text-lg leading-[1.55] text-muted md:text-xl"
             >
-              Touchpoint gives New Wave Synergy&rsquo;s post-completion team a clear
-              way to manage the real work after completion: inspections, defects,
-              purchaser updates, key handover and operational readiness.
+              Touchpoint gives New Wave Synergy&rsquo;s post-completion team one place
+              to run the work that usually gets split across inboxes, site notes
+              and spreadsheets: inspections, defects, purchaser updates, key
+              handover and readiness.
             </motion.p>
 
             <motion.p
               {...fadeUp(0.27)}
               className="mt-4 max-w-[62ch] text-pretty text-base leading-relaxed text-muted md:text-lg"
             >
-              It supports the people on site and in the project team, so nothing
-              important is lost between construction, settlement, occupation and
-              operations.
+              It is practical support first, technology second, built for the
+              people carrying a project from construction into settlement,
+              occupation and operations.
             </motion.p>
 
             <motion.div
@@ -97,8 +98,9 @@ export function Hero() {
             >
               <div className="h-8 w-px bg-accent" />
               <p className="max-w-md text-sm leading-relaxed text-muted">
-                A New Wave Synergy product built around site support, practical
-                close-out and field-ready asset information.
+                Designed for live handover work: site inspections, defect
+                close-out, purchaser communication and asset information that
+                teams can actually use.
               </p>
             </motion.div>
           </div>
