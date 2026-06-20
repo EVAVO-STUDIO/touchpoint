@@ -1,0 +1,26 @@
+:root {
+  --evavo-color-background: #ffffff;
+  --evavo-color-surface: #f7f7f7;
+  --evavo-color-surface-raised: #ffffff;
+  --evavo-color-text: #050505;
+  --evavo-color-text-muted: #5f6368;
+  --evavo-color-border: rgba(0, 0, 0, 0.12);
+  --evavo-color-accent: #ff244e;
+  --evavo-color-accent-contrast: #ffffff;
+  --evavo-color-focus-ring: #ff244e;
+  --evavo-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
+}
+
+.evavo-theme-dark,
+[data-theme='dark'] {
+  --evavo-color-background: #050505;
+  --evavo-color-surface: #111111;
+  --evavo-color-surface-raised: #181818;
+  --evavo-color-text: #ffffff;
+  --evavo-color-text-muted: #b8b8b8;
+  --evavo-color-border: rgba(255, 255, 255, 0.16);
+  --evavo-color-accent: #ff244e;
+  --evavo-color-accent-contrast: #ffffff;
+  --evavo-color-focus-ring: #ff6b86;
+  --evavo-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+}
