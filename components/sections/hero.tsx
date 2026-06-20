@@ -82,11 +82,11 @@ export function Hero() {
               {...fadeUp(0.35)}
               className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center"
             >
-              <a href="#contact" className="btn-primary group">
+              <a href="#contact" className="btn-primary evavo-foundation-focus-ring group">
                 Request a pilot conversation
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
-              <a href="#system" className="btn-secondary group">
+              <a href="#system" className="btn-secondary evavo-foundation-focus-ring group">
                 See the support model
                 <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
               </a>
