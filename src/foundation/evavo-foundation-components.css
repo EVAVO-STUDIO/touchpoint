@@ -1,0 +1,16 @@
+.evavo-foundation-focus-ring:focus-visible {
+  outline: 2px solid var(--evavo-color-focus-ring);
+  outline-offset: 3px;
+}
+
+.evavo-foundation-card {
+  border: 1px solid var(--evavo-color-border);
+  background: var(--evavo-color-surface-raised);
+  color: var(--evavo-color-text);
+  box-shadow: var(--evavo-shadow);
+}
+
+.evavo-foundation-button {
+  background: var(--evavo-color-accent);
+  color: var(--evavo-color-accent-contrast);
+}
