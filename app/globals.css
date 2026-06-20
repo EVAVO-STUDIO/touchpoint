@@ -1,3 +1,5 @@
+@import '../src/foundation/evavo-foundation-tokens.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -178,28 +180,5 @@ body {
     background-image: linear-gradient(to right, var(--color-grid) 1px, transparent 1px),
       linear-gradient(to bottom, var(--color-grid) 1px, transparent 1px);
     background-size: 64px 64px;
-  }
-
-  .mask-radial {
-    mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
-    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
-  }
-
-  .mask-fade-b {
-    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-  }
-}
-
-/* ========================================================================== 
-   Reduced motion
-   ========================================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 }
