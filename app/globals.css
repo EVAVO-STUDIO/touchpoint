@@ -1,4 +1,5 @@
 @import '../src/foundation/evavo-foundation-tokens.css';
+@import '../src/foundation/evavo-foundation-components.css';
 
 @tailwind base;
 @tailwind components;
