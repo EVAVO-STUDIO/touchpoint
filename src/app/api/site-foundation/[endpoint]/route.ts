@@ -26,20 +26,19 @@ const stackInventory = {
   safeCommands: ['npm install', 'npm run build', 'npm run lint'],
 };
 
+const tokenAdoption = {
+  status: 'tokens-imported',
+  file: 'src/foundation/evavo-foundation-tokens.css',
+  importPath: 'app/globals.css',
+  mode: 'tokens-only',
+};
+
 function isEndpoint(value: string): value is FoundationEndpoint {
   return (endpoints as readonly string[]).includes(value);
 }
 
 function json(data: unknown, init?: ResponseInit) {
-  return NextResponse.json(data, {
-    ...init,
-    headers: {
-      'cache-control': 'no-store',
-      'x-robots-tag': 'noindex, nofollow',
-      'x-evavo-foundation-site': SITE_ID,
-      ...(init?.headers || {}),
-    },
-  });
+  return NextResponse.json(data, { ...init, headers: { 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow', 'x-evavo-foundation-site': SITE_ID, ...(init?.headers || {}) } });
 }
 
 function createEnvelope(endpoint: FoundationEndpoint, data: unknown) {
@@ -54,7 +53,7 @@ export function GET(_request: Request, context: { params: { endpoint: string } }
   }
 
   if (endpoint === 'manifest') {
-    return json(createEnvelope(endpoint, { api: { name: 'EVAVO Site Foundation API', version: API_VERSION, basePath: BASE_PATH, endpoints }, site: { id: SITE_ID, name: 'Touchpoint', integrationWave: 'wave-2-theme-style-inventory', mode: 'read-only' } }));
+    return json(createEnvelope(endpoint, { api: { name: 'EVAVO Site Foundation API', version: API_VERSION, basePath: BASE_PATH, endpoints }, site: { id: SITE_ID, name: 'Touchpoint', integrationWave: 'wave-3-token-adoption', mode: 'read-only' }, tokenAdoption }));
   }
 
   if (endpoint === 'health') {
@@ -62,7 +61,7 @@ export function GET(_request: Request, context: { params: { endpoint: string } }
   }
 
   if (endpoint === 'readiness') {
-    return json(createEnvelope(endpoint, { status: 'wave-2-theme-style-inventory', routeInventory: routeInventory.status, stackInventory: stackInventory.status }));
+    return json(createEnvelope(endpoint, { status: 'wave-3-token-adoption', routeInventory: routeInventory.status, stackInventory: stackInventory.status, tokenAdoption: tokenAdoption.status }));
   }
 
   if (endpoint === 'route-inventory') return json(createEnvelope(endpoint, routeInventory));
