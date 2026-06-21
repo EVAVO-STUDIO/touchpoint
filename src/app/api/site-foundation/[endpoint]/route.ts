@@ -31,7 +31,8 @@ const componentOptIn = { status: 'focus-ring-applied', file: 'src/foundation/eva
 const quality = { status: 'baseline', seo: 'baseline', accessibility: 'baseline', performance: 'baseline', dayMode: 'preserve-existing', darkMode: 'preserve-existing', noClientBlockingFoundationCalls: true, preserveCurrentLoadingBehaviour: true };
 const security = { status: 'configured', surface: 'public-site', safeByDefault: true, requiresPreviewForVisibleChanges: true, requiresApprovalForVisibleChanges: true, requiresSecurityHeadersReview: true, requiresDependencyAudit: true };
 const assets = { status: 'configured', preferredSources: ['public-directory', 'cloudinary'], optimized: true, cloudinaryFolder: 'evavo/sites/touchpoint', publicAssetPrefix: '/public', preserveCurrentAssetPathsByDefault: true };
-const appIntegrations = { status: 'configured', contractCount: 1, surfaces: ['chat'], preservesExistingCopyByDefault: true, preservesExistingLayoutByDefault: true, preservesExistingStyleByDefault: true, usesReadinessApi: true };
+const editSurfaces = { status: 'configured', mode: 'preview-only', surfaceCount: 7, safeByDefault: true, textSurfaceCount: 2, imageSurfaceCount: 1, layoutSurfaceCount: 2 };
+const appIntegrations = { status: 'configured', contractCount: 1, surfaces: ['chat'], capabilities: ['preview-alignment-change', 'preview-copy-change', 'preview-layout-change', 'preview-media-change', 'preview-seo-change', 'preview-visibility-change', 'read-edit-surfaces', 'read-manifest', 'read-quality-profile', 'read-readiness', 'read-route-inventory', 'read-site-elements', 'read-stack-inventory', 'request-approved-change'], preservesExistingCopyByDefault: true, preservesExistingLayoutByDefault: true, preservesExistingStyleByDefault: true, usesReadinessApi: true };
 
 function isEndpoint(value: string): value is FoundationEndpoint {
   return (endpoints as readonly string[]).includes(value);
@@ -53,15 +54,15 @@ export function GET(_request: Request, context: { params: { endpoint: string } }
   }
 
   if (endpoint === 'manifest') {
-    return json(createEnvelope(endpoint, { api: { name: 'EVAVO Site Foundation API', version: API_VERSION, basePath: BASE_PATH, endpoints }, site: { id: SITE_ID, name: 'Touchpoint', integrationWave: 'wave-4-focus-ring-applied', mode: 'read-only' }, tokenAdoption, componentOptIn, quality, security, assets, appIntegrations }));
+    return json(createEnvelope(endpoint, { api: { name: 'EVAVO Site Foundation API', version: API_VERSION, basePath: BASE_PATH, endpoints }, site: { id: SITE_ID, name: 'Touchpoint', integrationWave: 'wave-4-focus-ring-applied', mode: 'read-only' }, tokenAdoption, componentOptIn, quality, security, assets, editSurfaces, appIntegrations }));
   }
 
   if (endpoint === 'health') {
-    return json(createEnvelope(endpoint, { status: 'ok', checks: [{ id: 'foundation-route', status: 'pass' }, { id: 'json-only', status: 'pass' }, { id: 'noindex', status: 'pass' }, { id: 'security-policy', status: security.safeByDefault ? 'pass' : 'review' }, { id: 'asset-policy', status: assets.optimized ? 'pass' : 'review' }] }));
+    return json(createEnvelope(endpoint, { status: 'ok', checks: [{ id: 'foundation-route', status: 'pass' }, { id: 'json-only', status: 'pass' }, { id: 'noindex', status: 'pass' }, { id: 'security-policy', status: security.safeByDefault ? 'pass' : 'review' }, { id: 'asset-policy', status: assets.optimized ? 'pass' : 'review' }, { id: 'edit-surfaces', status: editSurfaces.safeByDefault ? 'pass' : 'review' }] }));
   }
 
   if (endpoint === 'readiness') {
-    return json(createEnvelope(endpoint, { status: 'wave-4-focus-ring-applied', routeInventory: routeInventory.status, stackInventory: stackInventory.status, tokenAdoption: tokenAdoption.status, componentOptIn: componentOptIn.status, quality, security, assets, appIntegrations }));
+    return json(createEnvelope(endpoint, { status: 'wave-4-focus-ring-applied', routeInventory: routeInventory.status, stackInventory: stackInventory.status, tokenAdoption: tokenAdoption.status, componentOptIn: componentOptIn.status, quality, security, assets, editSurfaces, appIntegrations }));
   }
 
   if (endpoint === 'route-inventory') return json(createEnvelope(endpoint, routeInventory));
