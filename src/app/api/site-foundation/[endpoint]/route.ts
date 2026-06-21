@@ -28,6 +28,10 @@ const stackInventory = {
 
 const tokenAdoption = { status: 'tokens-imported', file: 'src/foundation/evavo-foundation-tokens.css', importPath: 'app/globals.css', mode: 'tokens-only' };
 const componentOptIn = { status: 'focus-ring-applied', file: 'src/foundation/evavo-foundation-components.css', mode: 'explicit-opt-in', appliedTo: ['homepage hero CTAs'] };
+const quality = { status: 'baseline', seo: 'baseline', accessibility: 'baseline', performance: 'baseline', dayMode: 'preserve-existing', darkMode: 'preserve-existing', noClientBlockingFoundationCalls: true, preserveCurrentLoadingBehaviour: true };
+const security = { status: 'configured', surface: 'public-site', safeByDefault: true, requiresPreviewForVisibleChanges: true, requiresApprovalForVisibleChanges: true, requiresSecurityHeadersReview: true, requiresDependencyAudit: true };
+const assets = { status: 'configured', preferredSources: ['public-directory', 'cloudinary'], optimized: true, cloudinaryFolder: 'evavo/sites/touchpoint', publicAssetPrefix: '/public', preserveCurrentAssetPathsByDefault: true };
+const appIntegrations = { status: 'configured', contractCount: 1, surfaces: ['chat'], preservesExistingCopyByDefault: true, preservesExistingLayoutByDefault: true, preservesExistingStyleByDefault: true, usesReadinessApi: true };
 
 function isEndpoint(value: string): value is FoundationEndpoint {
   return (endpoints as readonly string[]).includes(value);
@@ -49,15 +53,15 @@ export function GET(_request: Request, context: { params: { endpoint: string } }
   }
 
   if (endpoint === 'manifest') {
-    return json(createEnvelope(endpoint, { api: { name: 'EVAVO Site Foundation API', version: API_VERSION, basePath: BASE_PATH, endpoints }, site: { id: SITE_ID, name: 'Touchpoint', integrationWave: 'wave-4-focus-ring-applied', mode: 'read-only' }, tokenAdoption, componentOptIn }));
+    return json(createEnvelope(endpoint, { api: { name: 'EVAVO Site Foundation API', version: API_VERSION, basePath: BASE_PATH, endpoints }, site: { id: SITE_ID, name: 'Touchpoint', integrationWave: 'wave-4-focus-ring-applied', mode: 'read-only' }, tokenAdoption, componentOptIn, quality, security, assets, appIntegrations }));
   }
 
   if (endpoint === 'health') {
-    return json(createEnvelope(endpoint, { status: 'ok', checks: [{ id: 'foundation-route', status: 'pass' }, { id: 'json-only', status: 'pass' }, { id: 'noindex', status: 'pass' }] }));
+    return json(createEnvelope(endpoint, { status: 'ok', checks: [{ id: 'foundation-route', status: 'pass' }, { id: 'json-only', status: 'pass' }, { id: 'noindex', status: 'pass' }, { id: 'security-policy', status: security.safeByDefault ? 'pass' : 'review' }, { id: 'asset-policy', status: assets.optimized ? 'pass' : 'review' }] }));
   }
 
   if (endpoint === 'readiness') {
-    return json(createEnvelope(endpoint, { status: 'wave-4-focus-ring-applied', routeInventory: routeInventory.status, stackInventory: stackInventory.status, tokenAdoption: tokenAdoption.status, componentOptIn: componentOptIn.status }));
+    return json(createEnvelope(endpoint, { status: 'wave-4-focus-ring-applied', routeInventory: routeInventory.status, stackInventory: stackInventory.status, tokenAdoption: tokenAdoption.status, componentOptIn: componentOptIn.status, quality, security, assets, appIntegrations }));
   }
 
   if (endpoint === 'route-inventory') return json(createEnvelope(endpoint, routeInventory));
