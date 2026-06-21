@@ -33,6 +33,7 @@ const viewportQuality = { status: 'configured', viewports: ['mobile', 'tablet', 
 const typographyQuality = { status: 'configured', viewports: ['mobile', 'tablet', 'desktop'], safeByDefault: true, preserveExistingFonts: true, preserveExistingTypeScale: true, requireFontLoadingReview: true };
 const chrome = { status: 'configured', activeSurfaceCount: 3, safeByDefault: true, loadingIndicator: 'skeleton', usesAriaCurrent: true };
 const legal = { status: 'configured', requiredPages: ['privacy', 'terms'], footerLinksRequired: true, safeByDefault: true, allowsSharedTemplate: true };
+const legalContent = { status: 'needs-review', pageCount: 2, readyPageCount: 0, linkedFromFooterCount: 2, safeByDefault: true };
 const navigation = { status: 'configured', linkCount: 8, requiredLinkCount: 5, legalLinkCount: 2, activeStateSupported: true, footerLegalLinksPresent: true, safeByDefault: true };
 const navigationAdoption = { status: 'needs-audit', readySurfaceCount: 0, totalSurfaceCount: 4, safeByDefault: true };
 const navigationReview = { status: 'missing', reviewedSurfaceCount: 0, readySurfaceCount: 0, totalSurfaceCount: 0, safeByDefault: false };
@@ -61,15 +62,15 @@ export function GET(_request: Request, context: { params: { endpoint: string } }
   }
 
   if (endpoint === 'manifest') {
-    return json(createEnvelope(endpoint, { api: { name: 'EVAVO Site Foundation API', version: API_VERSION, basePath: BASE_PATH, endpoints }, site: { id: SITE_ID, name: 'Touchpoint', integrationWave: 'wave-4-focus-ring-applied', mode: 'read-only' }, tokenAdoption, componentOptIn, quality, viewportQuality, typographyQuality, chrome, legal, navigation, navigationAdoption, navigationReview, security, assets, editSurfaces, appIntegrations }));
+    return json(createEnvelope(endpoint, { api: { name: 'EVAVO Site Foundation API', version: API_VERSION, basePath: BASE_PATH, endpoints }, site: { id: SITE_ID, name: 'Touchpoint', integrationWave: 'wave-4-focus-ring-applied', mode: 'read-only' }, tokenAdoption, componentOptIn, quality, viewportQuality, typographyQuality, chrome, legal, legalContent, navigation, navigationAdoption, navigationReview, security, assets, editSurfaces, appIntegrations }));
   }
 
   if (endpoint === 'health') {
-    return json(createEnvelope(endpoint, { status: 'ok', checks: [{ id: 'foundation-route', status: 'pass' }, { id: 'json-only', status: 'pass' }, { id: 'noindex', status: 'pass' }, { id: 'viewport-quality', status: viewportQuality.safeByDefault ? 'pass' : 'review' }, { id: 'typography-quality', status: typographyQuality.safeByDefault ? 'pass' : 'review' }, { id: 'chrome', status: chrome.safeByDefault ? 'pass' : 'review' }, { id: 'legal-pages', status: legal.safeByDefault ? 'pass' : 'review' }, { id: 'navigation', status: navigation.safeByDefault ? 'pass' : 'review' }, { id: 'navigation-adoption', status: navigationAdoption.safeByDefault ? 'pass' : 'review' }, { id: 'navigation-review', status: navigationReview.safeByDefault ? 'pass' : 'review' }, { id: 'security-policy', status: security.safeByDefault ? 'pass' : 'review' }, { id: 'asset-policy', status: assets.optimized ? 'pass' : 'review' }, { id: 'edit-surfaces', status: editSurfaces.safeByDefault ? 'pass' : 'review' }] }));
+    return json(createEnvelope(endpoint, { status: 'ok', checks: [{ id: 'foundation-route', status: 'pass' }, { id: 'json-only', status: 'pass' }, { id: 'noindex', status: 'pass' }, { id: 'viewport-quality', status: viewportQuality.safeByDefault ? 'pass' : 'review' }, { id: 'typography-quality', status: typographyQuality.safeByDefault ? 'pass' : 'review' }, { id: 'chrome', status: chrome.safeByDefault ? 'pass' : 'review' }, { id: 'legal-pages', status: legal.safeByDefault ? 'pass' : 'review' }, { id: 'legal-content', status: legalContent.safeByDefault ? 'pass' : 'review' }, { id: 'navigation', status: navigation.safeByDefault ? 'pass' : 'review' }, { id: 'navigation-adoption', status: navigationAdoption.safeByDefault ? 'pass' : 'review' }, { id: 'navigation-review', status: navigationReview.safeByDefault ? 'pass' : 'review' }, { id: 'security-policy', status: security.safeByDefault ? 'pass' : 'review' }, { id: 'asset-policy', status: assets.optimized ? 'pass' : 'review' }, { id: 'edit-surfaces', status: editSurfaces.safeByDefault ? 'pass' : 'review' }] }));
   }
 
   if (endpoint === 'readiness') {
-    return json(createEnvelope(endpoint, { status: 'wave-4-focus-ring-applied', routeInventory: routeInventory.status, stackInventory: stackInventory.status, tokenAdoption: tokenAdoption.status, componentOptIn: componentOptIn.status, quality, viewportQuality, typographyQuality, chrome, legal, navigation, navigationAdoption, navigationReview, security, assets, editSurfaces, appIntegrations }));
+    return json(createEnvelope(endpoint, { status: 'wave-4-focus-ring-applied', routeInventory: routeInventory.status, stackInventory: stackInventory.status, tokenAdoption: tokenAdoption.status, componentOptIn: componentOptIn.status, quality, viewportQuality, typographyQuality, chrome, legal, legalContent, navigation, navigationAdoption, navigationReview, security, assets, editSurfaces, appIntegrations }));
   }
 
   if (endpoint === 'route-inventory') return json(createEnvelope(endpoint, routeInventory));
