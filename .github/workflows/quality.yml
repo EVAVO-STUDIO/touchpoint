@@ -69,6 +69,9 @@ jobs:
       - name: Verify tracked-source secret safety
         run: npm run security:source-secrets:check
 
+      - name: Verify mailto contact experience
+        run: npm run quality:contact-mailto:check
+
       - name: Lint
         run: npm run lint
 
