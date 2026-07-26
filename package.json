@@ -9,11 +9,12 @@
   },
   "scripts": {
     "dev": "next dev",
-    "prebuild": "npm run security:source-secrets:check",
+    "prebuild": "npm run security:source-secrets:check && npm run quality:contact-mailto:check",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "security:source-secrets:check": "node scripts/check-source-secrets.mjs"
+    "security:source-secrets:check": "node scripts/check-source-secrets.mjs",
+    "quality:contact-mailto:check": "node scripts/check-contact-mailto-boundary.mjs"
   },
   "dependencies": {
     "next": "14.2.15",
