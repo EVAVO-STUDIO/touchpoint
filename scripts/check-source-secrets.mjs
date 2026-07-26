@@ -30,6 +30,33 @@ function normalizePath(value) {
   return value.replaceAll("\\", "/").replace(/^\.\//, "");
 }
 
+function read(relativePath) {
+  const absolute = path.join(root, relativePath);
+  if (!fs.existsSync(absolute)) {
+    errors.push(`Missing required file: ${relativePath}`);
+    return "";
+  }
+  return fs.readFileSync(absolute, "utf8");
+}
+
+function requireTokens(label, source, tokens) {
+  for (const token of tokens) {
+    if (!source.includes(token)) errors.push(`${label}: missing ${token}`);
+  }
+}
+
+function requireOrder(label, source, tokens) {
+  let previous = -1;
+  for (const token of tokens) {
+    const current = source.indexOf(token, previous + 1);
+    if (current < 0 || current <= previous) {
+      errors.push(`${label}: invalid ordering at ${token}`);
+      return;
+    }
+    previous = current;
+  }
+}
+
 function trackedFiles() {
   const result = spawnSync("git", ["ls-files", "-z"], {
     cwd: root,
@@ -112,6 +139,16 @@ function scan(relativePath, source) {
   }
 }
 
+for (const fixture of [
+  { value: "https://user:password@example.com/path", allowed: true },
+  { value: "postgres://user:password@db.example.invalid/app", allowed: true },
+  { value: "mysql://user:password@production.internal/app", allowed: false },
+]) {
+  if (reservedFixtureUrl(fixture.value) !== fixture.allowed) {
+    errors.push(`credential URL fixture classification failed: ${fixture.value}`);
+  }
+}
+
 const files = trackedFiles();
 for (const relativePath of files) {
   if (isForbiddenEnvironmentFile(relativePath)) {
@@ -129,20 +166,14 @@ for (const relativePath of files) {
   scan(relativePath, buffer.toString("utf8"));
 }
 
-const gitignorePath = path.join(root, ".gitignore");
-const gitignore = fs.existsSync(gitignorePath)
-  ? fs.readFileSync(gitignorePath, "utf8")
-  : "";
+const gitignore = read(".gitignore");
 for (const token of [".env", ".env.*", "!.env.example", ".vercel", "*.pem"]) {
   if (!gitignore.split(/\r?\n/).includes(token)) {
     errors.push(`.gitignore: missing ${token}`);
   }
 }
 
-const environmentExamplePath = path.join(root, ".env.example");
-const environmentExample = fs.existsSync(environmentExamplePath)
-  ? fs.readFileSync(environmentExamplePath, "utf8")
-  : "";
+const environmentExample = read(".env.example");
 for (const token of [
   "currently requires no runtime environment variables",
   "only tracked .env variant",
@@ -153,44 +184,85 @@ for (const token of [
   }
 }
 
-const packagePath = path.join(root, "package.json");
-const packageJson = fs.existsSync(packagePath)
-  ? JSON.parse(fs.readFileSync(packagePath, "utf8"))
-  : {};
+const packageJson = JSON.parse(read("package.json") || "{}");
+const lockJson = JSON.parse(read("package-lock.json") || "{}");
 const expectedCommand = "node scripts/check-source-secrets.mjs";
 if (packageJson.scripts?.["security:source-secrets:check"] !== expectedCommand) {
   errors.push(`package.json must expose security:source-secrets:check as ${expectedCommand}`);
 }
-if (!String(packageJson.scripts?.prebuild || "").includes("npm run security:source-secrets:check")) {
-  errors.push("prebuild must run security:source-secrets:check");
+if (packageJson.scripts?.prebuild !== "npm run security:source-secrets:check") {
+  errors.push("prebuild must run only the tracked-source secret gate before Next.js build");
+}
+if (packageJson.engines?.node !== "24.x") {
+  errors.push("package.json must require the active Vercel Node 24 runtime");
+}
+if (lockJson.name !== packageJson.name || lockJson.packages?.[""]?.name !== packageJson.name) {
+  errors.push("package.json and package-lock.json root package identities must remain aligned");
 }
 
-const readmePath = path.join(root, "README.md");
-const readme = fs.existsSync(readmePath)
-  ? fs.readFileSync(readmePath, "utf8")
-  : "";
+const readme = read("README.md");
 for (const token of [
+  "Use Node.js 24",
+  "npm ci",
   "## Source-control security",
   "npm run security:source-secrets:check",
   "currently has no runtime environment-variable requirement",
   "public repository",
+  "reports only the affected file path and rule name",
 ]) {
   if (!readme.includes(token)) errors.push(`README.md: missing ${token}`);
+}
+
+const workflow = read(".github/workflows/quality.yml");
+requireTokens("Touchpoint quality workflow", workflow, [
+  "permissions:\n  contents: read",
+  "persist-credentials: false",
+  'node-version: "24"',
+  "npm ci --no-audit --no-fund",
+  "npm run security:source-secrets:check",
+  "npm run lint",
+  "npm run build",
+  '      - ".env.example"',
+  '      - ".gitignore"',
+  '      - "scripts/**"',
+  "cancel-in-progress: true",
+]);
+requireOrder("Touchpoint quality workflow", workflow, [
+  "npm ci --no-audit --no-fund",
+  "npm run security:source-secrets:check",
+  "npm run lint",
+  "npm run build",
+]);
+for (const forbidden of [
+  "vercel deploy",
+  "VERCEL_TOKEN:",
+  "secrets.",
+  "persist-credentials: true",
+]) {
+  if (workflow.includes(forbidden)) {
+    errors.push(`Touchpoint quality workflow contains forbidden material: ${forbidden}`);
+  }
 }
 
 console.log(JSON.stringify({
   passed: errors.length === 0,
   repository: "EVAVO-STUDIO/touchpoint",
-  contract: "touchpoint-tracked-source-secret-safety-v1",
+  contract: "touchpoint-tracked-source-secret-safety-v2-read-only-ci",
   trackedFilesInspected: files.length,
   maximumScannedFileBytes: MAX_FILE_BYTES,
+  activeNodeRuntime: "24.x",
   runtimeEnvironmentVariablesRequired: false,
   trackedRealEnvironmentFilesAllowed: false,
   privateKeyMaterialAllowed: false,
   liveProviderTokensAllowed: false,
   nonReservedCredentialBearingUrlsAllowed: false,
+  reservedFixtureCredentialUrlsAllowed: true,
   rawSecretValuesPrinted: false,
+  packageLockRequired: true,
   prebuildGateRequired: true,
+  readOnlyCiRequired: true,
+  deploymentFromCiAllowed: false,
+  ciCredentialsAllowed: false,
   errors,
 }, null, 2));
 
