@@ -11,20 +11,47 @@ Built with **Next.js 14 (App Router)**, **TypeScript**, **Tailwind CSS**,
 
 ## Getting started
 
+Use Node.js 24, matching the active Vercel project and the repository engine contract.
+
 ```bash
-# Install dependencies
-npm install
+# Install the checked-in dependency graph
+npm ci
+
+# Verify tracked-source secret safety
+npm run security:source-secrets:check
 
 # Run the dev server
 npm run dev
 # → open http://localhost:3000
 
-# Production build
+# Production validation
+npm run lint
 npm run build
 npm run start
 ```
 
-Node 18.17+ required (Next.js 14).
+---
+
+## Source-control security
+
+Touchpoint is a public repository and currently has no runtime environment-variable requirement. The contact form creates a reviewed `mailto:` link in the browser; there is no email provider, database or server-side credential in the current application.
+
+The repository still treats future source changes as potentially sensitive. The build runs:
+
+```bash
+npm run security:source-secrets:check
+```
+
+The tracked-source guard:
+
+- rejects real `.env` variants while allowing the placeholder-only [`.env.example`](.env.example);
+- rejects private-key material and common live provider-token shapes;
+- rejects credential-bearing database, cache and HTTP URLs except inert reserved example/test fixtures;
+- rejects tracked npm authentication tokens;
+- reports only the affected file path and rule name, never a matched secret value;
+- verifies that the ignore policy, environment posture, package command and this documentation remain present.
+
+If a future server-side integration is introduced, add only reviewed placeholder names to `.env.example`, keep real values in Vercel environment settings and add a focused runtime contract before accepting submissions or provider calls. Adding a file to `.gitignore` does not remove an already committed credential from Git history; exposed credentials must be rotated or revoked.
 
 ---
 
@@ -122,9 +149,9 @@ same path.
 
 The contact form in section 10 generates a prefilled mailto to
 `naomi@newwavesynergy.com`. No backend is required. When ready to
-upgrade, swap `handleSubmit` in `components/sections/contact.tsx` for a
-fetch to your preferred handler (Formspree, Resend, Netlify Forms, a
-custom API route under `app/api/contact/route.ts`, etc.).
+upgrade, replace `handleSubmit` in `components/sections/contact.tsx`
+with a reviewed bounded API route and provider contract rather than
+adding browser-visible credentials.
 
 The footer also links directly to the parent NWS contact page.
 
