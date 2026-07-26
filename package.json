@@ -3,11 +3,17 @@
   "version": "1.0.0",
   "private": true,
   "description": "Touchpoint by New Wave Synergy — Digital Asset Intelligence for the Built Environment",
+  "engines": {
+    "node": "24.x",
+    "npm": ">=10"
+  },
   "scripts": {
     "dev": "next dev",
+    "prebuild": "npm run security:source-secrets:check",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "security:source-secrets:check": "node scripts/check-source-secrets.mjs"
   },
   "dependencies": {
     "next": "14.2.15",
