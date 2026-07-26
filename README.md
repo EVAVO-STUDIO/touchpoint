@@ -17,8 +17,9 @@ Use Node.js 24, matching the active Vercel project and the repository engine con
 # Install the checked-in dependency graph
 npm ci
 
-# Verify tracked-source secret safety
+# Verify tracked-source and customer-facing form contracts
 npm run security:source-secrets:check
+npm run quality:contact-mailto:check
 
 # Run the dev server
 npm run dev
@@ -147,11 +148,26 @@ same path.
 
 ## Contact form
 
-The contact form in section 10 generates a prefilled mailto to
-`naomi@newwavesynergy.com`. No backend is required. When ready to
-upgrade, replace `handleSubmit` in `components/sections/contact.tsx`
-with a reviewed bounded API route and provider contract rather than
-adding browser-visible credentials.
+The contact form in section 10 prepares a prefilled draft for
+`naomi@newwavesynergy.com`. It does not send the enquiry, call a hidden backend or claim provider acceptance. The visitor’s email application should open, after which the visitor reviews the draft and chooses Send there.
+
+The browser form mirrors this narrow mailto boundary:
+
+- name, company and email lengths are bounded;
+- the message requires 20–2,000 characters;
+- the subject and body are URL encoded;
+- native validity is checked before the handoff;
+- status changes use an accessible polite region, with assertive recovery guidance on failure;
+- visible copy warns against including passwords, access credentials or confidential project records;
+- keyboard focus remains visible on fields, contact links and the submit control.
+
+Validate this behavior directly:
+
+```bash
+npm run quality:contact-mailto:check
+```
+
+When ready to introduce server-side delivery, replace the mailto handoff only with a reviewed bounded API route, provider configuration contract, rate limit and truthful delivery response. Do not add browser-visible credentials.
 
 The footer also links directly to the parent NWS contact page.
 
