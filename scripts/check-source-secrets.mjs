@@ -186,12 +186,18 @@ for (const token of [
 
 const packageJson = JSON.parse(read("package.json") || "{}");
 const lockJson = JSON.parse(read("package-lock.json") || "{}");
-const expectedCommand = "node scripts/check-source-secrets.mjs";
-if (packageJson.scripts?.["security:source-secrets:check"] !== expectedCommand) {
-  errors.push(`package.json must expose security:source-secrets:check as ${expectedCommand}`);
+const sourceCommand = "node scripts/check-source-secrets.mjs";
+const contactCommand = "node scripts/check-contact-mailto-boundary.mjs";
+if (packageJson.scripts?.["security:source-secrets:check"] !== sourceCommand) {
+  errors.push(`package.json must expose security:source-secrets:check as ${sourceCommand}`);
 }
-if (packageJson.scripts?.prebuild !== "npm run security:source-secrets:check") {
-  errors.push("prebuild must run only the tracked-source secret gate before Next.js build");
+if (packageJson.scripts?.["quality:contact-mailto:check"] !== contactCommand) {
+  errors.push(`package.json must expose quality:contact-mailto:check as ${contactCommand}`);
+}
+const expectedPrebuild =
+  "npm run security:source-secrets:check && npm run quality:contact-mailto:check";
+if (packageJson.scripts?.prebuild !== expectedPrebuild) {
+  errors.push(`prebuild must equal: ${expectedPrebuild}`);
 }
 if (packageJson.engines?.node !== "24.x") {
   errors.push("package.json must require the active Vercel Node 24 runtime");
@@ -206,9 +212,11 @@ for (const token of [
   "npm ci",
   "## Source-control security",
   "npm run security:source-secrets:check",
+  "npm run quality:contact-mailto:check",
   "currently has no runtime environment-variable requirement",
   "public repository",
   "reports only the affected file path and rule name",
+  "does not send the enquiry",
 ]) {
   if (!readme.includes(token)) errors.push(`README.md: missing ${token}`);
 }
@@ -220,6 +228,7 @@ requireTokens("Touchpoint quality workflow", workflow, [
   'node-version: "24"',
   "npm ci --no-audit --no-fund",
   "npm run security:source-secrets:check",
+  "npm run quality:contact-mailto:check",
   "npm run lint",
   "npm run build",
   '      - ".env.example"',
@@ -230,6 +239,7 @@ requireTokens("Touchpoint quality workflow", workflow, [
 requireOrder("Touchpoint quality workflow", workflow, [
   "npm ci --no-audit --no-fund",
   "npm run security:source-secrets:check",
+  "npm run quality:contact-mailto:check",
   "npm run lint",
   "npm run build",
 ]);
@@ -247,7 +257,7 @@ for (const forbidden of [
 console.log(JSON.stringify({
   passed: errors.length === 0,
   repository: "EVAVO-STUDIO/touchpoint",
-  contract: "touchpoint-tracked-source-secret-safety-v2-read-only-ci",
+  contract: "touchpoint-tracked-source-secret-safety-v3-mailto-gated",
   trackedFilesInspected: files.length,
   maximumScannedFileBytes: MAX_FILE_BYTES,
   activeNodeRuntime: "24.x",
@@ -259,7 +269,8 @@ console.log(JSON.stringify({
   reservedFixtureCredentialUrlsAllowed: true,
   rawSecretValuesPrinted: false,
   packageLockRequired: true,
-  prebuildGateRequired: true,
+  sourceSecretGateRunsFirst: true,
+  mailtoUxGateRequired: true,
   readOnlyCiRequired: true,
   deploymentFromCiAllowed: false,
   ciCredentialsAllowed: false,
