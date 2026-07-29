@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "1.0",
+  "repository": "EVAVO-STUDIO/touchpoint",
+  "defaultBranch": "main",
+  "authority": "client-delivery-and-business-site",
+  "workload": "website",
+  "packageManager": {
+    "name": "npm",
+    "version": "10.x",
+    "lockfilePolicy": "committed-frozen",
+    "install": "npm ci --no-audit --no-fund"
+  },
+  "runtime": {
+    "node": "24.x",
+    "next": "14.2.15"
+  },
+  "validation": [
+    "npm ci --no-audit --no-fund",
+    "npm run check:all"
+  ],
+  "providerConfirmation": {
+    "workflow": ".github/workflows/evavo-mainline-confirmation.yml",
+    "githubRunner": "ubuntu-latest",
+    "vercelProjectId": "prj_6a2SvKYBde1yePvA9sBee21Y6gaR",
+    "exactMainShaRequired": true
+  },
+  "branchPolicy": {
+    "mode": "direct-main",
+    "exclusiveResource": "repository-main:EVAVO-STUDIO/touchpoint",
+    "exclusiveLeaseRequired": true,
+    "forcePushAllowed": false
+  },
+  "autoRepair": {
+    "allowed": true,
+    "blockedEffects": [
+      "credential-change",
+      "client-publication-without-exact-sha-proof",
+      "client-or-legal-communication"
+    ]
+  }
+}
