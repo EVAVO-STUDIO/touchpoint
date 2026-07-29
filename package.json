@@ -13,8 +13,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "typecheck": "tsc --noEmit",
     "security:source-secrets:check": "node scripts/check-source-secrets.mjs",
-    "quality:contact-mailto:check": "node scripts/check-contact-mailto-boundary.mjs"
+    "quality:contact-mailto:check": "node scripts/check-contact-mailto-boundary.mjs",
+    "check:all": "npm run security:source-secrets:check && npm run quality:contact-mailto:check && npm run typecheck && npm run lint && npm run build"
   },
   "dependencies": {
     "next": "14.2.15",
