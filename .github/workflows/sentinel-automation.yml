@@ -17,202 +17,86 @@ concurrency:
 
 jobs:
   inventory:
-    name: Collect exact architecture and repair-admission evidence
     if: github.ref_type == 'branch' && github.ref_name == github.event.repository.default_branch
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     env:
-      SENTINEL_REPORT: ${{ runner.temp }}/sentinel/repository-admission.json
-
+      SENTINEL_REPORT: ${{ runner.temp }}/sentinel/report.json
+      SENTINEL_SCANNER_SHA256: 1fa00ab130df504dc55e026a353bf3cc253dfe167063c11e7362a67de9ca9d97
+      DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+      EXPECTED_SHA: ${{ inputs.expected_sha }}
     steps:
-      - name: Validate exact default-branch authority
-        shell: bash
-        env:
-          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
-          EXPECTED_SHA: ${{ inputs.expected_sha }}
-          SOURCE_SHA: ${{ github.sha }}
-        run: |
-          set -euo pipefail
-          [[ "$EXPECTED_SHA" =~ ^[0-9a-f]{40}$ ]]
-          test "$EXPECTED_SHA" = "$SOURCE_SHA"
-          test "$GITHUB_REF_NAME" = "$DEFAULT_BRANCH"
-
-      - name: Check out the exact source without credentials
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           ref: ${{ inputs.expected_sha }}
-          fetch-depth: 0
           persist-credentials: false
           lfs: false
           submodules: false
-
-      - name: Prove checked-out identity and pristine starting state
-        shell: bash
-        env:
-          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
-          EXPECTED_SHA: ${{ inputs.expected_sha }}
-        run: |
-          set -euo pipefail
-          test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
-          git merge-base --is-ancestor "$EXPECTED_SHA" "origin/$DEFAULT_BRANCH"
-          test -z "$(git status --porcelain=v1 --untracked-files=all)"
-
-      - name: Set up isolated inventory runtime
-        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         with:
           node-version: 22.16.0
           package-manager-cache: false
-
-      - name: Collect repository-native architecture and validation evidence
-        shell: bash
-        env:
-          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
-          EXPECTED_SHA: ${{ inputs.expected_sha }}
+      - name: Inventory the exact tracked tree without executing repository code
         run: |
           set -euo pipefail
-          mkdir -p "$(dirname "$SENTINEL_REPORT")"
-          node <<'NODE'
-          const fs = require("node:fs");
-          const path = require("node:path");
-
-          const root = process.env.GITHUB_WORKSPACE;
-          const exists = (relativePath) => fs.existsSync(path.join(root, relativePath));
-          const rootEntries = fs.readdirSync(root, { withFileTypes: true });
-          const rootFiles = rootEntries.filter((entry) => entry.isFile()).map((entry) => entry.name);
-          const matchingRootFiles = (pattern) => rootFiles.filter((name) => pattern.test(name)).sort();
-
-          let packageManifest = null;
-          let packageManifestError = null;
-          if (exists("package.json")) {
-            try {
-              packageManifest = JSON.parse(fs.readFileSync(path.join(root, "package.json"), "utf8"));
-            } catch (error) {
-              packageManifestError = error instanceof Error ? error.message : String(error);
-            }
-          }
-
-          const scripts = packageManifest && typeof packageManifest.scripts === "object"
-            ? packageManifest.scripts
-            : {};
-          const validationNames = ["verify", "check", "typecheck", "lint", "test", "build"];
-          const nativeValidation = Object.fromEntries(
-            Object.entries(scripts)
-              .filter(([name, command]) =>
-                validationNames.some((prefix) => name === prefix || name.startsWith(`${prefix}:`)) &&
-                typeof command === "string",
-              )
-              .sort(([left], [right]) => left.localeCompare(right)),
-          );
-
-          const architectureSignals = {
-            node: ["package.json"].filter(exists),
-            monorepo: ["pnpm-workspace.yaml", "turbo.json", "nx.json", "lerna.json"].filter(exists),
-            python: ["pyproject.toml", "requirements.txt", "setup.py", "uv.lock", "poetry.lock"].filter(exists),
-            rust: ["Cargo.toml", "Cargo.lock"].filter(exists),
-            go: ["go.mod", "go.sum"].filter(exists),
-            godot: ["project.godot"].filter(exists),
-            dotnet: [...matchingRootFiles(/\.(sln|csproj|fsproj)$/i)],
-            java: ["pom.xml", "build.gradle", "build.gradle.kts", "settings.gradle", "settings.gradle.kts"].filter(exists),
-            php: ["composer.json", "composer.lock"].filter(exists),
-            ruby: ["Gemfile", "Gemfile.lock"].filter(exists),
-            swift: ["Package.swift"].filter(exists),
-            dart: ["pubspec.yaml", "pubspec.lock"].filter(exists),
-            unity: ["ProjectSettings/ProjectVersion.txt"].filter(exists),
-            unreal: matchingRootFiles(/\.uproject$/i),
-            containers: ["Dockerfile", "compose.yaml", "compose.yml", "docker-compose.yml"].filter(exists),
-          };
-
-          const lockfiles = [
-            "package-lock.json", "npm-shrinkwrap.json", "pnpm-lock.yaml", "yarn.lock", "bun.lock", "bun.lockb",
-            "uv.lock", "poetry.lock", "Pipfile.lock", "Cargo.lock", "go.sum", "composer.lock", "Gemfile.lock",
-          ].filter(exists);
-          const legacyRuntimeFiles = [
-            ".sentinel/sentinel-orchestrator.js",
-            ".sentinel/ENHANCED_SENTINEL_V6.js",
-            ".sentinel/MASTER_MASS_ANALYSIS.js",
-          ].filter(exists);
-          const detectedArchitectures = Object.entries(architectureSignals)
-            .filter(([, evidence]) => evidence.length > 0)
-            .map(([name]) => name);
-
-          const report = {
-            schemaVersion: "evavo.sentinel.repository-admission.v1",
-            repository: process.env.GITHUB_REPOSITORY,
-            source: {
-              branch: process.env.DEFAULT_BRANCH,
-              sha: process.env.EXPECTED_SHA,
-              workflowRunId: process.env.GITHUB_RUN_ID,
-            },
-            outcome: packageManifestError
-              ? "blocked-invalid-package-manifest"
-              : "inventory-ready-repository-specific-repair-not-authorized",
-            architecture: {
-              detected: detectedArchitectures,
-              evidence: architectureSignals,
-              packageManager: packageManifest?.packageManager ?? null,
-              nodeEngines: packageManifest?.engines ?? null,
-              lockfiles,
-            },
-            validation: {
-              repositoryNativeScripts: nativeValidation,
-              commandsExecuted: [],
-              reason: "Admission inventories commands but never executes repository code or guesses a toolchain.",
-            },
-            legacy: {
-              runtimeFiles: legacyRuntimeFiles,
-              broadAutomaticMutationQuarantined: true,
-            },
-            repairPolicy: {
-              sourceMutation: "forbidden-in-admission",
-              automaticCommit: false,
-              automaticPush: false,
-              forcePush: false,
-              stylingOrAssetChanges: false,
-              requirements: [
-                "exact failing evidence and first-cause diagnosis",
-                "repository-specific architecture and toolchain plan",
-                "bounded candidate paths with protected product surfaces",
-                "pre-change and post-change validation",
-                "atomic rollback and separately authorized publication",
-              ],
-            },
-            packageManifestError,
-          };
-
-          fs.writeFileSync(process.env.SENTINEL_REPORT, `${JSON.stringify(report, null, 2)}\n`, { mode: 0o600 });
-          NODE
-
-      - name: Prove admission did not mutate the repository
+          [[ "$EXPECTED_SHA" =~ ^[0-9a-f]{40}$ ]]
+          test "$EXPECTED_SHA" = "$GITHUB_SHA"
+          test "$GITHUB_REF_NAME" = "$DEFAULT_BRANCH"
+          test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
+          test -z "$(git status --porcelain=v1 --untracked-files=all)"
+          mkdir -p "$RUNNER_TEMP/sentinel"
+          base64 -d <<'SENTINEL_SCANNER' | gzip -dc > "$RUNNER_TEMP/sentinel/a.js"
+          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
+          FwAA
+          SENTINEL_SCANNER
+          chmod 0600 "$RUNNER_TEMP/sentinel/a.js"
+          echo "$SENTINEL_SCANNER_SHA256  $RUNNER_TEMP/sentinel/a.js" | sha256sum -c -
+          node --check "$RUNNER_TEMP/sentinel/a.js"
+          node "$RUNNER_TEMP/sentinel/a.js"
+      - if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: sentinel-repository-admission-${{ inputs.expected_sha }}
+          path: ${{ runner.temp }}/sentinel/report.json
+          if-no-files-found: error
+          retention-days: 14
+          include-hidden-files: false
+      - name: Enforce non-mutation and fail closed on unresolved activation
         if: always()
-        shell: bash
         run: |
           set -euo pipefail
           git diff --exit-code
           git diff --cached --exit-code
           test -z "$(git status --porcelain=v1 --untracked-files=all)"
-
-      - name: Summarize bounded admission evidence
-        if: always()
-        shell: bash
-        run: |
-          if [ -f "$SENTINEL_REPORT" ]; then
-            node -e 'const r=require(process.env.SENTINEL_REPORT); console.log(`## Sentinel repository admission\n\n- Outcome: ${r.outcome}\n- Architectures: ${r.architecture.detected.join(", ") || "unclassified"}\n- Source mutation: forbidden\n- Automatic commit/push: disabled`)' >> "$GITHUB_STEP_SUMMARY"
-          fi
-
-      - name: Upload bounded admission evidence
-        if: always()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
-        with:
-          name: sentinel-repository-admission-${{ inputs.expected_sha }}
-          path: ${{ runner.temp }}/sentinel/repository-admission.json
-          if-no-files-found: warn
-          retention-days: 14
-          include-hidden-files: false
-
-      - name: Reject malformed root package metadata
-        if: always()
-        shell: bash
-        run: |
-          if [ -f "$SENTINEL_REPORT" ]; then
-            node -e 'const r=require(process.env.SENTINEL_REPORT); if (r.packageManifestError) { console.error(r.packageManifestError); process.exit(1); }'
-          fi
+          test -f "$SENTINEL_REPORT"
+          node -e 'const r=require(process.env.SENTINEL_REPORT);console.log(`outcome=${r.outcome} entries=${r.trackedTree.entries} blockers=${r.blocking.total}`);if((r.blocking?.total??1)>0)process.exit(1)'
