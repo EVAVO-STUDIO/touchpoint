@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "kind": "evavo-repository-task-manifest",
+  "repository": "EVAVO-STUDIO/touchpoint",
+  "tasks": {
+    "check": {
+      "runtime": "npm-script",
+      "entry": "check",
+      "cwd": ".",
+      "arguments": [],
+      "network": "disabled",
+      "timeoutSeconds": 3600,
+      "description": "Run the canonical local-first Touchpoint repository check, including estate/reliability truth, production asset integrity, source-secret and contact boundaries, typecheck, lint and production build.",
+      "expectedOutputs": []
+    }
+  }
+}

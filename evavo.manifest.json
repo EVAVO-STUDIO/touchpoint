@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "evavo.repo-manifest.v1",
+  "identity": {
+    "key": "touchpoint",
+    "name": "Touchpoint",
+    "owner": "EVAVO-STUDIO",
+    "category": "client-delivery-and-business-site",
+    "status": "active"
+  },
+  "runtime": {
+    "language": "typescript",
+    "framework": "nextjs",
+    "localFirst": true,
+    "requiresPaidHostedControlPlane": false
+  },
+  "summary": "Touchpoint by New Wave Synergy, a production website for Digital Asset Intelligence in the Built Environment with local-first source security, contact-boundary, type, lint and production-build verification.",
+  "defaultBranch": "main",
+  "authority": {
+    "readOnly": [
+      "inspect-public-site-content",
+      "inspect-production-assets",
+      "inspect-release-readiness"
+    ],
+    "reversible": [
+      "develop-and-validate-site-content-and-code"
+    ],
+    "consequential": [],
+    "neverImplicit": [
+      "publish-client-or-legal-communication",
+      "change-provider-credentials",
+      "represent-unverified-deployment-as-live",
+      "bypass-exact-main-sha-provider-confirmation"
+    ]
+  },
+  "validation": {
+    "canonical": "npm run check",
+    "hostedGitHubActionsRequired": false,
+    "exactMainShaProviderConfirmationRequired": true
+  },
+  "reviewedAt": "2026-09-09"
+}

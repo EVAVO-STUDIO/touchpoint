@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0",
+  "schemaVersion": "1.1",
   "repository": "EVAVO-STUDIO/touchpoint",
   "defaultBranch": "main",
   "authority": "client-delivery-and-business-site",
@@ -15,12 +15,12 @@
     "next": "14.2.15"
   },
   "validation": [
-    "npm ci --no-audit --no-fund",
-    "npm run check:all"
+    "npm run check"
   ],
   "providerConfirmation": {
-    "workflow": ".github/workflows/evavo-mainline-confirmation.yml",
-    "githubRunner": "ubuntu-latest",
+    "localValidation": "npm run check",
+    "hostedGitHubActionsRequired": false,
+    "legacyWorkflow": ".github/workflows/evavo-mainline-confirmation.yml",
     "vercelProjectId": "prj_6a2SvKYBde1yePvA9sBee21Y6gaR",
     "exactMainShaRequired": true
   },

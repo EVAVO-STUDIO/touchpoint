@@ -1,29 +1,9 @@
 import type { Metadata, Viewport } from 'next';
-import { Manrope, Space_Grotesk, IBM_Plex_Mono } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { siteConfig } from '@/lib/site';
 import './globals.css';
-
-const sans = Manrope({
-  subsets: ['latin'],
-  variable: '--font-sans',
-  display: 'swap',
-});
-
-const display = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-display',
-  display: 'swap',
-});
-
-const mono = IBM_Plex_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500'],
-  variable: '--font-mono',
-  display: 'swap',
-});
 
 export const viewport: Viewport = {
   themeColor: [
@@ -136,11 +116,7 @@ const structuredData = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={`${sans.variable} ${display.variable} ${mono.variable}`}
-    >
+    <html lang="en" suppressHydrationWarning>
       <body>
         <ThemeProvider>
           <Navbar />
